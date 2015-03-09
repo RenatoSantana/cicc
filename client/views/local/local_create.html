@@ -1,0 +1,108 @@
+<template name="local_cr"> 
+  {{#if currentUser}} 
+	<div class="col-sm-2">
+
+		
+
+	</div>
+	<!-- // END col -->
+
+	<!-- col -->
+	<div class="col-sm-8">
+
+        				<!-- Widget -->
+										<div class="widget widget-inverse" >
+
+											<!-- Widget heading -->
+											<div class="widget-head">
+												<h4 class="heading">Novo Local</h4>
+											</div>
+											<!-- // Widget heading END -->
+											
+											<div class="widget-body">
+												
+											
+                                                
+                                                
+                                                <div class="innerLR">
+												
+                                                  
+                                                    {{#autoForm collection="Locais" id="local_cr" schema=localSchema type="insert"}}
+                                            
+                                                      {{> afQuickField name='descricao'}}
+                                                   
+                                  
+                                                     <button type="submit" class="btn btn-primary">Salvar</button>
+                                                     <button type="reset" class="btn btn-default">Limpar</button>
+                                                  {{/autoForm}}
+                                             </div>
+
+                                                
+										
+  
+                                            </div>
+                                        </div>
+      
+      
+       
+    	<div class="widget widget-inverse" >
+
+    	<div class="widget-body">
+												
+											
+                                                
+                                                  {{> esInput index="locais" placeholder="Encontre um local ..." class="form-control input-sm" event="keyup"  }}
+                                                <div class="innerLR">
+    
+      <h2>Locais Cadastrados</h2>
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+             <td>Descrição</td>
+            <td style="width: 70px"></td>
+          </tr>
+        </thead>
+        <tbody>
+          
+          	{{#ifEsInputIsEmpty index="locais"}}
+                       
+							 {{#each locais}}
+                        {{>localItem}}
+                     {{/each}}
+            
+							
+                {{/ifEsInputIsEmpty}}
+
+						
+								 {{#esEach  index="locais"}}
+                                {{>localItem}}
+            
+
+
+                         {{/esEach }}
+                   {{#ifEsHasNoResults index="locais"}}
+                          {{>resultadonf}}
+                    {{/ifEsHasNoResults}}
+            
+       
+        </tbody>
+      </table>
+        </div>
+    </div>
+    </div>				
+												
+    </div>
+
+
+        
+        
+        
+	<!-- // END col -->
+    
+    <div class="col-sm-2">
+
+		
+
+	</div>
+{{/if}}
+</template>

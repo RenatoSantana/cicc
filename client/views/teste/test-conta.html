@@ -1,0 +1,25 @@
+<template name="teste">
+  
+{{#if currentUser}}
+      {{> logout}}
+{{else}}
+      <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                          {{> login}}
+                    </div>
+                     <div class="col-md-6 col-lg-6">
+                          {{> signup}}
+        
+                      </div>
+                  
+                  <div class="row">
+                         {{> recovery}}
+                  </div>
+        
+                </div>
+      </div>
+{{/if}}
+</template>
+
+  

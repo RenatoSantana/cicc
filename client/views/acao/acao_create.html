@@ -1,0 +1,108 @@
+<template name="acao_cr">
+  {{#if currentUser}} 
+  <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+	<!-- // END col -->
+
+	<!-- col -->
+	<div class="col-sm-8">
+
+        				<!-- Widget -->
+										<div class="widget widget-inverse" >
+
+											<!-- Widget heading -->
+											<div class="widget-head">
+												<h4 class="heading">Nova Ação</h4>
+											</div>
+											<!-- // Widget heading END -->
+											
+											<div class="widget-body">
+												
+											
+                                                
+                                                
+                                                <div class="innerLR">
+                                  
+                                                  
+                                                    {{#autoForm collection="Acoes" id="acao_cr" type="insert"}}
+                                            
+                                                      {{> afQuickField name='descricao'}}
+                                           
+                                                      {{> afQuickField id="cbOrgao" name='orgaoId'}}
+                                                     
+                                                 
+                                                 
+                                                     <button id="btnsave" type="submit" class="btn btn-primary">Salvar</button>
+                                                     <button type="reset" class="btn btn-default">Limpar</button>
+                                                  {{/autoForm}}
+												
+                                             </div>
+
+                                                
+										
+  
+                                            </div>
+                      
+                                        </div>
+    
+    	<div class="widget widget-inverse" >
+
+    	<div class="widget-body">
+												
+											
+                                                
+                                                  {{> esInput index="acoes" reactive=false timeout=20 placeholder="Encontre uma ação ..." class="form-control input-sm"   }}
+                                                <div class="innerLR">
+    
+      <h2>Ações Cadastradas</h2>
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <td>Descrição</td>
+            <td>Orgão</td>
+            <td style="width: 70px"></td>
+          </tr>
+        </thead>
+        <tbody>
+          
+          	{{#ifEsInputIsEmpty index="acoes"}}
+                       
+							 {{#each acoes}}
+                        {{>acaoCadastradaItem}}
+               {{/each}}
+            
+							
+                {{/ifEsInputIsEmpty}}
+
+						
+								 {{#esEach  index="acoes"}}
+                      {{>acaoCadastradaItem}}
+            
+
+
+                  {{/esEach }}
+                   {{#ifEsHasNoResults index="acoes"}}
+                          {{>resultadonf}}
+                    {{/ifEsHasNoResults}}
+            
+       
+        </tbody>
+      </table>
+        </div>
+    </div>
+    </div>							
+    </div>
+
+        
+  <div class="col-sm-1">
+
+		
+
+	</div>
+{{/if}}
+
+</template>

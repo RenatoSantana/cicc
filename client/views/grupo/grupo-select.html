@@ -1,0 +1,15 @@
+<template name="selectGrupo"> 
+      
+  <select id="cbGrupo" class="form-control" data-style="btn-success" name="grupo">
+               <option value=""> Selecione </option>
+        {{#each grupos}}
+       
+              <option  {{isSelected ..}}  value={{_id}} >{{descricaoLabel}}</option>
+        {{/each}}
+  
+   
+  </select>
+  
+ 
+
+</template>

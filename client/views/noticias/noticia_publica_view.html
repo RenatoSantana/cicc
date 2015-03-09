@@ -1,0 +1,73 @@
+<template name="noticia_public_view">
+    {{#if currentUser}}  
+
+  
+   {{else}}  
+  <div class="col-app col-unscrollable">
+  						<div class="col-app iscrollWrapper hasNiceScroll" tabindex="500" style="overflow-y: hidden; outline: none;">
+
+							<div class="innerAll inner-2x jscroll">
+			<div class="innerAll" id="notice-pb">    
+
+<div class="col-separator-h box"></div>
+<div class="widget widget-body-white" >
+								
+								<!-- Widget heading -->
+								
+								<!-- // Widget heading END -->
+								<div class="widget-body innerAll inner-2x">
+								
+									<!-- 2 Column Grid / One Third & Two Third -->
+									<div class="row">
+										
+                     {{#if imagem.url}} 
+                    <!-- One Third Column -->
+										<div class="col-md-5">
+										
+											  <img src="{{imagem.url}}"  style="width: 100%; height:100%;">
+           
+										</div>
+										<!-- // One Third Column END -->
+                    	<!-- Two Third Column -->
+										<div class="col-md-7"  style="word-wrap: break-word;">
+                  
+												<h4>{{titulo}}</h4>
+                      
+                          <span class="text-italic text-primary-light pull-right" id="data-noticia-view-pb" ><i></i>{{data}}</span> 
+										  	<p style="margin-top:60px;">	{{texto}}</p>
+                         
+                      <p style="margin-top:40px;" ><strong>Fonte:</strong>	<a href="{{fonte}}" >{{urlResumida}}</a> </p>
+                     
+										</div>
+										<!-- // Two Third Column END -->
+                    {{else}}
+                        	<!-- Two Third Column -->
+										<div class="col-sm-offset-2 col-md-8" style="word-wrap: break-word;">
+                      
+												<h4>{{titulo}}</h4>
+                                                  <span class="text-italic text-primary-light pull-right" id="data-noticia-view-pb" ><i></i>{{data}}</span> 
+
+										  	<p style="margin-top:70px;">	{{texto}}</p>
+                         
+                      <p style="margin-top:40px;" ><strong>Fonte:</strong>	<a href="{{fonte}}" >{{urlResumida}}</a> </p>
+                     
+										</div>
+										<!-- // Two Third Column END -->
+                       
+                      {{/if}}
+										
+										
+									
+										
+									</div>
+									<!-- // 2 Column Grid / One Third & Two Third END -->	
+
+								</div>
+							</div>
+  
+  </div>
+                </div>
+  </div>
+  </div>
+    {{/if}}
+</template>  

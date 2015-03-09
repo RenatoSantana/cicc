@@ -1,0 +1,65 @@
+<template name="solicitacao_dt"> 
+  {{#if currentUser}} 
+    <!-- col -->
+	<div class="col-sm-2">
+   
+		
+     {{>solicitacao_menu}}
+		
+		
+
+	</div>
+<div id="conteudo" class="col-md-8">
+<form>
+	<div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
+
+			<div class="innerAll border-bottom media">
+				<a class="pull-left" href="#"><img src="{{logo.url}}" alt="..."></a>
+				<div class="media-body">
+					<h3 class="margin-bottom-none padding-none">{{assunto}}
+					</h3>
+					<span class="text-muted-dark">Enviado por <a href="">{{user.profile.nome}}</a> <i class="icon-time-clock fa fa-fw"></i> {{data}}</span>
+				</div>
+			</div>
+
+			<div class="innerAll inner-2x">
+				<p style="word-wrap: break-word;" >{{mensagem}}</p>
+				
+				
+			</div>
+
+			<div class="border-top border-bottom text-center innerAll bg-gray">
+				<a href="#write" data-toggle="collapse" class="btn btn-primary strong btn-sm collapsed">Responder <i class="icon-compose fa fa-fw"></i></a>
+			</div>
+
+			<div class="collapse" id="write" style="height: 0px;">
+				<div class="innerAll bg-white inner-2x border-bottom">
+					<textarea style="background: gainsboro;" id="inputMensagem" class="notebook border-none form-control padding-none" rows="3" required></textarea>
+					<div class="text-right innerT">
+						<button class="btn btn-success">Salvar</button>
+					</div>
+				</div>
+			</div>
+						
+			
+			
+			<div class="innerAll border-bottom tickets">
+				
+				
+			</div>
+			
+			 {{#each respostas}}
+                      {{>respostaItem}}
+       {{/each}}
+		</div>
+  </form>
+	</div>
+    <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+
+{{/if}}
+</template>

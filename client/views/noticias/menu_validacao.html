@@ -1,0 +1,57 @@
+<template name="menuValidacao">
+  
+    <div class="col-separator col-separator-first hasNiceScroll" tabindex="5000" style="overflow-y: hidden; outline: none;">
+
+			<h4 class="innerAll bg-gray margin-none">Incidentes</h4>
+			<ul class="list-group list-group-1 margin-none borders-none">
+				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'incid_pnd'}}"><span class="badge pull-right badge-default hidden-md">{{incidenteAbertos}}</span> Abertos</a></li>
+        
+        				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'incid_db'}}"><span class="badge pull-right badge-default hidden-md">{{incidentesFechado}}</span> Fechados</a></li>
+			
+				
+			</ul>
+
+
+		</div>
+    <div class="col-separator-h box"></div>
+<div class="col-separator col-separator-first hasNiceScroll" tabindex="5000" style="overflow-y: hidden; outline: none;">
+
+			<h4 class="innerAll bg-gray margin-none">Noticias</h4>
+			<ul class="list-group list-group-1 margin-none borders-none">
+				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'atividades'}}"><span class="badge pull-right badge-default hidden-md">{{noticiasBloqueadas}}</span> Pendentes</a></li>
+				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'noticia_publicada'}}"><span class="badge pull-right badge-default hidden-md">{{noticiasPublicadas}}</span> Publicadas</a></li>
+				
+			</ul>
+
+
+		</div>
+      <div class="col-separator-h box"></div>
+  <div class="col-separator col-separator-first hasNiceScroll" tabindex="5000" style="overflow-y: hidden; outline: none;">
+
+			<h4 class="innerAll bg-gray margin-none">Solicitações</h4>
+			<ul class="list-group list-group-1 margin-none borders-none">
+				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'solicitacao'}}"><span class="badge pull-right badge-default hidden-md">{{solicitacoesEnvCount}}</span> Enviadas</a></li>
+				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'solicitacao_rcb'}}"><span class="badge pull-right badge-default hidden-md">{{solicitacoesRecConut}}</span> Recebidas</a></li>
+				
+			</ul>
+
+
+		</div>
+  
+   
+      <div class="col-separator-h box"></div>
+  <div class="col-separator col-separator-first hasNiceScroll" tabindex="5000" style="overflow-y: hidden; outline: none;">
+
+			<h4 class="innerAll bg-gray margin-none">Considerações</h4>
+			<ul class="list-group list-group-1 margin-none borders-none">
+				<li class="list-group-item animated fadeInUp"><a href="{{pathFor 'consideracao'}}">Escrever</a></li>
+		
+				
+			</ul>
+
+
+		</div>
+
+
+  
+</template>

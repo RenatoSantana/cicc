@@ -1,0 +1,67 @@
+<template name="protocolo_edit">
+  {{#if currentUser}} 
+  <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+	<!-- // END col -->
+
+	<!-- col -->
+	<div class="col-sm-8">
+
+        				<!-- Widget -->
+										<div class="widget widget-inverse" >
+
+											<!-- Widget heading -->
+											<div class="widget-head">
+												<h4 class="heading">Editar Protocolo</h4>
+											</div>
+											<!-- // Widget heading END -->
+											
+											<div class="widget-body">
+												
+											
+                                                
+                                                
+                                                <div class="innerLR">
+                                  
+                                                  
+                                                    {{#autoForm collection="Protocolos" id="protocolo_edit" type="update" doc=protocoloDoc  }}
+                                            
+                                                      {{> afQuickField name='codigo'}}
+                                                  
+                                                      {{> afQuickField name='descricao'}}
+                                                                                     
+                                                      {{> afQuickField name='localId'}}
+                                                                          
+                                                
+                                                     
+                                                 
+                                                 
+                                                     <button id="btnsave" type="submit" class="btn btn-primary">Salvar</button>
+                                                     <button type="reset" class="btn btn-default">Limpar</button>
+                                                  {{/autoForm}}
+												
+                                             </div>
+
+                                                
+										
+  
+                                            </div>
+                      
+                                        </div>
+    
+ 						
+    </div>
+
+        
+  <div class="col-sm-1">
+
+		
+
+	</div>
+{{/if}}
+
+</template>

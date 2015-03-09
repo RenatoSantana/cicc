@@ -1,0 +1,29 @@
+<template name="menu">
+		
+           
+    
+  
+<div class="navbar hidden-print main navbar-default" role="navigation">
+
+
+		
+ <div class="container">
+  
+
+          {{> logotipo}}
+         
+   {{#if currentUser}}
+          {{>logoGoverno}}
+          {{>logout}}
+   {{else}}
+          {{> search}}
+          
+          {{> login}} 
+         
+   {{/if}}
+   
+  </div>
+   </div>
+            
+
+</template>

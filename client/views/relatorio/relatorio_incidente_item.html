@@ -1,0 +1,55 @@
+<template name="incidente_item_rel"> 
+  {{#if currentUser}} 
+ 
+  
+	
+	<div  id="{{_id}}" class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
+       {{#if isInRole 'Administrativo'}}
+    <a href="#" id="remove" class="btn-group pull-right btn-group-xs"><i class="fa fa-fw icon-circle-delete"></i></a>
+{{/if}}
+
+    <div class="innerAll border-bottom media">
+
+				
+			</div>
+      	<h4 style="margin-top: 40px;margin-left: 30px;margin-bottom:30px" >{{tituloIncidente}}
+					</h4>
+				
+                  
+                       <span style="margin-left: 9px;margin-top: 40px;margin-bottom: 50px;" class="text-italic text-primary-light pull-right" id="data-noticia-view"> {{orgao.descricao}}, enviado por {{user.profile.nome}}, {{data}}</span><br/>
+				   <span class="text-muted-dark"> Circuito: {{circuito.descricao}} - Trecho: {{trecho.descricao}}</span>
+ {{#if imagem.url}}    
+       
+            <div class="innerAll inner-2x">
+              <img  width="200" height="200"  id="foto-incidente"  src="{{imagem.url}}" style="margin-left: 9px;margin-top: 40px;margin-bottom: 50px;"/> 
+            </div>
+      
+    {{/if}}
+			<div class="innerAll inner-2x" style="margin-top:50px">
+				<p style="word-wrap: break-word;margin-top:20px"  >{{descricaoIncidente}}</p>
+				
+				
+			</div>
+   
+
+		
+						
+			
+			
+			<div class="innerAll border-bottom tickets">
+				  
+				
+			</div>
+   
+			
+			 {{#each acoesOrgao}}
+                 
+         {{>relatorio_item_acao}}
+   
+       {{/each}}
+		</div>
+
+	<div class="innerAll border-bottom"></div>
+
+{{/if}}
+</template>

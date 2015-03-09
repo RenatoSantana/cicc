@@ -1,0 +1,75 @@
+<template name="imagem_view"> 
+  {{#if currentUser}} 
+    <!-- col -->
+	<div class="col-sm-2">
+  
+
+	</div>
+<div id="conteudo" class="col-md-8">
+<form id="incidente-dt-form">
+	<div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
+
+			<div class="innerAll border-bottom media">
+				<a class="pull-left" href="#"><img src="{{logo.url}}" alt="..."></a>
+				<div class="media-body">
+					<h3 class="margin-bottom-none padding-none">{{assunto}}
+					</h3>
+					<span class="text-muted-dark">Enviado por <a href="">{{user.profile.nome}}</a> <i class="icon-time-clock fa fa-fw"></i> {{data}}</span>
+				</div>
+			</div>
+
+    {{#if imagem.url}}    
+       
+            <div class="innerAll inner-2x">
+              <img  width="70%" height="70%"  id="foto-incidente"  src="{{imagem.url}}"/> 
+            </div>
+      
+    {{/if}}
+			<div class="innerAll inner-2x">
+				<p style="word-wrap: break-word;" >{{texto}}</p>
+				
+				
+			</div>
+    
+    
+    	<div class="innerAll inner-2x">
+				<p style="word-wrap: break-word;" >{{observacaoCoordenacao}}</p>
+				
+			</div>
+   
+    {{#if isInRole 'Administrativo' }}	
+
+			<div class="border-top border-bottom text-center innerAll bg-gray">
+				<a href="#write" data-toggle="collapse" class="btn btn-primary strong btn-sm collapsed">Escrever observação <i class="icon-compose fa fa-fw"></i></a>
+			</div>
+
+			<div class="collapse" id="write" style="height: 0px;">
+				<div class="innerAll bg-gray inner-2x border-bottom">
+					<textarea name="acao" id="inputMensagem" class="notebook border-none form-control padding-none" rows="3" required></textarea>
+					<div class="text-right innerT">
+						<button class="btn btn-success">Salvar</button>
+					</div>
+				</div>
+			</div>
+		{{/if}}				
+			
+			
+			<div class="innerAll border-bottom tickets">
+				
+				
+			</div>
+			
+			
+    
+		</div>
+  </form>
+	</div>
+    <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+
+{{/if}}
+</template>

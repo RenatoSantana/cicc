@@ -1,0 +1,116 @@
+<template name="noticia_ls">
+ {{#if currentUser}} 
+    <!-- col -->
+	<div class="col-sm-2">
+<form>
+		    <div class="col-separator col-separator-first hasNiceScroll" tabindex="5000" style="overflow-y: hidden; outline: none;">
+
+			<h4 class="innerAll bg-gray margin-none">Período</h4>
+			<ul class="list-group list-group-1 margin-none borders-none">
+				<li class="list-group-item animated fadeInUp">
+                    <input placeholder="Data Início" data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" class="form-control" id="dataCadastroInicio" name="dataCadastroInicio" required>
+            </li>
+        
+        	    <li class="list-group-item animated fadeInUp">
+                          <input  placeholder="Data Fim" data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" class="form-control" id="dataCadastroFim" name="dataCadastroFim" required>
+            </li>
+            <li class="list-group-item animated fadeInUp">
+             <button type="submit" class="btn btn-primary" style="width: 100%;">Pesquisar</button>
+           </li>
+			
+				
+			</ul>
+
+
+		</div>
+      </form>
+	
+	</div>
+	<div class="col-sm-8">
+    
+		<div class="col-separator box col-separator-first col-unscrollable">
+			<div class="col-table">
+      <div class="innerAll">
+				 {{#if isInRole 'Administrativo,Cadastro' }}	<a href="{{pathFor 'new_noticia'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Nova Notícia</a>{{/if}}
+					<h4 class="margin-none">Notícias </h4>
+					<div class="clearfix"></div>
+               <div class="bg-gray border-bottom innerAll">
+								<div class="input-group input-group-sm">
+							      	<div class="input-group-btn">
+							        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Busca <span class="caret"></span></button>
+							        	
+							      	</div>
+              {{> esInput index="noticias"  reactive=false timeout=20  placeholder="Encontre uma noticia ..." class="form-control input-sm"  }}
+							      	
+							    </div>
+							</div> 
+		  </div>
+				<div class="col-table-row">
+					<div class="col-app col-unscrollable">
+						<div class="col-app">
+							
+							
+							
+							
+<div class="relativeWrap overflow-hidden">
+<div class="row row-merge border-bottom border-top layout-timeline layout-timeline-mirror">
+	<div class="col-md-6"></div>
+	<div class="col-md-6">
+		<div class="innerAll">
+			
+			<ul class="timeline">
+				
+             {{#if isResultNoticia}}  
+                           {{#each noticiasResult}}
+                                     {{>noticiaItem}}
+                           {{/each}}
+              {{else}}      
+                  {{#ifEsInputIsEmpty index="noticias"}}
+
+                      {{#each noticias}}
+                              {{>noticiaItem}}
+                        {{/each}}
+
+                  {{/ifEsInputIsEmpty}}
+
+
+                       {{#esEach  index="noticias"}}
+                              {{>noticiaItem}}
+
+
+
+                        {{/esEach }}
+                         {{#ifEsHasNoResults index="noticias"}}
+
+                          {{/ifEsHasNoResults}}
+  {{/if}}
+                
+              
+				
+			</ul>
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+    <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+
+{{/if}}
+</template>

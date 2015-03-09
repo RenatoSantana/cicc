@@ -1,0 +1,81 @@
+<template name="manager">
+  {{#if currentUser}}
+
+  <!-- col -->
+	<div class="col-sm-2">
+
+	</div>
+	<!-- // END col -->
+<div class="col-sm-8">
+
+									<div class="col-separator col-separator-last">
+										<a href="{{pathFor 'user'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+	<i class="display-block icon-user-1 text-xlarge"></i>
+	<span class="lead">Usuários</span>
+</a>
+
+										<div class="col-separator-h"></div>
+
+										<a href="{{pathFor 'orgao'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+	<i class="display-block icon-bank text-xlarge"></i>
+	<span class="lead">Orgãos</span>
+</a>
+
+
+
+                                        <div class="col-separator-h"></div>
+
+                                        <a href="{{pathFor 'evento'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+    <i class="display-block icon-bank text-xlarge"></i>
+    <span class="lead">Eventos</span>
+</a>
+
+<!--
+										<a href="{{pathFor 'acao'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+	<i class="display-block  icon-hazard text-xlarge"></i>
+	<span class="lead">Ações</span>
+</a>
+
+										<div class="col-separator-h"></div>
+
+
+                    		<a href="{{pathFor 'protocolo'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+	<i class="display-block  icon-paper-stack text-xlarge"></i>
+	<span class="lead">Protocolos</span>
+</a>
+
+                    								<div class="col-separator-h"></div>
+
+
+                    		<a href="{{pathFor 'new_local'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+	<i class="display-block   icon-refresh-location-fill text-xlarge"></i>
+	<span class="lead">Locais</span>
+</a>
+
+
+										<div class="col-separator-h"></div>
+-->
+									</div>
+</div>
+
+    <div class="col-sm-2">
+
+
+
+	</div>
+
+  {{/if}}
+
+</template>

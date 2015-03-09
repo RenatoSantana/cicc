@@ -1,0 +1,106 @@
+<template name="evento_ls">
+{{#if currentUser}}
+
+  <!-- col -->
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+        <!-- col-separator.box -->
+        <div class="col-separator col-unscrollable box">
+
+            <!-- col-table -->
+            <div class="col-table">
+
+            <div class="innerAll">
+                    <a href="{{pathFor 'new_evento'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Novo Evento</a>
+                    <h4 class="margin-none">Evento</h4>
+                    <div class="clearfix"></div>
+
+        </div>
+                <!-- col-table-row -->
+                <div class="col-table-row">
+
+                    <!-- col-app -->
+                    <div class="col-app col-unscrollable">
+
+                        <!-- col-app -->
+                        <div class="col-app">
+
+
+
+                        <div class="bg-gray border-bottom innerAll">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Busca <span class="caret"></span></button>
+
+                                    </div>
+                             {{> esInput index="eventos" placeholder="Encontre um evento ..." class="form-control input-sm" event="keyup"  }}
+
+                                </div>
+                            </div>
+
+                            <div class="heading-buttons innerLR border-bottom">
+
+                                <div class="pull-right innerT half">
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                <div class="col-separator-h box"></div>
+
+
+
+                        {{#ifEsInputIsEmpty index="eventos"}}
+
+                               {{#each eventos}}
+                                {{>eventoItem}}
+                            {{/each}}
+
+
+                       {{/ifEsInputIsEmpty}}
+
+
+                                 {{#esEach  index="eventos"}}
+                               {{>eventoItem}}
+
+                           {{/esEach }}
+                   {{#ifEsHasNoResults index="eventos"}}
+                          {{>resultadonf}}
+                    {{/ifEsHasNoResults}}
+
+
+                        </div>
+                        <!-- // END col-app -->
+
+                    </div>
+                    <!-- // END col-app.col-unscrollable -->
+
+                </div>
+                <!-- // END col-table-row -->
+
+
+
+                </div>
+            <!-- // END col-table -->
+
+        </div>
+        <!-- // END col-separator.box -->
+
+    </div>
+    <!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+
+  {{/if}}
+</template>

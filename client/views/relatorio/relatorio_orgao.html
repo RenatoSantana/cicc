@@ -1,0 +1,103 @@
+<template name="relatorio_orgao"> 
+  
+     {{#if currentUser}} 
+    <!-- col -->
+	<div class="col-sm-2">
+      <form>
+      <div class="col-separator col-separator-first hasNiceScroll" tabindex="5000" style="overflow-y: hidden; outline: none;">
+
+			<h4 class="innerAll bg-gray margin-none">Período</h4>
+			<ul class="list-group list-group-1 margin-none borders-none">
+				<li class="list-group-item animated fadeInUp">
+                    <input placeholder="Data Início" data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" class="form-control" id="dataCadastroInicio" name="dataCadastroInicio" >
+            </li>
+        
+        	    <li class="list-group-item animated fadeInUp">
+                          <input  placeholder="Data Fim" data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" class="form-control" id="dataCadastroFim" name="dataCadastroFim">
+            </li>
+            <li class="list-group-item animated fadeInUp">
+             <button id="btnpesquisa" type="submit" class="btn btn-primary" style="width: 100%;margin-top: 10px" >Pesquisar</button>
+             <button id="btntrazertudo" class="btn btn-warning" style="width: 100%;margin-top: 10px;" >Retornar Tudo</button>
+           </li>
+			
+				
+			</ul>
+
+
+		</div>
+		
+     <button id="btnExport2" style="margin-left:30px;margin-top:20px" class="btn btn-success" href="javascript:void(0)"> Gerar Relatório </button>
+      </form>
+	</div>
+<div id="conteudo" class="col-md-8">
+  
+	
+	<div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;overflow-x: hidden">
+
+
+    <div class="innerAll border-bottom media">
+ 
+         <img id="logoSisFesta" width="600" src="/assets/images/logo-report.png" />
+       
+    
+	</div>
+ 
+			
+
+		
+		{{#if temIncidente}}
+			  
+       <h1 style=" margin-left: 12px;margin-top: 20px;margin-bottom: 30px;">  Incidentes </h1>
+		
+    
+    
+       {{#each incidentes}}
+                 
+         {{>incidente_item_rel}}
+   
+       {{/each}}
+ {{/if}}				
+	
+     {{#if temConsideracoes}} 
+      <h1 style=" margin-left: 12px;margin-top: 20px;margin-bottom: 30px;">  Considerações </h1>
+
+    
+    
+							 {{#each consideracoes}}
+                        {{>relatorioConsideracaoItem}}
+                    {{/each}}
+      
+      {{/if}}
+	
+      {{#if temNoticia}}
+				  
+             <h1 style=" margin-left: 12px;margin-top: 20px;margin-bottom: 30px;">  Notícias </h1>
+
+        {{#each noticias}}
+
+            {{>relatorio_item_noticia}}
+
+          {{/each}}
+    {{/if}}
+  
+
+      	</div>
+			
+			      
+      
+      
+	   
+   
+   
+   
+
+	</div>
+    <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+
+{{/if}}
+</template>

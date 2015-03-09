@@ -1,0 +1,21 @@
+<template name="protocoloItem">
+
+  	<div class="media contact">
+							  
+							  	<div class="media-body">
+							   		<ul class="list-unstyled">
+							   	 	    <li><a  class="strong"> <h4 class="media-heading text-info">{{codigo}} </h4></a></li>
+                         <li> {{local.descricao}}</li>
+                         <li> {{descricao}}</li>
+                          
+                   
+                    </ul>
+                     
+                        
+							  	</div>
+      
+        <a href="{{pathFor 'protocolo_ed' _idProtocolo=_id}}" class="btn btn-xs pull-right btn-success">Editar</a>
+  <a href="{{pathFor 'protocolo_asc' _idProtocolo=_id}}" class="btn btn-xs pull-right btn-info">Associar Ações</a>
+                    
+							</div>
+</template>

@@ -1,0 +1,1 @@
+Logotipos = new Meteor.Collection('logotipos');

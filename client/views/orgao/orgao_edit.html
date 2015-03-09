@@ -1,0 +1,61 @@
+<template name="orgao_ed">
+  {{#if currentUser}}
+	<div class="col-sm-2">
+
+
+
+	</div>
+	<!-- // END col -->
+
+	<!-- col -->
+	<div class="col-sm-8">
+
+        				<!-- Widget -->
+										<div class="widget widget-inverse" >
+
+											<!-- Widget heading -->
+											<div class="widget-head">
+												<h4 class="heading">Editar Orgão</h4>
+											</div>
+											<!-- // Widget heading END -->
+
+											<div class="widget-body">
+
+
+
+
+                                                <div class="innerLR">
+											            {{#autoForm collection="Orgaos" id="orgao_ed"                schema=orgaoSchema type="method" meteormethod="updateOrgao" doc=orgaoDoc}}
+
+                                                      {{> afQuickField name='descricao'}}
+
+                                                      {{> afQuickField name='sigla'}}
+
+                                                      {{> afQuickField name="fileId" type="cfs-file" collection="files"}}
+                                                            {{> afQuickField name="_id" type="hidden" }}
+                                                     <button type="submit" class="btn btn-primary">Salvar</button>
+
+                                                  {{/autoForm}}
+                                             </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+    </div>
+
+
+
+
+
+	<!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+	</div>
+{{/if}}
+</template>

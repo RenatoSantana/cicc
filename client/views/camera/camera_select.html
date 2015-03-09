@@ -1,0 +1,15 @@
+<template name="selectCamera"> 
+      
+  <select id="cbCamera" >
+         <option value=""> Selecione </option>
+        {{#each cameras}}
+       
+              <option  {{isSelected ..}}  value={{_id}} >{{localizacao}}</option>
+        {{/each}}
+  
+   
+  </select>
+  
+ 
+
+</template>

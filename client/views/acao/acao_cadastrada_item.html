@@ -1,0 +1,9 @@
+<template name="acaoCadastradaItem">
+<tr>
+              <td>{{descricao}}</td>
+              <td>{{orgao.descricao}}</td>
+              <td style="width: 70px">    <a href="{{pathFor 'acao_ed' _idAcao= this._id}}" class="btn btn-sm pull-left btn-success"> Editar</a></td>
+              <!--td style="width: 70px">{{> quickRemoveButton collection="Acoes" _id=this._id class="btn btn-sm btn-danger"}}</td-->
+            </tr>
+  
+</template>

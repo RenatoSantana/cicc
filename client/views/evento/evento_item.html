@@ -1,0 +1,12 @@
+<template name="eventoItem">
+
+  <div class="media contact">
+
+                                <div class="media-body">
+                                    <ul class="list-unstyled">
+                                        <li><a href="{{pathFor 'evento_ed' _idEvento=_id}}" class="strong"> <h4 class="media-heading text-info">{{descricao}}</h4></a></li>
+                                          <li> Iniciado em <b>{{dataInicio}} </b> , finalizado em <b> {{dataFim}} </b> </li>
+                    </ul>
+                                </div>
+                            </div>
+</template>

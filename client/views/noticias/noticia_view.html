@@ -1,0 +1,64 @@
+<template name="noticia_view">
+  
+   {{#if currentUser}} 
+  <!-- col -->
+	<div class="col-sm-2">
+ {{#if isInRole 'Administrativo' }}
+        {{#if bloqueada}}
+     {{>menuView}}
+    {{/if}}
+ {{/if}}
+	</div>
+	<!-- // END col -->
+
+	<!-- col -->
+	<div class="col-sm-8">
+
+<div class="widget widget-body-white">
+								
+<div class="widget-body innerAll inner-2x">
+								
+									<!-- 2 Column Grid / Half -->
+									<div class="row">
+                    
+                   	<div class="col-md-8">
+                      	  	<h4>{{titulo}}</h4>
+                    </div>
+                       <span class="text-italic text-primary-light pull-right" id="data-noticia-view" ><i></i>{{data}}</span> 
+                 		
+                 {{#if imagem}}    
+										<div class="col-md-12" style="margin-left: 65px; margin-right: auto;
+">
+                          <div class="col-separator-h box"></div>
+                      	  <img src="{{imagem.url}}"  style="width: 80%; height:80%;">
+                    </div>  
+
+							  {{/if}}
+										<div class="col-md-12">
+												<div class="col-separator-h box"></div>				
+										  	<p style="margin-top:20px;">{{texto}}</p>
+                     
+                      <p style="margin-top:50px;" ><strong>Fonte:</strong>	<a href="{{fonte}}" >{{urlResumida}}</a> </p>
+                   
+										</div>
+									
+									
+										
+									</div>
+									<!-- // 2 Column Grid / Half END -->
+								
+								</div>
+  			
+								</div>
+												
+  </div>
+
+        
+  <div class="col-sm-1">
+
+		
+
+	</div>
+{{/if}}
+
+</template>

@@ -1,0 +1,64 @@
+<template name="incidente_rel"> 
+  {{#if currentUser}} 
+    <!-- col -->
+	<div class="col-sm-2">
+  
+     <button id="btnExport" style="margin-left:30px;margin-top:20px" class="btn btn-success" href="javascript:void(0)"> Gerar Relatório </button>
+	</div>
+<div id="conteudo" class="col-md-8">
+  
+	
+	<div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
+
+
+    <div class="innerAll border-bottom media">
+
+					<h4 class="margin-bottom-none padding-none">{{incidente.descricao}}
+					</h4>
+					<span class="text-muted-dark">Enviado por <a href="">{{user.profile.nome}} ,{{orgao.descricao}}</a> <i class="icon-time-clock fa fa-fw"></i> {{data}}</span>
+				
+			</div>
+    
+      {{#if imagem}}    
+       
+            <div class="innerAll inner-2x">
+              <img  width="70%" height="70%"  id="foto-incidente"  src="{{imagem}}"/> 
+            </div>
+      
+    {{/if}}
+ 
+			<div class="innerAll inner-2x">
+				<p style="word-wrap: break-word;" >{{descricaoIncidente}}</p>
+				
+				
+			</div>
+   
+
+		
+						
+			
+			
+			<div class="innerAll border-bottom tickets">
+				  
+				
+			</div>
+     
+    
+			
+			 {{#each acoes}}
+                 
+         {{>relatorio_item_acao}}
+   
+       {{/each}}
+		</div>
+
+	</div>
+    <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+
+{{/if}}
+</template>

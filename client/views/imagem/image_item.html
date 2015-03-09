@@ -1,0 +1,36 @@
+<template name="imagemItem" >
+<li>
+      <a href="{{pathFor 'imagem_view' _idImagem =this._id}}"  class="thumbnail" >
+    <div class="caption">
+		<i class="list-icon fa fa-bookmark"></i>
+		<div class="block block-inline">
+			<div class="caret"></div>
+			<div class="box-generic" style="width:650px">
+				<div class="timeline-top-info">
+					<i class="fa fa-info"></i> 	
+					<a href="{{pathFor 'imagem_view' _idImagem =this._id}}" class="text-primary"><i class="text-primary"></i> {{assunto}}</a>
+				</div>
+				<div class="media margin-none">
+					<div class="row innerLR innerB">
+						<div class="col-sm-1 col-lg-1">
+							<div class="innerT">
+							 	<a class="pull-left" href="#"><img class="thumb" src="{{logo.url}}" width="50" alt="people"></a>
+							</div>
+						</div>
+						<div class="col-sm-10 col-lg-9">
+							<div class="innerT" style="width:100%">
+								<p style="word-wrap: break-word;">{{observacaoResumida}}</p>
+							
+							</div>
+						</div>
+					</div>
+				</div>		
+			</div>
+			<div class="timeline-bottom innerT half">
+			 <span class="innerL"><i class="fa fa-calendar fa-fw"></i> {{data}}</span>
+			</div>
+		</div>
+      	</div>
+      </a>
+	</li>
+</template>

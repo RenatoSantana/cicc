@@ -1,0 +1,22 @@
+<template name="relatorio_item_acao">  
+<div id="{{this._id}}" class="innerAll border-bottom tickets">
+				<ul class="media-list">
+					<li class="media">
+					 
+					    <div class="media-body">
+					    	
+					    	<small>Ação registrada por <a href="" class="text-primary strong"> {{user.profile.nome}} ,{{orgao.descricao}}</a> <i class="icon-time-clock fw"></i>{{data}}</small>
+                					    	<div class="clearfix"></div>
+					    	<p style="margin-top:15px;word-wrap: break-word;" >{{mensagem}}</p>
+					    	<div class="clearfix"></div>
+
+					    						    </div>
+                   {{#if isInRole 'Administrativo'}}
+                        <a href="#" id="remove" class="btn-group pull-right btn-group-xs"><i class="fa fa-fw icon-circle-delete"></i></a>
+                  {{/if}}
+
+					</li>
+				</ul>
+				
+			</div>
+</template>

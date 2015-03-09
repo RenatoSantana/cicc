@@ -1,0 +1,127 @@
+#notice-pb-item{
+
+}
+.logo-size{
+  width:130px;
+  margin-left:50px;
+}
+.site-footer {
+  z-index:10000;
+  position: fixed;
+  bottom: -295px;
+  left: 0;
+  width: 100%;
+  background: rgba(234, 234, 234, 0.66);
+  border-top: 5px solid rgba(135, 173, 188, 1);
+  -webkit-transition-duration: 0.3s;
+}
+@media screen and (max-width: 35.556em) {
+  .site-footer {
+    bottom: -525px;
+    
+  }
+}
+
+
+
+.site-footer__sticky {
+  padding: 5px 0;
+}
+.site-footer__sticky .col-2 {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  font-size: 0;
+  margin-right: -4px;
+  
+}
+@media screen and (max-width: 35.556em) {
+  .site-footer__sticky .col-2 {
+    width: 100%;
+    text-align: center;
+  }
+}
+.site-footer__sticky .col-2 ul {
+  font-size: .9rem;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+@media screen and (max-width: 35.556em) {
+  .site-footer__sticky .col-2 ul {
+    padding: 0px 0 10px 0;
+  }
+}
+.site-footer__sticky .col-2 ul li {
+  display: inline-block;
+}
+.site-footer__sticky .col-2 ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 6px;
+  -webkit-transition-duration: 0.3s;
+}
+.site-footer__sticky .col-2 ul li a:hover {
+  background: #eb6a5a;
+  -webkit-transition-duration: 0.3s;
+}
+
+.site-footer__main {
+  background: rgba(135, 173, 188, 1);
+  padding: 54px 0;
+  text-align: center;
+}
+.site-footer__main .col-4 {
+  width: 25%;
+  display: inline-block;
+  font-size: 0;
+  margin-left: -3px;
+}
+@media screen and (max-width: 35.556em) {
+  
+  .site-footer__main {
+  background:rgba(135, 173, 188, 1);
+  padding: 40px 0;
+  text-align: center;
+}
+  .site-footer__main .col-4 {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+.site-footer__main .col-4 ul {
+  font-size: .9rem;
+  padding-left: 30px;
+}
+.site-footer__main .col-4 ul a {
+  
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+.site-footer__main .col-4 ul a:hover {
+  border-bottom: 2px solid #ffffff;
+}
+.site-footer__main .col-4 ul h3 {
+  position: relative;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+.site-footer__main .col-4 ul h3:after {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 2px;
+  background: #ffffff;
+  width: 20px;
+  content: "";
+}
+
+.js-move-up {
+  bottom: 0;
+}

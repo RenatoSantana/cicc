@@ -1,0 +1,17 @@
+<template name="selectProtocolo"> 
+               
+  <select name="protocolo" id="cbProtocolo" style="width:100%">
+              <option value=""> Selecione </option>
+        {{#each protocolos}}
+       
+              <option  {{isSelected ..}}  value={{_id}} >{{descricao}}</option>
+        {{/each}}
+  
+   
+  </select>
+  
+  
+  
+  
+  
+</template>

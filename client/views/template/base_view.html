@@ -1,0 +1,28 @@
+<template name="baseView">
+  
+   	<div id="content">
+
+    {{> menu}}
+       
+        <div class="layout-app">
+          <div class="container">
+            <div class="row row-app" id="home">
+             {{#if currentUser}}  
+                 {{>box}}
+              {{else}}
+                  
+                 {{>footerLayout}}
+                 
+             {{/if}}
+                  {{> yield 'mainContent'}}
+     
+                <div id="fundo">
+                  <img src="/assets/images/blue.jpg" alt="">
+                </div>
+             </div>
+           
+          </div>
+        
+        </div>
+  </div>
+      </template>

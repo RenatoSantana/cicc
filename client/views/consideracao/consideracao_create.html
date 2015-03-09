@@ -1,0 +1,81 @@
+<template name="consideracao_cr">
+    {{#if currentUser}} 
+  <!-- col -->
+	<div class="col-sm-2">
+
+		
+
+	</div>
+	<!-- // END col -->
+
+	<!-- col -->
+	<div class="col-sm-8">
+
+        				<!-- Widget -->
+										<div class="widget widget-inverse" >
+
+											<!-- Widget heading -->
+											<div class="widget-head">
+												<h4 class="heading">Nova Consideração</h4>
+											</div>
+											<!-- // Widget heading END -->
+											
+											<div class="widget-body">
+												
+											
+                                                
+                                                
+                                                <div class="innerLR">
+                                  
+                                                  
+                                                    {{#autoForm collection="Consideracoes" id="consideracao_cr" type="insert"}}
+                                            
+                                                      {{> afQuickField name='descricao' rows=6}}
+                                           
+                                                  
+                                                     
+                                                 
+                                                 
+                                                     <button id="btnsave" type="submit" class="btn btn-primary">Salvar</button>
+                                                   
+                                                  {{/autoForm}}
+												
+                                             </div>
+
+                                                
+										
+  
+                                            </div>
+                                 
+                                 <div class="widget widget-inverse" >
+
+    	<div class="widget-body">
+												
+											
+                                                
+                                             
+                  <div class="innerLR">
+    
+  
+							 {{#each consideracoes}}
+                        {{>consideracaoItem}}
+                    {{/each}}
+            
+                                                   
+                   </div>
+         </div>
+                      
+                                        </div>
+                                  </div>
+    
+   </div>
+
+        
+  <div class="col-sm-2">
+
+		
+
+	</div>
+{{/if}}
+
+</template>

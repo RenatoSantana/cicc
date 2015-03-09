@@ -1,0 +1,49 @@
+<template name="relatorio_item_noticia" >
+<div id="{{_id}}" class="widget widget-body-white" style="margin-top:50px">
+								
+<div class="widget-body innerAll inner-2x">
+								
+									<!-- 2 Column Grid / Half -->
+									<div class="row">
+                               {{#if isInRole 'Administrativo'}}
+                                            <a href="#" id="remove"  class="btn-group pull-right btn-group-xs"><i class="fa fa-fw icon-circle-delete"></i></a>
+
+                              {{/if}}
+                   
+                      	<h4>{{titulo}}</h4>
+                            
+                  
+                       <span class="text-italic text-primary-light pull-right" id="data-noticia-view" style="margin-bottom: 10px;"><i></i>Enviado por {{user.profile.nome}} , {{orgao.descricao}}, {{data}}</span> 
+                    
+                 		
+           {{#if imagem.url}}    
+										<div class="col-md-12" style="margin-left: 65px; margin-right: auto;
+">
+                          <div class="col-separator-h box"></div>
+                      	  <img id="imaga-noticia" src="{{imagem.url}}"  width="300" height="300">
+                    </div>  
+
+							  {{/if}}
+
+						
+										<div class="col-md-12">
+												<div class="col-separator-h box"></div>				
+										  	<p style="margin-top:20px;">{{texto}}</p>
+                     
+                      <p style="margin-top:50px" ><strong>Fonte:</strong>	<a href="{{fonte}}" >{{fonte}}</a> </p>
+                   
+										</div>
+									
+									
+										
+									</div>
+								
+								
+								</div>
+  			
+								</div>
+<div class="innerAll border-bottom"></div>
+
+</template>
+
+        

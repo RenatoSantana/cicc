@@ -1,0 +1,19 @@
+<template name="usuarioItem">
+  
+  	<div class="media contact">
+							  	<a class="pull-left" href="#"><img class="thumb" src="{{profile.image}}" width="50" alt="people"></a>
+							  	<div class="media-body">
+							   		<ul class="list-unstyled">
+							   	 	    <li><a href="{{pathFor 'edit_user' _idUser=_id}}" class="strong"> <h4 class="media-heading text-info">{{profile.nome}} </h4></a></li>
+                         <li><i class="fa fa-bank"></i> {{orgao.descricao}}</li>
+                        
+                   
+                    </ul>
+                     
+							  	</div>
+                    {{#if status}}
+                      
+                         <span class="label label-primary pull-right">Desativado</span>
+                         {{/if}}
+							</div>
+</template>

@@ -1,0 +1,15 @@
+<template name="selectLocal"> 
+      
+  <select  name="local" id="cbLocal"  style="width:100%">
+        <option value=""> Selecione </option>
+        {{#each locais}}
+       
+              <option  value={{_id}} >{{descricao}}</option>
+        {{/each}}
+  
+   
+  </select>
+  
+ 
+
+</template>

@@ -1,0 +1,59 @@
+<template name="evento_cr">
+
+  {{#if currentUser}}
+  <!-- col -->
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+                        <!-- Widget -->
+                                        <div class="widget widget-inverse" >
+
+                                            <!-- Widget heading -->
+                                            <div class="widget-head">
+                                                <h4 class="heading">Novo Evento</h4>
+                                            </div>
+                                            <!-- // Widget heading END -->
+
+                                            <div class="widget-body">
+
+
+
+
+                                                <div class="innerLR">
+                                                  {{#autoForm collection="Eventos" id="evento_cr" schema=eventoSchema type="method" meteormethod="saveEvento"  }}
+
+                                                         {{> afQuickField name='descricao'}}
+                                                         {{> afQuickField id="dtInicio" name='dtInicio' data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker"}}
+                                                         {{> afQuickField id="dtFim"    name='dtFim' data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" }}
+
+
+                                                     <button type="submit" class="btn btn-primary">Salvar</button>
+                                                     <button type="reset" class="btn btn-default">Limpar</button>
+
+                                                  {{/autoForm}}
+                                             </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+    </div>
+
+
+  <div class="col-sm-1">
+
+
+
+    </div>
+{{/if}}
+
+</template>

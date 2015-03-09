@@ -1,0 +1,21 @@
+<template name="relatorioConsideracaoItem">
+<div id="{{_id}}"  class="innerAll border-bottom tickets">
+                           {{#if isInRole 'Administrativo'}}
+                                            <a href="#" id="remove"  class="btn-group pull-right btn-group-xs"><i class="fa fa-fw icon-circle-delete"></i></a>
+
+                              {{/if}}
+				<ul class="media-list">
+					<li class="media">
+					  
+					    <div class="media-body">
+					    	
+					    	<small><a href="" class="text-primary strong">Registrada por {{user.profile.nome}} , {{orgao.descricao}}</a> <i class="icon-time-clock fw"></i> {{data}}</small>
+					    	<p style="word-wrap: break-word;" >{{descricao}}</p>
+					    	<div class="clearfix"></div>
+
+					    						    </div>
+					</li>
+				</ul>
+				
+			</div>
+ </template>
