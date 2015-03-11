@@ -15,6 +15,7 @@ Template.historico_evento_cr.events({
 
 
                               } else {
+                                       Meteor.subscribe("historicoEventos")
                                        toastr.success("", "Salvo");
 
                               }

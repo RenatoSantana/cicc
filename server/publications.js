@@ -71,6 +71,15 @@ Meteor.publish('protocoloAcao', function() {
    return;
 });
 
+Meteor.publish("eventos", function() {
+    var user = Meteor.users.findOne(this.userId)
+    if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
+    return Eventos.find();
+    }
+     this.stop();
+     return;
+
+});
 
 Meteor.publish('locais', function() {
     var user = Meteor.users.findOne(this.userId)
@@ -136,10 +145,13 @@ Meteor.publish('cameras', function() {
 
 Meteor.publish('noticias', function() {
    var user = Meteor.users.findOne({_id:this.userId});
+   var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+   console.log(historico[0]._id)
+   var evento = Eventos.findOne(historico[0].eventoId);
       var d = new Date();
        d.setMonth(1, 25);
     if (Roles.userIsInRole(user, ["Administrativo"])) {
-       return  Noticias.find({criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
+       return  Noticias.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
     }else if (Roles.userIsInRole(user, ["Cadastro"])){
 	      return  Noticias.find({criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
     }else if(Roles.userIsInRole(user, ['Consulta','VideoMonitoramento'])){
@@ -190,15 +202,7 @@ Meteor.publish("orgaos", function() {
      return;
 });
 
-Meteor.publish("eventos", function() {
-    var user = Meteor.users.findOne(this.userId)
-    if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-		return Eventos.find();
-    }
-     this.stop();
-     return;
 
-});
 
 Meteor.publish('protocolos', function() {
     var user = Meteor.users.findOne(this.userId)
