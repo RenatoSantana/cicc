@@ -1,15 +1,15 @@
-<template name="selectEvento"> 
-      
-  <select id="cbEvento" class="form-control" data-style="btn-success"  name="evento" disabled>
-            
+<template name="selectEvento">
+
+  <select id="cbEvento" class="form-control" data-style="btn-success"  name="evento">
+
         {{#each eventos}}
-       
-              <option  {{isSelected ..}}  value="wX6YbWvAPDv2mdn4Z">{{descricao}}</option>
+
+              <option  {{isSelected ..}}  value={{_id}} >{{descricao}}</option>
         {{/each}}
-  
-   
+
+
   </select>
-  
- 
+
+
 
 </template>

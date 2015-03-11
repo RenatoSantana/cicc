@@ -10,7 +10,7 @@ Meteor.publish("users", function () {
   //  console.log('publishing users', this.userId)
   //  return Meteor.users.find({}, {fields: {emails: 1, profile: 1, roles: 1}});
     return Meteor.users.find();
-  } 
+  }
 
   this.stop();
   return;
@@ -18,17 +18,22 @@ Meteor.publish("users", function () {
 
  Meteor.publish('files', function () {
      return Files.find();
-  
+
+ });
+
+ Meteor.publish('historicoEventos', function () {
+     return HistoricoEventos.find();
+
  });
 
 
  Meteor.publish('trechos', function () {
      return Trechos.find();
-  
+
  });
  Meteor.publish('circuitos', function () {
      return Circuitos.find();
-  
+
  });
 
 Meteor.publish('solicitacoes', function() {
@@ -56,7 +61,7 @@ Meteor.publish('consideracoes', function() {
 });
 
 Meteor.publish('protocoloAcao', function() {
-   
+
   var user = Meteor.users.findOne(this.userId);
 
   if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
@@ -120,7 +125,7 @@ Meteor.publish('cameras', function() {
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
       return Cameras.find();
     }
-   
+
      this.stop();
      return;
 });
@@ -136,16 +141,16 @@ Meteor.publish('noticias', function() {
     if (Roles.userIsInRole(user, ["Administrativo"])) {
        return  Noticias.find({criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
     }else if (Roles.userIsInRole(user, ["Cadastro"])){
-	      return  Noticias.find({criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});	
+	      return  Noticias.find({criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
     }else if(Roles.userIsInRole(user, ['Consulta','VideoMonitoramento'])){
         return Noticias.find({bloqueio:false,criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
     }else{
-       
+
        return Noticias.find({bloqueio:false,status:"publica",criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
-        
+
 
     }
-  
+
 });
 
 
@@ -154,8 +159,8 @@ Meteor.publish('incidentes', function() {
         d.setMonth(1, 25);
        var user = Meteor.users.findOne(this.userId)
       if (Roles.userIsInRole(user, ["Cadastro"])) {
-   
-                  
+
+
          return Incidentes.find({criacaoDt: {$gt : d},bloqueio:false},{sort:{criacaoDt: -1}});
       }else if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
          // console.log(user.profile.orgaoId);
@@ -173,7 +178,7 @@ Meteor.publish('grupos', function() {
     }
     this.stop();
      return;
-       
+
 });
 
 Meteor.publish("orgaos", function() {
@@ -192,7 +197,7 @@ Meteor.publish("eventos", function() {
     }
      this.stop();
      return;
-       
+
 });
 
 Meteor.publish('protocolos', function() {
@@ -201,7 +206,7 @@ Meteor.publish('protocolos', function() {
       return Protocolos.find();
     }
      this.stop();
-     return; 
-       
-       
+     return;
+
+
 });
