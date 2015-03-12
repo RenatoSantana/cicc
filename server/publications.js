@@ -37,24 +37,24 @@ Meteor.publish("users", function () {
  });
 
 Meteor.publish('solicitacoes', function() {
-    var d = new Date();
-      d.setMonth(1, 25);
+    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+    var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
      if (Roles.userIsInRole(user, ["Administrativo", "Cadastro","VideoMonitoramento"])) {
-        return Solicitacoes.find({criacaoDt: {$gt : d}});
+        return Solicitacoes.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}});
      }
      this.stop();
    return;
 });
 
 Meteor.publish('consideracoes', function() {
-      var d = new Date();
-          d.setMonth(1, 25);
+    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+    var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
      if (Roles.userIsInRole(user, ["Administrativo"])) {
-        return Consideracoes.find({criacaoDt: {$gt : d}});
+        return Consideracoes.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}});
      }else if(Roles.userIsInRole(user, ["Cadastro","VideoMonitoramento"])){
-        return Consideracoes.find({userId:this.userId,criacaoDt: {$gt : d}});
+        return Consideracoes.find({userId:this.userId,criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim}});
      }
      this.stop();
    return;
@@ -90,11 +90,11 @@ Meteor.publish('locais', function() {
      return;
 });
 Meteor.publish('respostas', function() {
-    var user = Meteor.users.findOne(this.userId)
-    var d = new Date();
-      d.setMonth(1, 25);
+    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+    var evento = Eventos.findOne(historico[0].eventoId);
+    var user = Meteor.users.findOne(this.userId);
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-      return Respostas.find({criacaoDt: {$gt : d}});
+      return Respostas.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}});
     }
      this.stop();
      return;
@@ -110,11 +110,11 @@ Meteor.publish('acoes', function() {
 });
 
 Meteor.publish('acoesOrgao', function() {
-    var user = Meteor.users.findOne(this.userId)
-    var d = new Date();
-           d.setMonth(1, 25);
+    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+    var evento = Eventos.findOne(historico[0].eventoId);
+    var user = Meteor.users.findOne(this.userId);
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-      return AcoesOrgao.find({criacaoDt: {$gt : d}});
+      return AcoesOrgao.find({criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim}});
     }
     this.stop();
      return;
@@ -144,22 +144,19 @@ Meteor.publish('cameras', function() {
 
 
 Meteor.publish('noticias', function() {
-   var user = Meteor.users.findOne({_id:this.userId});
-   var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-   console.log(historico[0]._id)
-   var evento = Eventos.findOne(historico[0].eventoId);
-      var d = new Date();
-       d.setMonth(1, 25);
+    var user = Meteor.users.findOne({_id:this.userId});
+    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+    var evento = Eventos.findOne(historico[0].eventoId);
+
     if (Roles.userIsInRole(user, ["Administrativo"])) {
        return  Noticias.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
     }else if (Roles.userIsInRole(user, ["Cadastro"])){
-	      return  Noticias.find({criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
+	      return  Noticias.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
     }else if(Roles.userIsInRole(user, ['Consulta','VideoMonitoramento'])){
-        return Noticias.find({bloqueio:false,criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
+        return Noticias.find({bloqueio:false,criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
     }else{
 
-       return Noticias.find({bloqueio:false,status:"publica",criacaoDt: {$gt : d}},{sort: {criacaoDt: -1}});
-
+       return Noticias.find({bloqueio:false,status:"publica",criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
 
     }
 
@@ -167,16 +164,13 @@ Meteor.publish('noticias', function() {
 
 
 Meteor.publish('incidentes', function() {
-       var d = new Date();
-        d.setMonth(1, 25);
-       var user = Meteor.users.findOne(this.userId)
+      var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+      var evento = Eventos.findOne(historico[0].eventoId);
+      var user = Meteor.users.findOne(this.userId);
       if (Roles.userIsInRole(user, ["Cadastro"])) {
-
-
-         return Incidentes.find({criacaoDt: {$gt : d},bloqueio:false},{sort:{criacaoDt: -1}});
+         return Incidentes.find({criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim},bloqueio:false},{sort:{criacaoDt: -1}});
       }else if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
-         // console.log(user.profile.orgaoId);
-         return Incidentes.find({criacaoDt: {$gt : d},bloqueio:false},{sort:{criacaoDt: -1}});
+         return Incidentes.find({criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim},bloqueio:false},{sort:{criacaoDt: -1}});
       }
      this.stop();
      return;

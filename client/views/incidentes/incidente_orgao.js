@@ -2,8 +2,8 @@
 var handle;
 Deps.autorun(function(){
     if(Meteor.user()!==null){
-  
-//  handle= Meteor.subscribeWithPagination('incidentesDesbloqueados', 8);  
+
+//  handle= Meteor.subscribeWithPagination('incidentesDesbloqueados', 8);
     }
 });
 
@@ -15,10 +15,18 @@ Template.incidente_orgao.helpers({
       }else   if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
         return Incidentes.find({status:"fechado"},{sort:{criacaoDt: -1}});
       }
-    }
-    
+    },
 
-   
+  evento:function(){
+     var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+
+      return Eventos.findOne(historico[0].eventoId)
+    }
+
+
+
+
+
 });
 Template.incidente_orgao.events({
 

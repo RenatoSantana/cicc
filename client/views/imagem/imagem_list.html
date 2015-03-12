@@ -1,5 +1,5 @@
 <template name="imagem_ls">
-{{#if currentUser}} 
+{{#if currentUser}}
     <!-- col -->
 	<div class="col-sm-2">
 
@@ -11,15 +11,15 @@
 				<li class="list-group-item animated fadeInUp">
                     <input placeholder="Data Início" data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" class="form-control" id="dataCadastroInicio" name="dataCadastroInicio" required>
             </li>
-        
+
         	    <li class="list-group-item animated fadeInUp">
                           <input  placeholder="Data Fim" data-date-format="DD/MM/YYYY HH:mm" type="bootstrap-datetimepicker" class="form-control" id="dataCadastroFim" name="dataCadastroFim" required>
             </li>
             <li class="list-group-item animated fadeInUp">
              <button type="submit" class="btn btn-primary" style="width: 100%;">Pesquisar</button>
            </li>
-			
-				
+
+
 			</ul>
 
 
@@ -28,39 +28,39 @@
 
 	</div>
 <div class="col-sm-8">
-    
+
 		<div class="col-separator box col-separator-first col-unscrollable">
 			<div class="col-table">
       <div class="innerAll">
 					<a href="{{pathFor 'new_imagem'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Nova Imagem</a>
-					<h4 class="margin-none">Videomonitoramento</h4>
+					<h4 class="margin-none">Videomonitoramento no evento {{evento.descricao}}</h4>
 					<div class="clearfix"></div>
                	<div class="bg-gray border-bottom innerAll">
 								<div class="input-group input-group-sm">
 							      	<div class="input-group-btn">
 							        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Busca <span class="caret"></span></button>
-							        	
+
 							      	</div>
                              {{> esInput index="imagens" placeholder="..." class="form-control input-sm" event="keyup"  }}
-							      	
+
 							    </div>
-							</div> 
+							</div>
 		  </div>
 				<div class="col-table-row">
 					<div class="col-app col-unscrollable">
 						<div class="col-app">
-          
-              			
+
+
 									<div class="col-separator-h box"></div>
 							<div class="border-bottom">
 								<ul class="timeline-activity list-unstyled">
-	
-	  				  {{#if isResultImagem}}  
+
+	  				  {{#if isResultImagem}}
                            {{#each imagensResult}}
                                      {{>imagemItem}}
                            {{/each}}
-              {{else}}     
-                           
+              {{else}}
+
                               {{#ifEsInputIsEmpty index="imagens"}}
 
                                 {{#each imagens}}
@@ -69,55 +69,55 @@
 
                            {{/ifEsInputIsEmpty}}
 
-						
+
 								      {{#esEach  index="imagens"}}
                                   {{>imagemItem}}
-           
+
                              {{/esEach }}
                    {{#ifEsHasNoResults index="imagens"}}
                           {{>resultadonf}}
                     {{/ifEsHasNoResults}}
-								
+
                 {{/if}}
-		
+
 
 			</ul>
-			
+
 		</div>
-	
-            
-            
-            
+
+
+
+
             </div>
-        
-          
-          
-          
-          
-          
+
+
+
+
+
+
           </div>
-      
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         </div>
-      
-      
-      
+
+
+
       </div>
-      
-							
-							
+
+
+
 		</div>
 	</div>
-          
+
     <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 

@@ -1,101 +1,101 @@
 <template name="incidente_orgao">
- {{#if currentUser}} 
+ {{#if currentUser}}
     <!-- col -->
 	<div class="col-sm-2">
 
-		  
+
 		{{>menuValidacao}}
 
 	</div>
 <div class="col-sm-8">
-    
+
 		<div class="col-separator box col-separator-first col-unscrollable">
 			<div class="col-table">
       <div class="innerAll">
-         {{#if isInRole 'Administrativo,Cadastro' }}	
+         {{#if isInRole 'Administrativo,Cadastro' }}
 					<a id="new-incidente" href="{{pathFor 'new_incidente'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Novo Incidente</a>
         {{/if}}
-					<h4 class="margin-none">Incidentes Fechados</h4>
+					<h4 class="margin-none">Incidentes Fechados no evento {{evento.descricao}}</h4>
 					<div class="clearfix"></div>
                   	<div class="bg-gray border-bottom innerAll">
 								<div class="input-group input-group-sm">
 							      	<div class="input-group-btn">
 							        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Busca <span class="caret"></span></button>
-							        	
+
 							      	</div>
                              {{> esInput index="incidentes"  reactive=false timeout=20  placeholder="Encontre um incidente ..." class="form-control input-sm"  }}
-							      	
+
 							    </div>
-							</div> 
+							</div>
 		  </div>
 				<div class="col-table-row">
 					<div class="col-app col-unscrollable">
 						<div class="col-app">
-          
-              			
+
+
 									<div class="col-separator-h box"></div>
 							<div class="border-bottom">
 								<ul class="timeline-activity list-unstyled">
-	
+
 	  				{{#ifEsInputIsEmpty index="incidentes"}}
-                       
+
 						{{#each incidentes}}
                       {{>incidenteItem}}
                   {{/each}}
-                
-							
+
+
                 {{/ifEsInputIsEmpty}}
 
-						
+
 								 {{#esEach  index="incidentes"}}
                       {{>incidenteItem}}
-            
+
 
 
                   {{/esEach }}
                    {{#ifEsHasNoResults index="incidentes"}}
                           {{>resultadonf}}
                     {{/ifEsHasNoResults}}
-                
-		
+
+
 
 			</ul>
-			
+
 		</div>
-	
-            
-            
-            
+
+
+
+
             </div>
-        
-          
-          
-          
-          
-          
+
+
+
+
+
+
           </div>
-      
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         </div>
-      
-      
-      
+
+
+
       </div>
-      
-							
-							
+
+
+
 		</div>
 	</div>
-          
+
     <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 

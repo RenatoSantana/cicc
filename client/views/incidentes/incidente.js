@@ -125,7 +125,15 @@ Template.incidente_cr.helpers({
 
    orgao: function(){
     return Orgaos.findOne(this.orgaoId);
-  }
+  },
+
+  evento:function(){
+      var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+
+      return Eventos.findOne(historico[0].eventoId)
+    }
+
+
 
 
 });
@@ -312,10 +320,11 @@ Template.incidente_cr.events({
   'submit form': function(e,tmp) {
     e.stopPropagation();
     e.preventDefault();
+    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
 
     var properties = {
-     // eventoId: $(e.target).find('#cbEvento').val(),
-      eventoId :'5PcphnJjWZKn3EEp7',
+
+      eventoId :historico[0].eventoId,
       circuitoId: 'SJTo3AsDZpAw6uKer',
       trechoId: 'm77YQRNbCheHZDY29',
       tituloIncidente:$(e.target).find('#inputTitulo').val(),
