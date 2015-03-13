@@ -1,11 +1,11 @@
-<template name="protocolo_associacao"> 
-  {{#if currentUser}} 
+<template name="protocolo_associacao">
+  {{#if currentUser}}
     <!-- col -->
 	<div class="col-sm-2">
-   
 
-		
-		
+
+
+
 
 	</div>
 <div id="conteudo" class="col-md-8">
@@ -13,48 +13,48 @@
 	<div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
 
 			<div class="innerAll border-bottom media">
-				
+
 				<div class="media-body">
 					<h3 class="margin-bottom-none padding-none">{{codigo}}
 					</h3>
-					
+
 				</div>
 			</div>
 
 			<div class="innerAll inner-2x">
         <p style="word-wrap: break-word;" >{{local.descricao}}</p>
 				<p style="word-wrap: break-word;" >{{descricao}}</p>
-				
-				
+
+
 			</div>
 
 			<div class="border-top border-bottom text-center innerAll bg-gray">
 			{{> selectAcao}}
       <div class="text-right innerT">
-         	
+
 						<button class="btn btn-success">Salvar</button>
 			</div>
 			</div>
 
-		
-						
-			
-			
+
+
+
+
 			<div class="innerAll border-bottom tickets">
-				
-				
+
+
 			</div>
-			
+
 			 {{#each acoes}}
                       {{>protocoloAcaoItem}}
-       {{/each}}
+           {{/each}}
 		</div>
   </form>
 	</div>
     <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 

@@ -1,0 +1,1 @@
+EventoCircuitos = new Meteor.Collection('eventoCircuitos');

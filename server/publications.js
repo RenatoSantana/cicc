@@ -16,6 +16,12 @@ Meteor.publish("users", function () {
   return;
 });
 
+
+Meteor.publish('eventoCircuitos', function () {
+     return EventoCircuitos.find();
+
+ });
+
  Meteor.publish('files', function () {
      return Files.find();
 
