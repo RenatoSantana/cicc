@@ -6,11 +6,15 @@ Deps.autorun(function(){
         Meteor.subscribe("acoes")
         Meteor.subscribe("acoesOrgao")
         Meteor.subscribe("historicoEventos")
+        Meteor.subscribe("eventoCircuitos")
+        Meteor.subscribe("eventos")
         Session.set("resultOk",false);
     }
 });
   Meteor.startup(function () {
        Session.set("resultOk",false);
+
+
     });
 
 
@@ -110,9 +114,13 @@ Template.incidente_ls.helpers({
   },
 
     evento:function(){
-     var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
 
+       var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+  if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
       return Eventos.findOne(historico[0].eventoId)
+
+    }
+    return;
     }
 
 });
@@ -130,11 +138,35 @@ Template.incidente_cr.helpers({
   evento:function(){
       var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
 
-      return Eventos.findOne(historico[0].eventoId)
-    }
+      if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
 
+         return Eventos.findOne(historico[0].eventoId)
+      }
+    return;
+  },
 
+  circuitos:function(){
+     var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
+       if(typeof historico[0] !== 'undefined' && typeof historico[0].eventoId !== 'undefined'){
 
+         return EventoCircuitos.find({eventoId:historico[0].eventoId},{sort: {criacaoDt: -1}})
+       }
+       return;
+  },
+
+   temCircuito:function(){
+      var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch();
+    if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
+        var circuitos= EventoCircuitos.find({eventoId:historico[0].eventoId},{sort: {criacaoDt: -1}}).fetch()
+        if(circuitos!=null && circuitos.length > 0){
+          Session.set("temCircuito",true);
+          return true;
+        }
+          Session.set("temCircuito",false);
+        return false;
+      }
+
+   }
 
 });
 
@@ -334,6 +366,12 @@ Template.incidente_cr.events({
 
     }
 
+    if(Session.get("temCircuito")){
+      properties.circuitoId=$(e.target).find('#cbCircuito').val();
+      properties.trechoId=$(e.target).find('#cbTrecho').val();
+
+    }
+
     var dataFatoVector =  $(e.target).find('#dataFato').val().split('/');
     var data = new Date()
     data.setDate(dataFatoVector[0]);
@@ -351,7 +389,7 @@ Template.incidente_cr.events({
      if(properties!==null && typeof properties != 'undefined' && properties.fileId!==null && typeof properties.fileId != 'undefined'){
         var fileObj = Files.insert(properties.fileId);
        properties.fileId = fileObj._id;
-    //    console.log('Upload result: ', fileObj._id);
+
 
      }
 

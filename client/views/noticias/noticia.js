@@ -322,7 +322,7 @@ Template.noticia_public_view.helpers({
 
 Template.noticia_view.helpers({
     urlResumida: function() {
-       if(this.fonte.length>55)
+       if(this.fonte!=null && this.fonte.length>55)
           return this.fonte.substr(0,55)+ ' ...';
       else
           return this.fonte;

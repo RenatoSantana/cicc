@@ -38,6 +38,12 @@ objectSchema = {
     optional: true
   },
 
+  eventoId: {
+    type: String,
+    optional: true
+
+  },
+
    orgaoId: {
     type: String,
     optional: true
