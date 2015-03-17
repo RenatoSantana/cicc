@@ -11,22 +11,26 @@ objectSchema = {
     label: "Assunto"
   //  max: 10000
    },
-  
+
    texto: {
     type: String,
     optional: false,
     label: "Texto"
    // max: 10000
    },
-  
+
    observacaoCoordenacao: {
     type: String,
     optional: true,
     label: "Observação"
   //  max: 10000
    },
-  
-  
+    eventoId: {
+    type: String,
+    optional: true
+
+  },
+
   fileId: {
     type: String,
     label: "Foto",
@@ -64,14 +68,14 @@ objectSchema = {
         type: "bootstrap-datetimepicker"
       }
     }
-    
+
   },
   criacaoDt: {
     type: Date,
     optional: true
   },
-   
-  
+
+
  userId: {
     type: String,
     optional: true
@@ -80,10 +84,10 @@ objectSchema = {
     type: String,
     optional: true
   }
-  
- 
- 
-  
+
+
+
+
 }
 
 
@@ -98,5 +102,5 @@ EasySearch.createSearchIndex('imagens', {
     'collection' : Imagens,          // required, Mongo Collection
     'limit' : 10                  // not required, default is 10
 });
-        
+
 

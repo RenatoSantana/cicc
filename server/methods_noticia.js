@@ -9,8 +9,6 @@ Meteor.methods({
       throw new Meteor.Error(401, "Você precisa está logado");
       var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
 
- console.log(historico[0].eventoId)
-
            var   noticiaObject = _.extend(_.pick(noticiaAttributes, 'titulo', 'texto', 'categoriaId','fonte','fileId','status'), {
                 userId: user._id,
                 orgaoId: user.profile.orgaoId,

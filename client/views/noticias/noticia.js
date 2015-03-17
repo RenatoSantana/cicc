@@ -307,7 +307,7 @@ Template.noticiaPublicaItem.helpers({
 Template.noticia_public_view.helpers({
 
 
-      data: function(){
+ data: function(){
         var time = this.criacaoDt
         return moment(time).locale('pt-BR').format(' [Publicada em] DD [de] MMMM YYYY [às] H:mm');
 

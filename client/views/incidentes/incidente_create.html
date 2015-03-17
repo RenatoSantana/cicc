@@ -7,7 +7,7 @@
 
 	</div>
 	<div class="col-sm-8">
-
+{{#if desabilitaSubmit}}
         				<!-- Widget -->
 										<div class="widget widget-inverse" >
 
@@ -120,6 +120,9 @@
 
                                             </div>
                                         </div>
+                                        {{else}}
+                                        {{>informacao}}
+    {{/if}}
 
     </div>
 

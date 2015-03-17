@@ -1,5 +1,5 @@
 objectSchema = {
-   
+
   _id: {
     type: String,
     optional: true,
@@ -10,40 +10,45 @@ objectSchema = {
     label: "Assunto"
   //  max: 100000
    },
-  
+
   mensagem: {
     type: String,
     optional: false,
     label: "Mensagem"
  //   max: 100000
   },
-   
- 
+
+  eventoId: {
+    type: String,
+    optional: false,
+    label:"Evento"
+  },
+
 
    userId: {
     type: String,
     optional: false
   },
-  
-  
+
+
    orgaoId: {
     type: String,
     optional: false
   },
-  
+
    orgaoDestinoId: {
     type: String,
     optional: false
   },
-  
+
     criacaoDt: {
     type: Date,
     optional: false
   }
-  
-  
- 
-  
+
+
+
+
 }
 
 
@@ -59,5 +64,5 @@ EasySearch.createSearchIndex('solicitacoes', {
     'collection' : Solicitacoes,          // required, Mongo Collection
     'limit' : 50                  // not required, default is 10
 });
-        
+
 

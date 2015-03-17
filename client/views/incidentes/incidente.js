@@ -166,7 +166,21 @@ Template.incidente_cr.helpers({
         return false;
       }
 
-   }
+   },
+
+    desabilitaSubmit:function(){
+        var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch();
+        if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
+            var evento =  Eventos.findOne(historico[0].eventoId);
+             var dataAtual = new Date();
+            if(evento.dtFim < dataAtual)
+              return false;
+            else
+              return true;
+       }
+       return false;
+  }
+
 
 });
 

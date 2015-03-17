@@ -14,28 +14,34 @@ objectSchema = {
     label: "Consideração"
     //max: 100
    },
- 
-  
+
+
   criacaoDt: {
     type: Date,
     optional: true
   },
-   
- 
+
+
 
    userId: {
     type: String,
     optional: true
   },
-   
+
    orgaoId: {
     type: String,
     optional: true
-  }
-  
- 
- 
-  
+  },
+
+eventoId: {
+    type: String,
+    optional: true
+
+  },
+
+
+
+
 }
 
 
@@ -50,6 +56,6 @@ EasySearch.createSearchIndex('consideracoes', {
     'collection' : Consideracoes,          // required, Mongo Collection
     'limit' : 500                  // not required, default is 10
 });
-        
+
 
 
