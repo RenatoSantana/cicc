@@ -19,14 +19,14 @@ objectSchema = {
     optional: false,
     label: "Sigla"
  //   max: 15
-  
+
    },
-  
+
   criacaoDt: {
     type: Date,
-    optional: true
+    optional: false
   },
-   
+
   fileId: {
     type: String,
     label: "Foto",
@@ -43,10 +43,10 @@ objectSchema = {
     type: String,
     optional: true
   }
-  
- 
- 
-  
+
+
+
+
 }
 
 
@@ -60,6 +60,6 @@ EasySearch.createSearchIndex('orgaos', {
     'collection' : Orgaos,          // required, Mongo Collection
     'limit' : 500                  // not required, default is 10
 });
-        
+
 
 

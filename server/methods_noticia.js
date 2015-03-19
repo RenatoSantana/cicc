@@ -54,11 +54,19 @@ Meteor.methods({
      properties.userValitatorId =Meteor.userId();
      var currentId = properties._id
      delete properties._id;
-   /// console.log("dasdasdasda aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa "+ properties._id)
+
      Noticias.update(currentId, {$set: properties});
      return  currentId;
 
- }
+ },
+
+
+    removerNoticia:function (currentId){
+
+     Noticias.remove(currentId);
+
+
+ },
 
 
 

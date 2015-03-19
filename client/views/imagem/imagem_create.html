@@ -1,10 +1,10 @@
 <template name="imagem_cr">
-  
-  {{#if currentUser}} 
+
+  {{#if currentUser}}
   <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 	<!-- // END col -->
@@ -12,6 +12,7 @@
 	<!-- col -->
 	<div class="col-sm-8">
 
+{{#if desabilitaSubmit}}
         				<!-- Widget -->
 										<div class="widget widget-inverse" >
 
@@ -20,50 +21,54 @@
 												<h4 class="heading">Nova Imagem</h4>
 											</div>
 											<!-- // Widget heading END -->
-											
+
 											<div class="widget-body">
-												
-											
-                                                
-                                                
+
+
+
+
                                                 <div class="innerLR">
 													      {{#autoForm collection="Imagens" id="imagem_cr" schema=imagemSchema type="method" meteormethod="saveImagem"  }}
-                                                 
-                                         
+
+
                                                       {{> afQuickField id="dataHora"  name='dataHora' data-date-format="DD/MM/YYYY HH:mm"   }}
-                                                      
-                                               
-                                         
+
+
+
                                                       {{> afQuickField name='assunto'}}
-                                            
-                                               
-                                                
+
+
+
                                                            {{> afQuickField name='texto' rows=6}}
-                                                      
-                                            
+
+
                                                      {{> afFormGroup id="cbCamera" name="cameraId" type="select"   }}
-                                               
+
                                                      {{> afQuickField name="fileId" type="cfs-file" collection="files"}}
-                                        
-                        
+
+
                                                      <button type="submit" class="btn btn-primary">Salvar</button>
                                                      <button type="reset" class="btn btn-default">Limpar</button>
-                                     
+
                                                   {{/autoForm}}
                                              </div>
 
-                              
-										
-  
+
+
+
                                             </div>
                                         </div>
-												
+                                               {{else}}
+                                        {{>informacao}}
+    {{/if}}
+
+
     </div>
 
-        
+
   <div class="col-sm-1">
 
-		
+
 
 	</div>
 {{/if}}

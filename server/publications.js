@@ -37,6 +37,12 @@ Meteor.publish('eventoCircuitos', function () {
      return Trechos.find();
 
  });
+
+
+ Meteor.publish('telefones', function () {
+     return Telefones.find();
+
+ });
  Meteor.publish('circuitos', function () {
      return Circuitos.find();
 

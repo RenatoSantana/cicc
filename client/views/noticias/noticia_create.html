@@ -1,16 +1,16 @@
 <template name="noticia_cr">
-  {{#if currentUser}} 
+  {{#if currentUser}}
   <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 	<!-- // END col -->
 
 	<!-- col -->
 	<div class="col-sm-8">
-
+{{#if desabilitaSubmit}}
         				<!-- Widget -->
 										<div class="widget widget-inverse" >
 
@@ -19,45 +19,48 @@
 												<h4 class="heading">Nova Notícia</h4>
 											</div>
 											<!-- // Widget heading END -->
-											
+
 											<div class="widget-body">
-												
-											
-                                                
-                                                
+
+
+
+
                                                 <div class="innerLR">
-                                  
-                                                  
+
+
                                                     {{#autoForm collection="Noticias" id="noticia_cr" schema=noticiaSchema type="method" meteormethod="saveNoticia"}}
-                                            
+
                                                       {{> afQuickField name='titulo'}}
-                                                   
+
                                                       {{> afQuickField name='texto' rows=6}}
-                                                      
+
                                                       {{> afQuickField name='fonte'}}
-                                                      {{#if isInRole 'Administrativo'}}                      
+                                                      {{#if isInRole 'Administrativo'}}
                                                           {{> afFormGroup  name="status" type=selectedType  options=optionsHelper}}
                                                       {{/if}}
                                                      {{> afQuickField name="fileId" type="cfs-file" collection="files"}}
-                                                 
+
                                                      <button id="btnsave" type="submit" class="btn btn-primary">Salvar</button>
                                                      <button type="reset" class="btn btn-default">Limpar</button>
                                                   {{/autoForm}}
-												
+
                                              </div>
 
-                                                
-										
-  
+
+
+
                                             </div>
                                         </div>
-												
+                                         {{else}}
+                                        {{>informacao}}
+    {{/if}}
+
     </div>
 
-        
+
   <div class="col-sm-1">
 
-		
+
 
 	</div>
 {{/if}}

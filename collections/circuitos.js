@@ -24,14 +24,14 @@ objectSchema = {
     optional: false
 
   },
-   
+
  eventoId: {
     type: String,
     optional: true
 
   },
-        
-  
+
+
 }
 
 
@@ -41,6 +41,6 @@ Circuitos.attachSchema(Schema.circuito);
 
 EasySearch.createSearchIndex('circuitos', {
     'field' : ['descricao'],
-    'collection' : Circuitos,      
-    'limit' : 50                  
+    'collection' : Circuitos,
+    'limit' : 50
 });

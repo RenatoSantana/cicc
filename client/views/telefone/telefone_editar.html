@@ -1,0 +1,64 @@
+<template name="telefone_ed">
+
+
+{{#if currentUser}}
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+                        <!-- Widget -->
+                                        <div class="widget widget-inverse" >
+
+                                            <!-- Widget heading -->
+                                            <div class="widget-head">
+                                                <h4 class="heading">Editar Telefone</h4>
+                                            </div>
+                                            <!-- // Widget heading END -->
+
+                                            <div class="widget-body">
+
+
+
+
+                                                <div class="innerLR">
+
+
+                                                    {{#autoForm collection="Telefones" id="telefone_ed" schema=telefoneSchema type="method" meteormethod="updateTelefone"  doc=telefoneDoc}}
+
+                                                      {{> afQuickField name='orgao'}}
+
+                                                      {{> afQuickField name='numero'}}
+                                                      {{> afQuickField name="_id" type="hidden" }}
+
+                                                     <button type="submit" class="btn btn-primary">Salvar</button>
+                                                     <button type="reset" class="btn btn-default">Limpar</button>
+                                                  {{/autoForm}}
+                                             </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+    </div>
+
+
+
+
+
+    <!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+{{/if}}
+</template>

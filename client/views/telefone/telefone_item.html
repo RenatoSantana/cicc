@@ -1,0 +1,25 @@
+<template name="telefoneItem">
+<div class="media contact">
+                                <a class="pull-left" href="#"><img class="thumb" src="http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat/48/phone-icon.png" width="50" alt="phone"></a>
+                                                        <div class="innerT pull-right">
+        {{#if isInRole 'Administrativo'}}
+
+
+                                                                        <a href="{{pathFor 'edit_telefone' _idTelefone=this._id}}" class="btn btn-success btn-xs"><i class="fa fa-pen"></i> Editar</a>
+
+
+
+
+        {{/if}}
+          </div>
+
+                                <div class="media-body">
+                            <ul class="list-unstyled">
+                                        <li><h4 class="media-heading strong">{{orgao}}</h4></li>
+                                        <li><i class="fa fa-phone"></i> {{numero}}</li>
+
+
+                                    </ul>
+                                </div>
+</div>
+</template>

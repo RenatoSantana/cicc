@@ -15,13 +15,43 @@ Template.historico_evento_cr.events({
 
 
                               } else {
-                                       Meteor.subscribe("historicoEventos")
-                                       toastr.success("", "Salvo");
 
+                                         Meteor.logout(function(erro){
+                  if(erro){
+
+                  }else{
+                        Router.go('index');
+                    }
+                })
                               }
             });
 
-  }
+  },
+
+
+
+
+ 'click #btndesativar': function(e) {
+       e.stopPropagation();
+       e.preventDefault();
+
+
+ if (confirm("Tem certeza de que deseja excluir esta notícia? ?")) {
+     Meteor.call('desativar_todos_usuarios', function(error) {
+
+
+                              if (error) {
+
+                                toastr.error(error.reason);
+
+                              } else {
+                                 toastr.success("", "Notícia Excluído");
+                                 Router.go("noticia")
+                              }
+                   });
+
+ }
+  },
 
 
 

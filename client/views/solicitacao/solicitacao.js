@@ -3,7 +3,7 @@ Template.solicitacaoItem.helpers({
 data: function(){
     var time = this.criacaoDt
     return moment(time).locale('pt-BR').format(' DD [de] MMMM YYYY, H:mm');
-      
+
   },
  mensagemResumida: function() {
       if(this.mensagem.length > 250)
@@ -11,7 +11,7 @@ data: function(){
       else
         return this.mensagem;
     },
-  
+
 logo: function(){
     var obj = Orgaos.findOne(this.orgaoId);
     return Files.findOne(obj.fileId);
@@ -22,27 +22,27 @@ Template.solicitacao_dt.helpers({
     user: function() {
         return Meteor.users.findOne(this.userId);
     },
-  
+
   respostas: function(){
     return Respostas.find({solicitacaoId:this._id},{sort:{criacaoDt: -1}});
   },
-  
-    
+
+
 logo: function(){
     var obj = Orgaos.findOne(this.orgaoId);
     return Files.findOne(obj.fileId);
   },
-  
-     
-  
+
+
+
 data: function(){
     var time = this.criacaoDt
     return moment(time).locale('pt-BR').format(' DD [de] MMMM YYYY, H:mm');
-      
-  }
-  
 
-   
+  }
+
+
+
 });
 
 
@@ -50,25 +50,25 @@ data: function(){
 Template.solicitacao_dt.events({
   'submit form': function(e) {
     e.preventDefault();
-    
+
      var $elemWrite = $('#write').hasClass('collapse in');
                 if($elemWrite){
                      $('#write').removeClass('collapse in');
                      $('#write').addClass('collapse');
-                 } 
+                 }
     var properties = {
       solicitacaoId: this._id,
       mensagem: $(e.target).find('#inputMensagem').val()
-    
+
     }
   if(properties!==null&& properties !='undefined' && properties.mensagem!=="" &&  properties.mensagem.length>0){
-    
+
     Meteor.call('resposta', properties, function(error, resposta) {
                       if (error) {
                                 // display the error to the user
                                toastr.error(erro,"ops!");
                       }else{
-                        
+
                         $('#inputMensagem').val(" ");
                       }
    });
@@ -76,36 +76,54 @@ Template.solicitacao_dt.events({
   }else{
   toastr.error("Mensagem obrigatória","ops!");
 }
-    
-   
-   
-   
+
+
+
+
     }
 });
 Template.solicitacao_cr.events({
   'submit form': function(e) {
     e.preventDefault();
-    
+
     var properties = {
       assunto: $(e.target).find('#inputAssunto').val(),
       mensagem: $(e.target).find('#inputMensagem').val(),
       orgaoDestinoId: $(e.target).find('#cbOrgao').val()
     }
-    
+
     Meteor.call('solicitacao', properties, function(error, solicitacao) {
                       if (error) {
                          $("#btnsave").removeAttr('disabled')
                                 throwErrorSolicitacao(error.reason);
-                               
+
                               } else {
                                  toastr.success("", "Salvo");
                                  Router.go("/solc_detail/"+solicitacao._id);
                               }
    });
 
-    
-   
-   
-   
+
+
+
+
     }
+});
+
+Template.solicitacao_cr.helpers({
+
+    desabilitaSubmit:function(){
+        var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch();
+        if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
+            var evento =  Eventos.findOne(historico[0].eventoId);
+             var dataAtual = new Date();
+            if(evento.dtFim < dataAtual)
+              return false;
+            else
+              return true;
+       }
+       return false;
+  }
+
+
 });

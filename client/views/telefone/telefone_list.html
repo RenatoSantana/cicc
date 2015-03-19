@@ -1,4 +1,4 @@
-<template name="user_ls">
+<template name="telefone_ls">
   {{#if currentUser}}
 
   <!-- col -->
@@ -18,12 +18,15 @@
 			<!-- col-table -->
 			<div class="col-table">
 
-			<div class="innerAll">
-					<a href="{{pathFor 'new_user'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Novo Usuário</a>
-					<h4 class="margin-none">Usúario</h4>
-					<div class="clearfix"></div>
-		</div>
+
+		<div class="innerAll">
+
+ {{#if isInRole 'Administrativo' }}
+					<a id="new-telefone" href="{{pathFor 'new_telefone'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Novo Telefone</a>
+        {{/if}}
+        	<h4 class="margin-none" >Fale Conosco</h4>
 				<!-- col-table-row -->
+				</div>
 				<div class="col-table-row">
 
 					<!-- col-app -->
@@ -40,44 +43,38 @@
 							        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Nome <span class="caret"></span></button>
 
 							      	</div>
-							      	   {{> esInput index="usersIndex" placeholder="Encontre um usuário ..." class="form-control input-sm" event="keyup"  }}
-
+							       {{> esInput index="telefones"  reactive=false timeout=20  placeholder="Encontre um telefone ..." class="form-control input-sm" }}
 							    </div>
 							</div>
 
 							<div class="heading-buttons innerLR border-bottom">
-
+								<h5 class="innerTB strong margin-none">Resultado</h5>
 								<div class="pull-right innerT half">
 
 								</div>
-							   	<div class="clearfix"></div>
+								<div class="clearfix"></div>
 							</div>
-              	<div class="col-separator-h box"></div>
 
 
 
 
+                     	{{#ifEsInputIsEmpty index="telefones"}}
 
-             {{#ifEsInputIsEmpty index="usersIndex"}}
-
-						      {{#each users}}
-                               {{>usuarioItem}}
-                             {{/each}}
-
+						       {{#each telefones}}
+                                {{>telefoneItem}}
+                            {{/each}}
 
 
-             {{/ifEsInputIsEmpty}}
+                       {{/ifEsInputIsEmpty}}
 
-                           {{#esEach  index="usersIndex"}}
-                               {{>usuarioItem}}
+
+								 {{#esEach  index="telefones"}}
+                               {{>telefoneItem}}
 
                            {{/esEach }}
-
-
-                   {{#ifEsHasNoResults index="usersIndex"}}
+                   {{#ifEsHasNoResults index="telefones"}}
                           {{>resultadonf}}
                     {{/ifEsHasNoResults}}
-
 						</div>
 						<!-- // END col-app -->
 

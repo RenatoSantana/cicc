@@ -189,6 +189,20 @@ Template.noticia_ex.helpers({
       {label: "Privada", value: 'privada'}
 
     ];
+  },
+
+
+    desabilitaSubmit:function(){
+        var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch();
+        if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
+            var evento =  Eventos.findOne(historico[0].eventoId);
+             var dataAtual = new Date();
+            if(evento.dtFim < dataAtual)
+              return false;
+            else
+              return true;
+       }
+       return false;
   }
 
 
@@ -369,8 +383,46 @@ Template.noticia_cr.helpers({
       {label: "Privada", value: 'privada'}
 
     ];
+  },
+
+    desabilitaSubmit:function(){
+        var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch();
+        if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
+            var evento =  Eventos.findOne(historico[0].eventoId);
+             var dataAtual = new Date();
+            if(evento.dtFim < dataAtual)
+              return false;
+            else
+              return true;
+       }
+       return false;
   }
+
+
 });
 
+Template.noticia_view.events({
+
+ 'click #btnExcluir': function(e) {
+       e.stopPropagation();
+       e.preventDefault();
+       var currentId = this._id;
+
+ if (confirm("Tem certeza de que deseja excluir esta notícia? ?")) {
+     Meteor.call('removerNoticia',currentId, function(error) {
 
 
+                              if (error) {
+
+                                toastr.error(error.reason);
+
+                              } else {
+                                 toastr.success("", "Notícia Excluído");
+                                 Router.go("noticia")
+                              }
+                   });
+
+ }
+  },
+
+});

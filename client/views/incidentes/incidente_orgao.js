@@ -20,7 +20,11 @@ Template.incidente_orgao.helpers({
   evento:function(){
      var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
 
-      return Eventos.findOne(historico[0].eventoId)
+     if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
+
+         return Eventos.findOne(historico[0].eventoId)
+     }
+    return;
     }
 
 

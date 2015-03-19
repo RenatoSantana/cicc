@@ -7,7 +7,7 @@ objectSchema = {
     type: String,
     optional: true,
    },
-     
+
    mensagem: {
     type: String,
     optional: false,
@@ -15,36 +15,36 @@ objectSchema = {
    // max: 250
    },
 
-  
+
    userId: {
     type: String,
     optional: false
-    
-     
+
+
   },
-  
-  
+
+
    orgaoId: {
     label: "Orgão Responsável",
     type: String,
     optional: false
-     
+
    },
-  
+
    incidenteId: {
     type: String,
     optional: true
-    
-     
+
+
   },
   criacaoDt: {
     type: Date,
-    optional: false
+    optional: true
   }
-  
-  
-  
-  
+
+
+
+
 }
 
 Schema.acaoOrgao= new SimpleSchema(objectSchema);

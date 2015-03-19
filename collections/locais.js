@@ -22,10 +22,10 @@ objectSchema = {
    userId: {
     type: String,
     optional: false
-    
-     
+
+
   },
-  
+
 }
 
 
@@ -38,8 +38,8 @@ EasySearch.createSearchIndex('locais', {
     'collection' : Locais,          // required, Mongo Collection
     'limit' : 50                  // not required, default is 10
 });
-        
 
-        
+
+
 
 

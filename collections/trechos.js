@@ -19,18 +19,18 @@ objectSchema = {
     optional: false
 
   },
-   
+
   circuitoId: {
     type: String,
     optional: false
   },
-   
+
    userId: {
     type: String,
     optional: false
 
   },
-  
+
 }
 
 
@@ -40,7 +40,6 @@ Trechos.attachSchema(Schema.trecho);
 
 EasySearch.createSearchIndex('trechos', {
     'field' : ['descricao'],
-    'collection' : Trechos,      
-    'limit' : 50                  
+    'collection' : Trechos,
+    'limit' : 50
 });
-        

@@ -1,28 +1,31 @@
 
 
 Template.box.helpers({
-    
+
     user:function() { return Meteor.user(); },
-  
+
     orgao: function(){
-      return Orgaos.findOne({_id:Meteor.user().profile.orgaoId});
+      if(Meteor.user() !=null)
+        return Orgaos.findOne({_id:Meteor.user().profile.orgaoId});
+       else
+        return;
     }
   });
 Template.box.events({
-  
+
    'click #btn-avatar': function () {
        $('.modal-backdrop').removeClass('modal-backdrop');
       $('#editYourAvatarModal').modal();
     },
-  
-  
+
+
 
       // event login
 			"click  #logout": function (e){
                 e.preventDefault();
-                
-           
-                  
+
+
+
                 Meteor.logout(function(erro){
                   if(erro){
                     alert("erro");
@@ -31,48 +34,48 @@ Template.box.events({
 		  	            }
                 })
       },
-   
-   
+
+
    "click #imagens":function (e){
       e.preventDefault();
-           Session.set("resultImageOk", false);    
+           Session.set("resultImageOk", false);
            Router.go("imagem");
     },
-   
-   
+
+
     "click #noticias":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
            Router.go("noticia");
     },
-   
+
       "click #noticias2":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
            Router.go("noticia");
     },
-   
+
     "click #incidentes":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
            Router.go("incidentes");
     },
-   
+
       "click #incidentes2":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
            Router.go("incidentes");
     },
-  
+
       "click #relatorio":function (e){
           e.preventDefault();
-        
+
           Session.set("noticias", Noticias.find({},{sort: {criacaoDt: -1}}).fetch());
           Session.set("incidentes",Incidentes.find({},{sort: {criacaoDt: -1}}).fetch());
           Session.set("consideracoes",Consideracoes.find({},{sort: {criacaoDt: -1}}).fetch());
           Router.go("relatorio");
     },
-   
+
       "click #relatorioOrgao":function (e){
           e.preventDefault();
           var user = Meteor.userId();
@@ -81,15 +84,15 @@ Template.box.events({
           Session.set("consideracoes", Consideracoes.find({userId:user},{sort: {criacaoDt: -1}}).fetch());
           Router.go("relatorio_orgao");
     },
-   
-     
-  
-   
-   
-  
+
+
+
+
+
+
 
 });
-  
+
 
 
 
