@@ -53,7 +53,7 @@ Meteor.publish('solicitacoes', function() {
     var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
      if (Roles.userIsInRole(user, ["Administrativo", "Cadastro","VideoMonitoramento"])) {
-        return Solicitacoes.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}});
+        return Solicitacoes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
      }
      this.stop();
    return;
@@ -64,9 +64,9 @@ Meteor.publish('consideracoes', function() {
     var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
      if (Roles.userIsInRole(user, ["Administrativo"])) {
-        return Consideracoes.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}});
+        return Consideracoes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
      }else if(Roles.userIsInRole(user, ["Cadastro","VideoMonitoramento"])){
-        return Consideracoes.find({userId:this.userId,criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim}});
+        return Consideracoes.find({userId:this.userId,$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
      }
      this.stop();
    return;
@@ -106,7 +106,7 @@ Meteor.publish('respostas', function() {
     var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-      return Respostas.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}});
+      return Respostas.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
     }
      this.stop();
      return;
@@ -126,7 +126,7 @@ Meteor.publish('acoesOrgao', function() {
     var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-      return AcoesOrgao.find({criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim}});
+      return AcoesOrgao.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
     }
     this.stop();
      return;
@@ -161,14 +161,14 @@ Meteor.publish('noticias', function() {
     var evento = Eventos.findOne(historico[0].eventoId);
 
     if (Roles.userIsInRole(user, ["Administrativo"])) {
-       return  Noticias.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
+       return  Noticias.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
     }else if (Roles.userIsInRole(user, ["Cadastro"])){
-	      return  Noticias.find({criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
+	      return  Noticias.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
     }else if(Roles.userIsInRole(user, ['Consulta','VideoMonitoramento'])){
-        return Noticias.find({bloqueio:false,criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
+        return Noticias.find({bloqueio:false,$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
     }else{
 
-       return Noticias.find({bloqueio:false,status:"publica",criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}},{sort: {criacaoDt: -1}});
+       return Noticias.find({bloqueio:false,status:"publica",$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
 
     }
 
@@ -180,9 +180,9 @@ Meteor.publish('incidentes', function() {
       var evento = Eventos.findOne(historico[0].eventoId);
       var user = Meteor.users.findOne(this.userId);
       if (Roles.userIsInRole(user, ["Cadastro"])) {
-         return Incidentes.find({criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim},bloqueio:false},{sort:{criacaoDt: -1}});
+         return Incidentes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}],bloqueio:false},{sort:{criacaoDt: -1}});
       }else if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
-         return Incidentes.find({criacaoDt:{$gt : evento.dtInicio, $lt:evento.dtFim},bloqueio:false},{sort:{criacaoDt: -1}});
+         return Incidentes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}],bloqueio:false},{sort:{criacaoDt: -1}});
       }
      this.stop();
      return;
