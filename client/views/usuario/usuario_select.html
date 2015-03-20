@@ -1,0 +1,13 @@
+<template name="selectUsuario">
+
+ <select id="cbUsuario" class="form-control" data-style="btn-success"  name="usuario">
+
+        {{#each users}}
+
+              <option value={{_id}}> {{profile.nome}} </option>
+        {{/each}}
+
+
+  </select>
+
+</template>

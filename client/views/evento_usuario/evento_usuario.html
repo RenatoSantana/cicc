@@ -1,0 +1,57 @@
+<template name="eventoUsuario">
+
+{{#if currentUser}}
+    <!-- col -->
+    <div class="col-sm-2">
+
+
+
+
+
+    </div>
+<div id="conteudo" class="col-md-8">
+<form>
+
+    <div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
+<div class="innerAll border-bottom media">
+
+        <div class="media-body">
+          <h3 class="margin-bottom-none padding-none">Adicionar Usuário
+          </h3>
+
+        </div>
+      </div>
+
+
+            <div class="border-top border-bottom text-center innerAll bg-gray">
+            {{> selectUsuario}}
+      <div class="text-right innerT">
+
+                        <button class="btn btn-success ">Adicionar</button>
+            </div>
+            </div>
+
+
+
+
+
+            <div class="innerAll border-bottom tickets">
+
+
+            </div>
+
+             {{#each usuarios}}
+                      {{>usuarioEventoItem}}
+            {{/each}}
+        </div>
+  </form>
+    </div>
+    <!-- col -->
+    <div class="col-sm-2">
+
+
+
+    </div>
+
+{{/if}}
+</template>

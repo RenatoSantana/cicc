@@ -84,6 +84,8 @@ Template.user_cr.events({
 });
 
 
+
+
 Template.user_ed.helpers({
 
    email: function (){
@@ -171,6 +173,12 @@ Template.user_ls.helpers({
 
 });
 
+
+Template.selectUsuario.helpers({
+ users: function() {
+        return Meteor.users.find();
+    }
+});
 
 
 Template.usuarioItem.events({

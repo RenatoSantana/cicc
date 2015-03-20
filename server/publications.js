@@ -43,8 +43,15 @@ Meteor.publish('eventoCircuitos', function () {
      return Telefones.find();
 
  });
+
+
  Meteor.publish('circuitos', function () {
      return Circuitos.find();
+
+ });
+
+Meteor.publish('usuarioEventos', function () {
+     return UsuarioEventos.find();
 
  });
 
