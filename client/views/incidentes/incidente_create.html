@@ -7,7 +7,7 @@
 
 	</div>
 	<div class="col-sm-8">
-{{#if desabilitaSubmit}}
+
         				<!-- Widget -->
 										<div class="widget widget-inverse" >
 
@@ -36,29 +36,16 @@
                                                         <div class="form-group">
                                                             <label class="col-sm-2 control-label">Evento :</label>
                                                               <div class="col-sm-10">
-                                                                 <label
-    style="margin-top: 7px;"
->
-                                                                 {{evento.descricao}}</label>
+                                                       {{ > selectEvento}}
                                                               </div>
 
                                                         </div>
-{{#if temCircuito}}
+                                                  {{#if temCircuito}}
                                                         <div class="form-group">
                                                             <label class="col-sm-2 control-label">Circuito :</label>
                                                                  <div class="col-sm-10">
 
-
-                                                  <select id="cbCircuito" class="form-control" data-style="btn-success"  name="circuito">
-                                                              <option value=""> Selecione </option>
-                                                        {{#each circuitos}}
-
                                                                  {{ > selectValueCircuito}}
-
-                                                        {{/each}}
-
-
-                                                  </select>
 
                                                                     </div>
 
@@ -79,7 +66,6 @@
                                                          </div>
 
 {{/if}}
-
 
                                     <div class="form-group">
                                 <label for="inputTitulo" class="col-sm-2 control-label">Título :</label>
@@ -120,9 +106,6 @@
 
                                             </div>
                                         </div>
-                                        {{else}}
-                                        {{>informacao}}
-    {{/if}}
 
     </div>
 

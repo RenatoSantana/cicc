@@ -21,9 +21,10 @@ Meteor.methods({
      delete properties._id;
      Eventos.update(currentId, {$set: properties})
      return;
- }
+ },
 
 
 
 
 });
+

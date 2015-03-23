@@ -8,8 +8,8 @@ Template.selectCircuito.helpers({
 });
 
 Template.selectValueCircuito.helpers({
-  circuito: function() {
-    return Circuitos.findOne({_id:this.circuitoId});
+  circuitos: function() {
+    return Session.get('circuitos');
   },
   isSelected: function(parentPost){
     return parentPost && this._id == parentPost.circuitoId ? 'selected' : '';

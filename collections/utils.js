@@ -30,3 +30,17 @@ SimpleSchema.messages({
   ],
   keyNotInSchema: "[label] is not allowed by the schema"
 });
+
+
+
+getServerTime = function(){
+    var serverTime;
+    if(!TimeSync.isSynced()){
+        TimeSync.resync();
+    }else{
+        serverTime = Deps.nonreactive(function(){
+            return TimeSync.serverTime();
+        })
+    }
+    return serverTime;
+}

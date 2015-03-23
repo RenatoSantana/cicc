@@ -49,6 +49,9 @@ Template.evento_ed.helpers({
 });
 
 
+
+
+
 Template.evento_ls.helpers({
      eventos: function() {
     return Eventos.find();
@@ -78,9 +81,21 @@ Template.eventoItem.helpers({
 
 
 Template.selectEvento.helpers({
-  eventos: function() {
-    return Eventos.find();
-  },
+    eventos: function() {
+       var dataAtual = new Date(getServerTime());
+       var user = Meteor.user();
+
+
+       if (Roles.userIsInRole(user, ["Administrativo"])) {
+                return Eventos.find();
+       }else{
+         if(typeof dataAtual!=='undefined')
+              return Eventos.find({dtFim: { $gte:dataAtual}})
+          else
+            return;
+       }
+     },
+
   isSelected: function(parentPost){
     return parentPost && this._id == parentPost.eventoId ? 'selected' : '';
   }

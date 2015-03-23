@@ -56,11 +56,14 @@ Meteor.publish('usuarioEventos', function () {
  });
 
 Meteor.publish('solicitacoes', function() {
-    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-    var evento = Eventos.findOne(historico[0].eventoId);
     var user = Meteor.users.findOne(this.userId);
+    var usuarioEventos = UsuarioEventos.find({userId:this.userId})
+    var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
+
+
+
      if (Roles.userIsInRole(user, ["Administrativo", "Cadastro","VideoMonitoramento"])) {
-        return Solicitacoes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
+          return Solicitacoes.find({eventoId: {$in: eventoIds}})
      }
      this.stop();
    return;
@@ -91,9 +94,15 @@ Meteor.publish('protocoloAcao', function() {
 });
 
 Meteor.publish("eventos", function() {
-    var user = Meteor.users.findOne(this.userId)
-    if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
+    var user = Meteor.users.findOne(this.userId);
+    var usuarioEventos = UsuarioEventos.find({userId:this.userId})
+    var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
+   //console.log(eventoIds)
+    if (Roles.userIsInRole(user, ["Consulta","Administrativo"])) {
     return Eventos.find();
+    }else  if (Roles.userIsInRole(user, ["Cadastro","Videomonitoramento",])) {
+         return Eventos.find({_id: {$in: eventoIds}})
+
     }
      this.stop();
      return;
@@ -183,13 +192,14 @@ Meteor.publish('noticias', function() {
 
 
 Meteor.publish('incidentes', function() {
-      var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-      var evento = Eventos.findOne(historico[0].eventoId);
-      var user = Meteor.users.findOne(this.userId);
+    var user = Meteor.users.findOne(this.userId);
+    var usuarioEventos = UsuarioEventos.find({userId:this.userId})
+    var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
       if (Roles.userIsInRole(user, ["Cadastro"])) {
-         return Incidentes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}],bloqueio:false},{sort:{criacaoDt: -1}});
+           return Incidentes.find({bloqueio:false,eventoId: {$in: eventoIds}});
       }else if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
-         return Incidentes.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}],bloqueio:false},{sort:{criacaoDt: -1}});
+
+           return Incidentes.find({bloqueio:false},{sort:{criacaoDt: -1}});
       }
      this.stop();
      return;
@@ -227,3 +237,4 @@ Meteor.publish('protocolos', function() {
 
 
 });
+

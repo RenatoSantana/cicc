@@ -1,6 +1,14 @@
 <template name="selectValueCircuito">
 
-   <option  {{isSelected ..}}  value={{circuito._id}} >{{circuito.descricao}}</option>
+  <select id="cbCircuito" class="form-control" data-style="btn-success"  name="circuito">
+              <option value=""> Selecione </option>
+        {{#each circuitos}}
+
+              <option  {{isSelected ..}}  value={{_id}} >{{descricao}}</option>
+        {{/each}}
+
+
+  </select>
 
 
 

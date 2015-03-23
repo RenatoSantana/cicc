@@ -1,14 +1,14 @@
-<template name="incidente_dt"> 
-  {{#if currentUser}} 
+<template name="incidente_dt">
+  {{#if currentUser}}
     <!-- col -->
 	<div class="col-sm-2">
-  {{#if isInRole 'Administrativo'}} 
+  {{#if isInRole 'Administrativo'}}
      {{#if status}}
             <button id="btnFechar" style="margin-left:30px;margin-top:20px" class="btn btn-danger" href="javascript:void(0)">Fechar Incidente </button>
        {{else}}
              <button id="btnReabrir" style="margin-left:30px;margin-top:20px" class="btn btn-success" href="javascript:void(0)">Reabrir Incidente </button>
      {{/if}}
-      
+
        <button id="btnExcluir" style="margin-left:30px;margin-top:30px" class="btn btn-info" href="javascript:void(0)">Excluir Incidente </button>
 {{/if}}
 	</div>
@@ -22,30 +22,32 @@
 					<h4 class="margin-bottom-none padding-none">{{tituloIncidente}}
 					</h4>
         	<div class="innerAll">
-				
-				
+
+
 			   </div>
 					<span class="text-muted-dark">Enviado por <a href="">{{user.profile.nome}}</a> <i class="icon-time-clock fa fa-fw"></i> {{data}}</span>
-         
-               
-				</div>
-            <span  style="margin-left: 69px;" class="text-muted-dark"> Circuito: {{circuito.descricao}} - Trecho: {{trecho.descricao}}</span>
-			</div>
 
-    {{#if imagem}}    
-       
-            <div class="innerAll inner-2x">
-              <img  width="70%" height="70%"  id="foto-incidente"  src="{{imagem.url}}"/> 
+
+				</div>
+              {{#if circuito.descricao}}
+            <span  style="margin-left: 69px;" class="text-muted-dark"> Circuito: {{circuito.descricao}} - Trecho: {{trecho.descricao}}</span>
+			{{/if}}
             </div>
-      
+
+    {{#if imagem}}
+
+            <div class="innerAll inner-2x">
+              <img  width="70%" height="70%"  id="foto-incidente"  src="{{imagem.url}}"/>
+            </div>
+
     {{/if}}
 			<div class="innerAll inner-2x">
 				<p style="word-wrap: break-word;" >{{descricaoIncidente}}</p>
-				
-				
+
+
 			</div>
     {{#if status}}
-     {{#if isInRole 'Administrativo,Cadastro' }}	
+     {{#if isInRole 'Administrativo,Cadastro' }}
 			<div class="border-top border-bottom text-center innerAll bg-gray">
 				<a href="#write" data-toggle="collapse" class="btn btn-primary strong btn-sm collapsed">Ação <i class="icon-compose fa fa-fw"></i></a>
 			</div>
@@ -61,13 +63,13 @@
     {{/if}}
     {{/if}}
 
-			
-			
+
+
 			<div class="innerAll border-bottom tickets">
-				
-				
+
+
 			</div>
-			
+
 			 {{#each acoesOrgao}}
                       {{>acaoItem}}
        {{/each}}
@@ -77,7 +79,7 @@
     <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 
