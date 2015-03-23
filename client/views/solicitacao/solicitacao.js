@@ -30,7 +30,11 @@ Template.solicitacao_dt.helpers({
 
 logo: function(){
     var obj = Orgaos.findOne(this.orgaoId);
-    return Files.findOne(obj.fileId);
+    if(typeof obj !=='undefined' &&typeof obj.fileId !=='undefined')
+        return Files.findOne(obj.fileId);
+
+    return ''
+
   },
 
 
@@ -89,7 +93,8 @@ Template.solicitacao_cr.events({
     var properties = {
       assunto: $(e.target).find('#inputAssunto').val(),
       mensagem: $(e.target).find('#inputMensagem').val(),
-      orgaoDestinoId: $(e.target).find('#cbOrgao').val()
+      orgaoDestinoId: $(e.target).find('#cbOrgao').val(),
+      eventoId: $(e.target).find('#cbEvento').val(),
     }
 
     Meteor.call('solicitacao', properties, function(error, solicitacao) {
@@ -108,22 +113,4 @@ Template.solicitacao_cr.events({
 
 
     }
-});
-
-Template.solicitacao_cr.helpers({
-
-    desabilitaSubmit:function(){
-        var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch();
-        if(typeof historico[0] !=='undefined' && typeof historico[0].eventoId !== 'undefined'){
-            var evento =  Eventos.findOne(historico[0].eventoId);
-             var dataAtual = new Date();
-            if(evento.dtFim < dataAtual)
-              return false;
-            else
-              return true;
-       }
-       return false;
-  }
-
-
 });

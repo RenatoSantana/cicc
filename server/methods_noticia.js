@@ -7,20 +7,18 @@ Meteor.methods({
 
     if (!user)
       throw new Meteor.Error(401, "Você precisa está logado");
-      var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
 
-           var   noticiaObject = _.extend(_.pick(noticiaAttributes, 'titulo', 'texto', 'categoriaId','fonte','fileId','status'), {
+           var   noticiaObject = _.extend(_.pick(noticiaAttributes, 'titulo', 'texto', 'categoriaId','fonte','fileId','status','eventoId'), {
                 userId: user._id,
                 orgaoId: user.profile.orgaoId,
                 criacaoDt: new Date(),
-                bloqueio: false,
-                eventoId: null
+                bloqueio: false
+
 
 
               });
 
 
-    noticiaObject.eventoId=historico[0].eventoId;
     if (Roles.userIsInRole(user, ["Cadastro"])) {
         noticiaObject.status ='privada';
         noticiaObject.bloqueio= true;

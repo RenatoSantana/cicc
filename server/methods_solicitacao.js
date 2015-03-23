@@ -6,15 +6,15 @@ Meteor.methods({
 
     if (!user)
       throw new Meteor.Error(401, "Você precisa está logado");
-    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-    var solicitacaoObject = _.extend(_.pick(solicitacaoAttributes, 'assunto', 'mensagem','orgaoDestinoId'), {
+
+    var solicitacaoObject = _.extend(_.pick(solicitacaoAttributes, 'assunto', 'mensagem','orgaoDestinoId','eventoId'), {
       userId: user._id,
       orgaoId: user.profile.orgaoId,
       criacaoDt: new Date(),
-      eventoId:null
+
     });
 
-      solicitacaoObject.eventoId=historico[0].eventoId;
+
       if(solicitacaoObject!==null && typeof solicitacaoObject != 'undefined'){
           if(solicitacaoObject.orgaoDestinoId === ""){
              solicitacaoObject.orgaoDestinoId = null;

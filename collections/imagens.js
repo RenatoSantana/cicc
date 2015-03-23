@@ -25,11 +25,41 @@ objectSchema = {
     label: "Observação"
   //  max: 10000
    },
-    eventoId: {
-    type: String,
-    optional: true
 
+ eventoId: {
+    label: "Evento",
+    type: String,
+    optional: false,
+
+     autoform: {
+      type: "select",
+            options: function () {
+
+                 var dataAtual = new Date(getServerTime());
+                 var user = Meteor.user();
+                 var options = [];
+
+                 if (Roles.userIsInRole(user, ["Administrativo"])) {
+                         Eventos.find().forEach(function (element) {
+                    options.push({
+                        label: element.descricao, value: element._id
+                    })
+                });
+                 }else{
+                   if(typeof dataAtual!=='undefined'){
+
+                            Eventos.find({dtFim: { $gte:dataAtual}}).forEach(function (element) {
+                              options.push({
+                                  label: element.descricao, value: element._id
+                              })
+                          });
+                       }
+                 }
+                return options;
+            }
+        }
   },
+
 
   fileId: {
     type: String,

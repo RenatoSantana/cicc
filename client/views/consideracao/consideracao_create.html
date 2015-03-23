@@ -10,7 +10,7 @@
 
 	<!-- col -->
 	<div class="col-sm-8">
-{{#if desabilitaSubmit}}
+
         				<!-- Widget -->
 										<div class="widget widget-inverse" >
 
@@ -29,6 +29,7 @@
 
 
                                                     {{#autoForm collection="Consideracoes" id="consideracao_cr" type="insert"}}
+                                                     {{> afQuickField id="cbEvento" name='eventoId'}}
 
                                                       {{> afQuickField name='descricao' rows=6}}
 
@@ -67,9 +68,7 @@
 
                                         </div>
                                   </div>
-                                         {{else}}
-                                        {{>informacao}}
-    {{/if}}
+
 
 
    </div>

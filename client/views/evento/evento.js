@@ -94,7 +94,7 @@ Template.selectEvento.helpers({
           else
             return;
        }
-     },
+  },
 
   isSelected: function(parentPost){
     return parentPost && this._id == parentPost.eventoId ? 'selected' : '';
