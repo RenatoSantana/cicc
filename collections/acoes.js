@@ -7,27 +7,27 @@ objectSchema = {
     type: String,
     optional: true,
    },
-     
+
    descricao: {
     type: String,
     optional: false,
     label: "Descrição"
    },
 
-  
+
    userId: {
     type: String,
     optional: true
-    
-     
+
+
   },
-  
-  
+
+
    orgaoId: {
     label: "Orgão Responsável",
     type: String,
     optional: false,
-     
+
      autoform: {
       type: "select",
             options: function () {
@@ -41,10 +41,14 @@ objectSchema = {
             }
         }
   },
-  
-  
-  
-  
+
+  criacaoDt: {
+    type: Date,
+    optional: true
+  }
+
+
+
 }
 
 Schema.acao= new SimpleSchema(objectSchema);
