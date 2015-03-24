@@ -11,7 +11,7 @@ objectSchema = {
    orgao: {
     type: String,
     optional: false,
-    label: "Orgão :"
+    label: "Orgão/Setor:"
 
    },
    numero: {

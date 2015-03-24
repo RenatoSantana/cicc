@@ -53,3 +53,13 @@ Template.telefone_ed.helpers({
   },
 
 });
+Template.telefone_cr.rendered = function() {
+ $('input[name="numero"]').mask("(999) 9999-9999");
+
+}
+Template.telefone_ed.rendered = function() {
+ $('input[name="numero"]').mask("(999) 9999-9999");
+
+}
+
+//

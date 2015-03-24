@@ -1,5 +1,13 @@
 
 
+Template.user_cr.rendered = function() {
+ $('input[name="telefone"]').mask("(999) 9999-9999");
+
+}
+
+Template.user_ed.rendered = function() {
+ $('input[name="telefone"]').mask("(999) 9999-9999");
+}
 
 Template.trocar_senha.events({
       // event signup

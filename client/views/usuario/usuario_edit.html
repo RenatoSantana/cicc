@@ -1,9 +1,9 @@
 <template name="user_ed">
-  {{#if currentUser}} 
+  {{#if currentUser}}
   <!-- col -->
 	<div class="col-sm-2">
 
-		
+
 
 	</div>
 	<!-- // END col -->
@@ -19,22 +19,22 @@
 												<h4 class="heading">Editar Usuário</h4>
 											</div>
 											<!-- // Widget heading END -->
-											
+
 											<div class="widget-body">
-												
-											
-                                                
-                                                
+
+
+
+
                       <div class="innerLR">
 												<form id="usuario-form" class="form-horizontal" role="form">
-                                                        
+
                                  <div class="form-group">
                                         <label for="inputCpf" class="col-sm-2 control-label">CPF :</label>
                                  <div class="col-sm-3">
-                                       <input name="cpf" type="text" value="{{username}}" class="form-control" id="inputCpf" >
+                                       <input placeholder="Apenas números" name="cpf" type="text" value="{{username}}" class="form-control" id="inputCpf" >
                                  </div>
                      </div>
-                                                        
+
                      <div class="form-group">
                                 <label for="inputNome" class="col-sm-2 control-label">Nome :</label>
                                 <div class="col-sm-10">
@@ -46,36 +46,36 @@
                                 <div class="col-sm-10">
                                     <input name="email" type="text" value="{{email}}" class="form-control" id="inputEmail" >
                                </div>
-                    </div>                                                                   
+                    </div>
                      <div class="form-group">
                                <label for="inputTelefone" class="col-sm-2 control-label">Telefone :</label>
                                <div class="col-sm-3">
-                                 <input name="telefone" type="text" class="form-control" value="{{profile.telefone}}" id="inputTelefone" >
+                                 <input placeholder="Ex: (555) 5555-5555" name="telefone" type="text" class="form-control" value="{{profile.telefone}}" id="inputTelefone" >
                                </div>
                     </div>
-            
+
                     <div class="form-group">
                                <label  class="col-sm-2 control-label">Orgão :</label>
                                  <div class="col-sm-5">
-                                    {{> selectOrgao}}      
+                                    {{> selectOrgao}}
                                 </div>
                    </div>
-                                                        
+
                    <div class="form-group">
                              <label for="inputMensagem" class="col-sm-2 control-label">Grupo :</label>
                               <div class="col-sm-5">
                                   {{> selectGrupo}}
                              </div>
-                                
+
                  </div>
                 <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                  <button type="submit" class="btn btn-info">Atualizar</button>
-                               
+
                                  <button id="btnReset" type="submit" class="btn btn-danger pull-right">Resetar senha</button>
-                             
+
                             </div>
-                                                             
+
                  </div>
           </form>
        </div>
@@ -84,7 +84,7 @@
   </div>
   <div class="col-sm-1">
 
-		
+
 
 	</div>
 {{/if}}

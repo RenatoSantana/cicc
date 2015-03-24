@@ -27,10 +27,6 @@ Meteor.publish('eventoCircuitos', function () {
 
  });
 
- Meteor.publish('historicoEventos', function () {
-     return HistoricoEventos.find();
-
- });
 
 
  Meteor.publish('trechos', function () {
@@ -120,11 +116,10 @@ Meteor.publish('locais', function() {
      return;
 });
 Meteor.publish('respostas', function() {
-    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-    var evento = Eventos.findOne(historico[0].eventoId);
+
     var user = Meteor.users.findOne(this.userId);
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-      return Respostas.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
+      return Respostas.find();
     }
      this.stop();
      return;
@@ -140,11 +135,10 @@ Meteor.publish('acoes', function() {
 });
 
 Meteor.publish('acoesOrgao', function() {
-    var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-    var evento = Eventos.findOne(historico[0].eventoId);
+
     var user = Meteor.users.findOne(this.userId);
     if (Roles.userIsInRole(user, ["Cadastro","Consulta","Videomonitoramento","Administrativo"])) {
-      return AcoesOrgao.find({$or:[{eventoId:'ct4Pe4SNEbDPHqxyZ'} ,{criacaoDt: {$gt : evento.dtInicio, $lt:evento.dtFim}}]});
+      return AcoesOrgao.find();
     }
     this.stop();
      return;
@@ -177,7 +171,7 @@ Meteor.publish('noticias', function() {
      var user = Meteor.users.findOne(this.userId);
     var usuarioEventos = UsuarioEventos.find({userId:this.userId})
     var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
-     console.log(Noticias.find().fetch())
+ //    console.log(Noticias.find().fetch())
     if (Roles.userIsInRole(user, ["Administrativo"])) {
 
      //  return  Noticias.find({eventoId: {$in: eventoIds}});
