@@ -8,11 +8,11 @@ AutoForm.addHooks(
       saveOrgao: CfsAutoForm.Hooks.afterInsert
     },
      onSuccess: function(operation, result, template) {
-       
+
          Router.go("orgao");
      }
   });
-  
+
 AutoForm.addHooks(
   ["orgao_ed"],
   {
@@ -23,12 +23,12 @@ AutoForm.addHooks(
       updateOrgao: CfsAutoForm.Hooks.afterInsert
     },
      onSuccess: function(operation, result, template) {
-       
+
          Router.go("orgao");
      }
 });
-  
- 
+
+
 
 Template.orgao_cr.helpers({
  orgaoSchema: function() {
@@ -36,6 +36,19 @@ Template.orgao_cr.helpers({
   },
 });
 
+Template.orgao_cr.events({
+ 'click  input[type=file]' : function(e,tmp) {
+      $('input[type=file]').prop("accept","image/*")
+
+}
+  });
+
+Template.orgao_ed.events({
+ 'click  input[type=file]' : function(e,tmp) {
+      $('input[type=file]').prop("accept","image/*")
+
+    }
+});
 
 Template.orgao_ed.helpers({
   orgaoDoc: function() {
@@ -52,7 +65,7 @@ Template.orgao_ls.helpers({
         return Orgaos.find();
     }
 
-   
+
 });
 
 
@@ -60,7 +73,7 @@ Template.orgaoItem.helpers({
 
  imagem:function(){
           return Files.findOne({_id:this.fileId})
-  
+
   }
 
 })

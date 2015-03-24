@@ -386,6 +386,15 @@ Template.incidente_cr.events({
      }
 
 
+     if(typeof tmp.find('#fileinput').files[0]!= 'undefined'){
+
+
+      if(tmp.find('#fileinput').files[0].size >614400){
+         toastr.error("A imagem não pode ultrapassar o tamanho de 600 kb.")
+         return;
+       }
+     }
+
      Meteor.call('incidente', properties, function(error, incidente) {
                           if (error) {
                                      // display the error to the user
@@ -408,9 +417,12 @@ Template.incidente_cr.events({
    var protocolo  = t.find('#cbProtocolo').value;
    if(typeof protocolo != 'undefined'){
        var acoes = ProtocoloAcao.find({protocoloId:protocolo}).fetch();
-       if(acoes===null || acoes.length === 0){
-       toastr.error("", "Este protocolo não possui ações, verifique com o Admin");
-         $("#btnsave").attr('disabled', 'disabled');
+       if(acoes===null || acoes.length === 0 ){
+          toastr.error("", "Este protocolo não possui ações, verifique com o Admin");
+          if(Session.get("temCircuito")){
+              $("#btnsave").attr('disabled', 'disabled');
+          }
+
        }else{
          $("#btnsave").removeAttr('disabled');
        }
@@ -447,7 +459,9 @@ Template.incidente_cr.events({
        var trechos = Trechos.find({circuitoId:circuito}).fetch();
        if(trechos===null || trechos.length === 0){
 
-         $("#btnsave").attr('disabled', 'disabled');
+      if(Session.get("temCircuito")){
+              $("#btnsave").attr('disabled', 'disabled');
+          }
        }else{
          $("#btnsave").removeAttr('disabled');
        }
@@ -468,7 +482,9 @@ Template.incidente_cr.events({
        var circuitoIds = eventoCircuitos.map(function(p) { return p.circuitoId });
        if(circuitoIds===null || circuitoIds.length === 0){
 
-         $("#btnsave").attr('disabled', 'disabled');
+        if(Session.get("temCircuito")){
+              $("#btnsave").attr('disabled', 'disabled');
+          }
        }else{
          $("#btnsave").removeAttr('disabled');
           circuitos = Circuitos.find({_id: {$in: circuitoIds}}).fetch()

@@ -18,16 +18,16 @@ objectSchema = {
     type: String,
     optional: false,
     label: "Sigla"
- //   max: 15
+
 
    },
 
   criacaoDt: {
     type: Date,
-    optional: false
+    optional: true
   },
 
-  fileId: {
+   fileId: {
     type: String,
     label: "Foto",
     optional: true,

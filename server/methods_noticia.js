@@ -15,7 +15,6 @@ Meteor.methods({
                 bloqueio: false
 
 
-
               });
 
 
@@ -28,9 +27,7 @@ Meteor.methods({
     return noticiaObject;
   },
 
-
-
-   noticia_bloqueio:function (currentId){
+ noticia_bloqueio:function (currentId){
      var properties ={
        bloqueio:true,
        status :'privada'

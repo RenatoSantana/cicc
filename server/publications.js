@@ -75,7 +75,7 @@ Meteor.publish('consideracoes', function() {
     var usuarioEventos = UsuarioEventos.find({userId:this.userId})
     var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
      if (Roles.userIsInRole(user, ["Administrativo"])) {
-        console.log(Consideracoes.find({eventoId: {$in: eventoIds}}).fetch())
+     //   console.log(Consideracoes.find({eventoId: {$in: eventoIds}}).fetch())
         return Consideracoes.find({eventoId: {$in: eventoIds}});
      }else if(Roles.userIsInRole(user, ["Cadastro","VideoMonitoramento"])){
         return Consideracoes.find({userId:this.userId,eventoId: {$in: eventoIds}});
@@ -177,10 +177,11 @@ Meteor.publish('noticias', function() {
      var user = Meteor.users.findOne(this.userId);
     var usuarioEventos = UsuarioEventos.find({userId:this.userId})
     var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
-
+     console.log(Noticias.find().fetch())
     if (Roles.userIsInRole(user, ["Administrativo"])) {
 
-       return  Noticias.find({eventoId: {$in: eventoIds}});
+     //  return  Noticias.find({eventoId: {$in: eventoIds}});
+      return  Noticias.find();
     }else if (Roles.userIsInRole(user, ["Cadastro"])){
 	      return  Noticias.find({eventoId: {$in: eventoIds}});
     }else if(Roles.userIsInRole(user, ['Consulta','VideoMonitoramento'])){

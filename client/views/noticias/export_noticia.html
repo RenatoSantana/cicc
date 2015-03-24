@@ -10,7 +10,7 @@
 
 	<!-- col -->
 	<div class="col-sm-8">
-{{#if desabilitaSubmit}}
+
         				<!-- Widget -->
 										<div class="widget widget-inverse" >
 
@@ -26,8 +26,8 @@
 
 
                                                 <div class="innerLR">
-												                                                    {{#autoForm collection="Noticias" id="noticia_ex" doc=selectedNoticiaDoc                                                             schema=noticiaSchema type="method" meteormethod="saveNoticia"}}
-
+												      {{#autoForm collection="Noticias" id="noticia_ex" doc=selectedNoticiaDoc   schema=noticiaSchema type="method" meteormethod="saveNoticia"}}
+                                                     {{> afQuickField id="cbEvento" name='eventoId'}}
                                                       {{> afQuickField name='titulo'}}
 
                                                       {{> afQuickField name='texto' rows=6}}
@@ -48,9 +48,6 @@
 
                                             </div>
                                         </div>
-                                         {{else}}
-                                        {{>informacao}}
-    {{/if}}
 
     </div>
 
