@@ -200,7 +200,10 @@ Meteor.publish('incidentes', function() {
     var usuarioEventos = UsuarioEventos.find({userId:this.userId})
     var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
       if (Roles.userIsInRole(user, ["Cadastro"])) {
-           return Incidentes.find({bloqueio:false,eventoId: {$in: eventoIds}});
+
+        var incidentesOrgaos = IncidentesOrgaos.find({orgaoId:user.profile.orgaoId})
+        var incidenteIds = incidentesOrgaos.map(function(p) { return p.incidenteId });
+        return Incidentes.find({   $or: [ {bloqueio:false,_id: {$in: incidenteIds},eventoId: {$in: eventoIds}},{bloqueio:false,temProtocolo:false,eventoId: {$in: eventoIds}}]});
       }else if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
 
            return Incidentes.find({bloqueio:false},{sort:{criacaoDt: -1}});

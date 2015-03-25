@@ -58,10 +58,11 @@ Meteor.methods({
       }
 
      if(incidenteObject._id!==null && typeof incidenteObject._id != 'undefined'){
+       IncidentesOrgaos.insert({ incidenteId: incidenteObject._id, orgaoId: user.profile.orgaoId })
 
         if(acoes != null && typeof acoes != 'undefined' && acoes.length > 0){
              acoes.forEach(function(obj) {
-                console.log("incidente -" +incidenteObject._id +" Orgão "+ obj.orgaoId)
+
                 IncidentesOrgaos.insert({ incidenteId: incidenteObject._id, orgaoId: obj.orgaoId })
 
              });
