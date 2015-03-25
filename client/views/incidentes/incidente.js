@@ -354,8 +354,14 @@ Template.incidente_cr.events({
       tituloIncidente:$(e.target).find('#inputTitulo').val(),
       descricaoIncidente: $(e.target).find('#inputDescricao').val(),
       dataDoFato: $(e.target).find('#dataFato').val(),
-      fileId: null
+      fileId: null,
+      temProtocolo:false
 
+    }
+    var acoes = [];
+    if(Session.get("associaProtocolo")){
+      properties.temProtocolo=true;
+      acoes= Session.get('acoes_padrao');
     }
 
     if(Session.get("temCircuito")){
@@ -395,7 +401,7 @@ Template.incidente_cr.events({
        }
      }
 
-     Meteor.call('incidente', properties, function(error, incidente) {
+     Meteor.call('incidente', properties,acoes ,function(error, incidente) {
                           if (error) {
                                      // display the error to the user
                              $("#btnsave").removeAttr('disabled');
@@ -416,7 +422,7 @@ Template.incidente_cr.events({
 
    var protocolo  = t.find('#cbProtocolo').value;
 
-   if(typeof protocolo != 'undefined' && protocolo != 'undefined'){
+   if(typeof protocolo != "" && protocolo != 'undefined'){
        var protocoloAcoes = ProtocoloAcao.find({protocoloId:protocolo});
        var acaoIds = protocoloAcoes.map(function(p) { return p.acaoId });
        var acoes = Acoes.find({_id: {$in: acaoIds}}).fetch();

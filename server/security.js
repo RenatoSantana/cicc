@@ -28,6 +28,18 @@ Noticias.allow({
 
 });
 
+IncidentesOrgaos.allow({
+  insert: function () {
+    return true;
+  },
+  update: function () {
+      return false;
+    },
+  remove: function () {
+    return false;
+  }
+});
+
 Orgaos.allow({
   insert: function () {
     return true;

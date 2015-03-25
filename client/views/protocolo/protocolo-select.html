@@ -1,7 +1,7 @@
 <template name="selectProtocolo">
 
-  <select name="protocolo" id="cbProtocolo" class="form-control" data-style="btn-success">
-              <option value="undefined"> Selecione </option>
+  <select name="protocolo" id="cbProtocolo" class="form-control" data-style="btn-success" required>
+              <option value=""> Selecione </option>
         {{#each protocolos}}
 
               <option  {{isSelected ..}}  value={{_id}} >{{descricao}}</option>

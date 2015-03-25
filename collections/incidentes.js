@@ -3,7 +3,7 @@ objectSchema = {
     type: String,
     optional: true,
    },
-   
+
    tituloIncidente: {
     type: String,
     optional: false,
@@ -16,7 +16,7 @@ objectSchema = {
     label: "Descrição"
  //   max: 10000
    },
-  
+
   dataDoFato: {
     type: Date,
     optional: false
@@ -25,25 +25,25 @@ objectSchema = {
     type: Date,
     optional: false
   },
-   
+
    eventoId: {
     type: String,
     optional: false,
     label:"Evento"
   },
-   
+
   trechoId: {
     type: String,
     optional: false,
     label:"Trecho"
   },
-   
+
     circuitoId: {
     type: String,
     optional: false,
     label:"Circuito"
   },
-   
+
     protocoloId: {
     type: String,
     optional: true,
@@ -54,32 +54,30 @@ objectSchema = {
     type: String,
     optional: false
   },
-  
+
    orgaoId: {
     type: String,
     optional: false
   },
-  
- /* orgaos: {
-    type: [String],
-    optional: false
-  },*/
-   
    fileId: {
     type: String,
     optional: true
   },
-  
+
   status: {
     type: String,
     optional: false
   },
-     bloqueio: {
+  bloqueio: {
     type: Boolean,
     optional: false
   },
-  
-  
+
+  temProtocolo: {
+    type: Boolean,
+    optional: false
+  },
+
 }
 
 
@@ -91,13 +89,13 @@ Incidentes.attachSchema(IncidenteSchema);
 
 
 EasySearch.createSearchIndex('incidentes', {
-    'field' : ['tituloIncidente','descricaoIncidente'],  
-    'collection' : Incidentes,          
-    'limit' : 50 ,          
+    'field' : ['tituloIncidente','descricaoIncidente'],
+    'collection' : Incidentes,
+    'limit' : 50 ,
     'use' : 'minimongo'
 });
-        
 
-        
+
+
 
 

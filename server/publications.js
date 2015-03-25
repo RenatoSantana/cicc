@@ -17,6 +17,12 @@ Meteor.publish("users", function () {
 });
 
 
+Meteor.publish('incidentesOrgaos', function () {
+     return IncidentesOrgaos.find();
+
+ });
+
+
 Meteor.publish('eventoCircuitos', function () {
      return EventoCircuitos.find();
 
