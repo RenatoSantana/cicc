@@ -39,6 +39,7 @@ Template.box.events({
    "click #imagens":function (e){
       e.preventDefault();
            Session.set("resultImageOk", false);
+             Session.set("associaProtocolo",false);
            Router.go("imagem");
     },
 
@@ -46,24 +47,28 @@ Template.box.events({
     "click #noticias":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
+             Session.set("associaProtocolo",false);
            Router.go("noticia");
     },
 
       "click #noticias2":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
+             Session.set("associaProtocolo",false);
            Router.go("noticia");
     },
 
     "click #incidentes":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
+             Session.set("associaProtocolo",false);
            Router.go("incidentes");
     },
 
       "click #incidentes2":function (e){
       e.preventDefault();
            Session.set("resultNoticiaOk", false)
+             Session.set("associaProtocolo",false);
            Router.go("incidentes");
     },
 
@@ -73,12 +78,14 @@ Template.box.events({
           Session.set("noticias", Noticias.find({},{sort: {criacaoDt: -1}}).fetch());
           Session.set("incidentes",Incidentes.find({},{sort: {criacaoDt: -1}}).fetch());
           Session.set("consideracoes",Consideracoes.find({},{sort: {criacaoDt: -1}}).fetch());
+            Session.set("associaProtocolo",false);
           Router.go("relatorio");
     },
 
       "click #relatorioOrgao":function (e){
           e.preventDefault();
           var user = Meteor.userId();
+          Session.set("associaProtocolo",false);
           Session.set("noticias",  Noticias.find({userId:user},{sort: {criacaoDt: -1}}).fetch());
           Session.set("incidentes",Incidentes.find({userId:user},{sort: {criacaoDt: -1}}).fetch());
           Session.set("consideracoes", Consideracoes.find({userId:user},{sort: {criacaoDt: -1}}).fetch());

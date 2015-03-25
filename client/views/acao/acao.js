@@ -180,3 +180,18 @@ Template.protocoloAcaoItem.events({
 
 });
 
+Template.acaoIncidenteView.helpers({
+
+ logo: function(){
+    var obj = Orgaos.findOne(this.orgaoId);
+    return Files.findOne(obj.fileId);
+  },
+
+  descricao:function(){
+    return this.descricao;
+  }
+
+
+
+
+})

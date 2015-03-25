@@ -54,11 +54,14 @@ Template.telefone_ed.helpers({
 
 });
 Template.telefone_cr.rendered = function() {
- $('input[name="numero"]').mask("(999) 9999-9999");
+ //$('input[name="numero"]').mask("(999) 9999-9999");
+$('input[name="numero"]').mask("(00) 0000-00009");
+//$('input[name="numero"]').attr("pattern", "\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}");
+
 
 }
 Template.telefone_ed.rendered = function() {
- $('input[name="numero"]').mask("(999) 9999-9999");
+ $('input[name="numero"]').mask("(00) 0000-00009");
 
 }
 

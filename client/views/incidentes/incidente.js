@@ -9,8 +9,7 @@ Deps.autorun(function(){
         Meteor.subscribe("eventoCircuitos")
         Meteor.subscribe("eventos")
         Session.set("resultOk",false);
-
-
+        Session.set("associaProtocolo",false);
 
     }
 });
@@ -18,7 +17,9 @@ Deps.autorun(function(){
 Meteor.startup(function () {
 
        Session.set("resultOk",false);
+       Session.set("associaProtocolo",false);
        Session.set('circuitos',null);
+
 
 
 
@@ -141,11 +142,7 @@ Template.incidente_cr.helpers({
    orgao: function(){
     return Orgaos.findOne(this.orgaoId);
   },
-
-
-
-
-   temCircuito:function(){
+  temCircuito:function(){
          if(Session.get('circuitos')!==null){
             if(Session.get('circuitos').length >0)
               return true;
@@ -153,10 +150,12 @@ Template.incidente_cr.helpers({
            return false;
          }
 
+   },
+   associaProtocolo:function(){
+      return Session.get("associaProtocolo");
+   },
 
 
-
-   }
 
 
 
@@ -227,12 +226,13 @@ Template.incidente_dt.helpers({
       return true;
   },
 
-   imagem:function(){
+  imagem:function(){
 
           return Files.findOne({_id:this.fileId})
 
 
   }
+
 
 
 
@@ -415,8 +415,11 @@ Template.incidente_cr.events({
   'change #cbProtocolo': function(e,t){
 
    var protocolo  = t.find('#cbProtocolo').value;
-   if(typeof protocolo != 'undefined'){
-       var acoes = ProtocoloAcao.find({protocoloId:protocolo}).fetch();
+
+   if(typeof protocolo != 'undefined' && protocolo != 'undefined'){
+       var protocoloAcoes = ProtocoloAcao.find({protocoloId:protocolo});
+       var acaoIds = protocoloAcoes.map(function(p) { return p.acaoId });
+       var acoes = Acoes.find({_id: {$in: acaoIds}}).fetch();
        if(acoes===null || acoes.length === 0 ){
           toastr.error("", "Este protocolo não possui ações, verifique com o Admin");
           if(Session.get("temCircuito")){
@@ -455,7 +458,7 @@ Template.incidente_cr.events({
     'change #cbCircuito': function(e,t){
 
    var circuito  = t.find('#cbCircuito').value;
-   if(typeof circuito != 'undefined'){
+   if(typeof circuito != 'undefined'  ){
        var trechos = Trechos.find({circuitoId:circuito}).fetch();
        if(trechos===null || trechos.length === 0){
 
@@ -496,5 +499,17 @@ Template.incidente_cr.events({
    }else{
        Session.set('circuitos',null);
    }
-  }
+  },
+
+
+    "change input:radio[name ='status']": function(e,t){
+
+
+      var status = $("input:radio[name ='status']:checked").val();
+
+      if(status === 'sim')
+        Session.set("associaProtocolo",true);
+      else
+         Session.set("associaProtocolo",false);
+    }
 });
