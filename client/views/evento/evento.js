@@ -90,7 +90,7 @@ Template.selectEvento.helpers({
                 return Eventos.find();
        }else{
          if(typeof dataAtual!=='undefined')
-              return Eventos.find({dtFim: { $gte:dataAtual}})
+              return Eventos.find({$or:[{dtFim: { $gte:dataAtual}},{_id:"ct4Pe4SNEbDPHqxyZ"}]})
           else
             return;
        }

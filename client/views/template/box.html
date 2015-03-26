@@ -6,9 +6,9 @@
 		<div class="col-separator box col-separator-first reset-components">
 			<div class="bg-white">
 				<div class="profile-avatar">
-          
+
 					<div class="text-center">
-              {{#if currentUser.profile.image}} 
+              {{#if currentUser.profile.image}}
                   <img class="img-responsive img-clean" src="{{user.profile.image}}"/>
                 {{else}}
                   <img class="img-responsive img-clean" src="/assets/images/default_profile.jpg"/>
@@ -17,53 +17,58 @@
               <div class="btn-avatar btn-group btn-group-xs">
                 <a href="#" id="btn-avatar" class="btn"><i class="fa fa-cog"></i></a>
             </div>
-         
-					
+
+
 					</div>
 				</div>
 
 				<div class="innerAll">
           <h4><i class="text-success"></i> <center> {{user.profile.nome}} </center></h4>
-         
+
 				</div>
 
 				<div class="innerLR innerB center">
 					<div class="btn-group-vertical display-block margin-none">
-						
+
             <a href="#" class="btn btn-default"><i></i> <b>{{orgao.sigla}}</b></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-separator-h box"></div>
-		
+
 <ul class="list-group list-group-1 margin-none">
 
 	<li class="list-group-item border-top-none active"><a href="{{pathFor 'noticia'}}"><i class="fa fa-home"></i> Home</a></li>
- {{#if isInRole 'Administrativo,Cadastro' }}	
+ {{#if isInRole 'Administrativo,Cadastro' }}
   <li class="list-group-item"><a href="{{pathFor 'incid_pnd'}}"><i class="fa fa-flash"></i> Atividades</a></li>
   <li class="list-group-item"><a id="noticias" href="{{pathFor 'noticia'}}"><i class="fa fa-plus"></i>Notícias</a></li>
   <li class="list-group-item"><a id="incidentes" href="{{pathFor 'incidentes'}}"><i class="fa fa-flash"></i> Incidentes</a></li>
 	<li class="list-group-item"><a href="{{pathFor 'solicitacao'}}"><i class="fa fa-envelope"></i>Solicitações</a>
  </li>
 {{/if}}
-  {{#if isInRole 'Administrativo,Cadastro,VideoMonitoramento' }}	
+  {{#if isInRole 'Administrativo,Cadastro' }}
  <li class="list-group-item"><a href="{{pathFor 'consideracao'}}"><i class="fa fa-pencil"></i>Considerações</a>
- </li> 
-   {{/if}}
-  {{#if isInRole 'Consulta,Videomonitoramento' }} 
-    <li class="list-group-item"><a id="noticias2" href="{{pathFor 'noticia'}}"><i class="fa fa-plus"></i>Notícias</a></li>
-	  
-  {{/if}}
-  
-  {{#if isInRole 'Videomonitoramento' }} 
-   	<li class="list-group-item"><a href="{{pathFor 'solicitacao'}}"><i class="fa fa-envelope">       </i>Solicitações</a>
  </li>
+   {{/if}}
+  {{#if isInRole 'Consulta,Videomonitoramento' }}
+    <li class="list-group-item"><a id="noticias2" href="{{pathFor 'noticia'}}"><i class="fa fa-plus"></i>Notícias</a></li>
+
   {{/if}}
+
+
+
  {{#if isInRole 'Administrativo,Videomonitoramento'}}
- 
+
   <li class="list-group-item"><a id="imagens"  href="{{pathFor 'imagem'}}"><i class="fa fa-camera"></i>Video</a></li>
  {{/if}}
-    {{#if isInRole 'Consulta' }} 
+
+ {{#if isInRole 'Videomonitoramento' }}
+    <li class="list-group-item"><a href="{{pathFor 'consideracao'}}"><i class="fa fa-pencil"></i>Considerações</a>
+ </li>
+
+  {{/if}}
+
+    {{#if isInRole 'Consulta' }}
      <li class="list-group-item"><a id="incidentes2" href="{{pathFor 'incidentes'}}"><i class="fa fa-flash"></i> Incidentes</a></li>
    {{/if}}
     {{#if isInRole 'Cadastro'}}
@@ -72,7 +77,7 @@
  {{#if isInRole 'Administrativo'}}
   <li class="list-group-item"><a id="relatorio" href="{{pathFor 'relatorio'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
   <li class="list-group-item"><a href="{{pathFor 'mgr'}}"><i class="fa fa-cog"></i> Gerenciar</a></li>
-  
+
   {{/if}}
   <li class="list-group-item"><a href="{{pathFor 'trocarpw'}}"><i class="fa fa-user"></i> Trocar Senha</a></li>
   <li class="list-group-item"><a href="{{pathFor 'telefone'}}"><i class="fa fa-phone"></i> Telefones</a></li>
@@ -81,12 +86,12 @@
 
 
 			<div class="col-separator-h box"></div>
-			
 
 
-			
+
+
 		</div>
 		<!-- // END col-separator.box -->
 
-	</div> 
+	</div>
 </template>

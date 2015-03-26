@@ -9,7 +9,7 @@ Meteor.methods({
 
 
 
-    var incidenteObject = _.extend(_.pick(incidenteAttributes, 'eventoId', 'circuitoId','trechoId','tituloIncidente','descricaoIncidente','fileId','dataDoFato','temProtocolo'), {
+    var incidenteObject = _.extend(_.pick(incidenteAttributes, 'eventoId', 'circuitoId','trechoId','tituloIncidente','descricaoIncidente','fileId','dataDoFato','temProtocolo','protocoloId'), {
       userId: user._id,
       orgaoId: user.profile.orgaoId,
       status :"aberta",

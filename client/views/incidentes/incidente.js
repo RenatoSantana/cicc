@@ -106,12 +106,6 @@ Template.incidente_ls.helpers({
       Session.set("resultOk",false);
       return   Session.get("incidentes")
    }else{
-           /* var user= Meteor.user();
-            if (Roles.userIsInRole(user, ["Cadastro"])) {
-                 return  Incidentes.find({},{sort:{criacaoDt: -1}});
-            }else   if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
-                  return  Incidentes.find({},{sort:{criacaoDt: -1}});
-            }*/
 
      return  Incidentes.find({},{sort:{criacaoDt: -1}});
      }
@@ -194,7 +188,7 @@ Template.incidenteItem.helpers({
 
 
 Template.incidente_dt.helpers({
-    user: function() {
+ user: function() {
         return Meteor.users.findOne(this.userId);
     },
 
@@ -214,7 +208,7 @@ Template.incidente_dt.helpers({
   },
   logo: function(){
     var obj = Orgaos.findOne(this.orgaoId);
-     if(obj !==null &&obj.fileId!==null)
+     if(typeof obj != 'undefined' && typeof obj.fileId != 'undefined' && obj !==null &&obj.fileId!==null)
            return Files.findOne(obj.fileId);
      return "";
   },
@@ -227,13 +221,23 @@ Template.incidente_dt.helpers({
   },
 
   imagem:function(){
-
+      if(typeof this.fileId != 'undefined')
           return Files.findOne({_id:this.fileId})
+      else
+         return "";
 
 
+  },
+
+  acoes:function(){
+         var protocoloAcoes = ProtocoloAcao.find({protocoloId:this.protocoloId});
+         var acaoIds = protocoloAcoes.map(function(p) { return p.acaoId });
+         var acoes = Acoes.find({_id: {$in: acaoIds}});
+         if(acoes!=null && acoes.count() > 0)
+              return acoes;
+        else
+              return false;
   }
-
-
 
 
 
@@ -355,12 +359,14 @@ Template.incidente_cr.events({
       descricaoIncidente: $(e.target).find('#inputDescricao').val(),
       dataDoFato: $(e.target).find('#dataFato').val(),
       fileId: null,
-      temProtocolo:false
+      temProtocolo:false,
+      protocoloId:null
 
     }
     var acoes = [];
     if(Session.get("associaProtocolo")){
       properties.temProtocolo=true;
+      properties.protocoloId =$(e.target).find('#cbProtocolo').val();
       acoes= Session.get('acoes_padrao');
     }
 

@@ -40,12 +40,8 @@ Template.imagem_ls.helpers({
     },
     isResultImagem:function(){
         return Session.get("resultImageOk");
-    },
-   evento:function(){
-     var historico = HistoricoEventos.find({},{limit:1,sort: {criacaoDt: -1}}).fetch()
-
-      return Eventos.findOne(historico[0].eventoId)
     }
+
 
 
 

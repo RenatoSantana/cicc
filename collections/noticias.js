@@ -60,7 +60,7 @@ objectSchema = {
                  }else{
                    if(typeof dataAtual!=='undefined'){
 
-                            Eventos.find({dtFim: { $gte:dataAtual}}).forEach(function (element) {
+                          Eventos.find({$or:[{dtFim: { $gte:dataAtual}},{_id:"ct4Pe4SNEbDPHqxyZ"}]}).forEach(function (element) {
                               options.push({
                                   label: element.descricao, value: element._id
                               })

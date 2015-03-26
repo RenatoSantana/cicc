@@ -64,7 +64,7 @@ Meteor.publish('solicitacoes', function() {
 
 
 
-     if (Roles.userIsInRole(user, ["Administrativo", "Cadastro","VideoMonitoramento"])) {
+     if (Roles.userIsInRole(user, ["Administrativo", "Cadastro","Videomonitoramento"])) {
 
           return Solicitacoes.find({eventoId: {$in: eventoIds}})
      }
@@ -79,7 +79,7 @@ Meteor.publish('consideracoes', function() {
      if (Roles.userIsInRole(user, ["Administrativo"])) {
      //   console.log(Consideracoes.find({eventoId: {$in: eventoIds}}).fetch())
         return Consideracoes.find({eventoId: {$in: eventoIds}});
-     }else if(Roles.userIsInRole(user, ["Cadastro","VideoMonitoramento"])){
+     }else if(Roles.userIsInRole(user, ["Cadastro","Videomonitoramento"])){
         return Consideracoes.find({userId:this.userId,eventoId: {$in: eventoIds}});
      }
      this.stop();
@@ -177,15 +177,14 @@ Meteor.publish('noticias', function() {
      var user = Meteor.users.findOne(this.userId);
     var usuarioEventos = UsuarioEventos.find({userId:this.userId})
     var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
- //    console.log(Noticias.find().fetch())
-    if (Roles.userIsInRole(user, ["Administrativo"])) {
 
-     //  return  Noticias.find({eventoId: {$in: eventoIds}});
+    if (Roles.userIsInRole(user, ["Administrativo"])) {
       return  Noticias.find();
-    }else if (Roles.userIsInRole(user, ["Cadastro"])){
+    }
+    else if (Roles.userIsInRole(user, ["Cadastro"])){
 	      return  Noticias.find({eventoId: {$in: eventoIds}});
-    }else if(Roles.userIsInRole(user, ['Consulta','VideoMonitoramento'])){
-        return Noticias.find({bloqueio:false,eventoId: {$in: eventoIds}});
+    }else if(Roles.userIsInRole(user, ['Videomonitoramento',"Consulta"])){
+        return Noticias.find({bloqueio:false});
     }else{
 
        return Noticias.find({bloqueio:false,status:"publica"});
@@ -203,6 +202,9 @@ Meteor.publish('incidentes', function() {
 
         var incidentesOrgaos = IncidentesOrgaos.find({orgaoId:user.profile.orgaoId})
         var incidenteIds = incidentesOrgaos.map(function(p) { return p.incidenteId });
+
+          //   return Incidentes.find({bloqueio:false},{sort:{criacaoDt: -1}});
+
         return Incidentes.find({   $or: [ {bloqueio:false,_id: {$in: incidenteIds},eventoId: {$in: eventoIds}},{bloqueio:false,temProtocolo:false,eventoId: {$in: eventoIds}}]});
       }else if (Roles.userIsInRole(user, ["Administrativo","Consulta"])) {
 
