@@ -1,0 +1,351 @@
+<template name="produtividade_view">
+  {{#if currentUser}}
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+                        <!-- Widget -->
+                                        <div class="widget widget-inverse" >
+
+                                            <!-- Widget heading -->
+                                            <div class="widget-head">
+                                                <h4 class="heading">Produtividade do orgão - {{orgao.descricao}}</h4>
+                                            </div>
+                                            <!-- // Widget heading END -->
+
+                                            <div class="widget-body">
+
+
+
+
+                                                <div class="innerLR">
+                                                                                                 <table class="table table-bordered">
+  <thead>
+   <tr>
+       </tr>
+  </thead>
+  <tbody>
+
+   <tr>
+      <td><b>Evento do Plantão</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{evento.descricao}}</span>
+      </td>
+
+    </tr>
+
+   <tr>
+      <td><b>Data do Plantão</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{data}}</span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><b>Turno do Plantão</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{turno}}</span>
+      </td>
+
+    </tr>
+
+    </tbody>
+    </table>
+
+
+                                                 <table class="table table-bordered">
+  <thead>
+   <tr>
+        <th></th>
+
+        <th>Quantidade</th>
+      </tr>
+  </thead>
+  <tbody>
+   <tr>
+      <td><b>Efetivo do Orgão</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{efetivo}}</span>
+      </td>
+
+    </tr>
+
+
+     <tr>
+      <td><b>Barreiras ou Bloqueio Policiais - Locais (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{local}}</span>
+      </td>
+
+    </tr>
+
+     <tr>
+      <td><b>Veículos furtados/Veículos roubados recuperados   (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{veiculoFurtadoRoubado}}</span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><b>Abordagem de Pessoas (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{abordagemPessoa}}</span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><b>Abordagem de Embarcações (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{abordagemEmbarcacao}}</span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><b>Abordagem de Carros (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{abordagemCarro}}</span>
+      </td>
+
+    </tr>
+
+     <tr>
+      <td><b>Abordagem de Motos (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{abordagemMoto}}</span>
+      </td>
+
+    </tr>
+
+
+
+     <tr>
+      <td><b>Abordagem de Ônibus (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{abordagemOnibus}}</span>
+      </td>
+
+    </tr>
+
+
+     <tr>
+      <td><b>Abordagem de Caminhões (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{abordagemCaminhao}}</span>
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td><b>Apreensão de Maconha (Kg)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoMaconha}}</span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><b>Apreensão de Crack (Kg)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoCrack}}</span>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><b>Apreensão de Drogas Sintéticas (Kg)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoDrogaSintetica}}</span>
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td><b>Apreensão de Drogas Sintéticas (Kg)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoDrogaSintetica}}</span>
+      </td>
+
+    </tr>
+
+     <tr>
+      <td><b>Pessoas Presas em Flagrantes (Maiores)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{pessoasPresasEmFlagrantes}}</span>
+      </td>
+
+    </tr>
+
+   <tr>
+      <td><b>Pessoas Aprenedidas em Flagrantes (Menores)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{pessoasApreendidasEmFlagrantes}}</span>
+      </td>
+
+    </tr>
+
+ <tr>
+      <td><b>Pessoas Presas Por Mandado (Maiores)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{pessoasPresasPorMandado}}</span>
+      </td>
+
+    </tr>
+
+
+   <tr>
+      <td><b>Apreensão de Armas de Fogo (Unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoArmaDeFogo}}</span>
+      </td>
+
+    </tr>
+
+  <tr>
+      <td><b>Apreensão de Munições (Unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoMunicao}}</span>
+      </td>
+
+    </tr>
+
+
+ <tr>
+      <td><b>Apreensão de Explosivos (Kg)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoExplosivo}}</span>
+      </td>
+
+    </tr>
+  <tr>
+      <td><b>Apreensão de Veículos (Unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoVeiculo}}</span>
+      </td>
+
+    </tr>
+  <tr>
+      <td><b>Apreensão de Medicamentos (caixa)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoMedicamento}}</span>
+      </td>
+
+    </tr>
+
+  <tr>
+      <td><b>Apreensão de Eletrônicos (unid)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoEletronico}}</span>
+      </td>
+
+    </tr>
+
+      <tr>
+      <td><b>Apreensão de Agrotóxicos (Kg)</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoAgrotoxico}}</span>
+      </td>
+
+    </tr>
+
+  <tr>
+      <td><b>Apreensão de cigarros (maço) </b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{apreensaoCigarro}}</span>
+      </td>
+
+    </tr>
+
+
+    <tr>
+      <td><b>Auto Prisão Flagrante (Unidade) </b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{autoPrisaoFlagrante}}</span>
+      </td>
+
+    </tr>
+
+     <tr>
+      <td><b>Mandados Busca e Apreensão (Unidade) </b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{mandadoBuscaEApreensao}}</span>
+      </td>
+
+    </tr>
+
+
+     <tr>
+      <td><b>Mandados de Prisão (Unidade) </b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{mandadoDePrisao}}</span>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+    </div>
+
+
+
+
+
+    <!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+{{/if}}
+</template>

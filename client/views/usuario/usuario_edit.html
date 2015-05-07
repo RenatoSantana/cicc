@@ -72,6 +72,16 @@
                             <div class="col-sm-offset-2 col-sm-10">
                                  <button type="submit" class="btn btn-info">Atualizar</button>
 
+                                 <div class="checkbox pull-right" style="margin-top: -50px;">
+                                      {{#if statusProdutividade}}
+
+                                           <input id="produtividade" type="checkbox" name="produtividade" checked><b>Produtividade </b>
+                                       {{else}}
+                                            <input id="produtividade" type="checkbox" name="produtividade" ><b>Produtividade </b>
+
+                                      {{/if}}
+                                 </div>
+
                                  <button id="btnReset" type="submit" class="btn btn-danger pull-right">Resetar senha</button>
 
                             </div>

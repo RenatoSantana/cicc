@@ -83,7 +83,26 @@ reset_paswd:function(currentUserId,obj){
        Meteor.users.update({ _id: { $nin: [ 'Nm89y34kDocHSe4fo'] } },{ $set: {
         "services.password": 'd46232e93bd7cf32466a48f539369223bb040a04',//mudar isso aqui, vai dar erro
        "profile.status": false }},{multi:true})
-    }
+    },
 
+
+
+
+ativar_produtividade:function(currentUserId){
+
+           Meteor.users.update(currentUserId, {$set: {"profile.produtividade": true}})
+
+
+
+},
+
+
+desativar_produtividade:function(currentUserId){
+
+           Meteor.users.update(currentUserId, {$set: {"profile.produtividade": false}})
+
+
+
+}
 
 });

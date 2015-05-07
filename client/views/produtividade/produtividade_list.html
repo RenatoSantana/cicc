@@ -1,0 +1,89 @@
+<template name="produtividade_ls">
+  {{#if currentUser}}
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+
+    <div class="col-separator box col-separator-first col-unscrollable">
+            <div class="col-table">
+        <div class="innerAll">
+                 {{#if isInRole 'Administrativo,Cadastro' }}
+                    {{#if desabilitaProdutividade}}
+                         <a href="{{pathFor 'new_produtividade'}}" class="btn btn-xs pull-right btn-primary"><i class="fa fa-plus fa-fw"></i> Nova Produtividade</a>
+
+                    {{/if}}
+
+                  {{/if}}
+                    <h4 class="margin-none">Produtividades  </h4>
+                    <div class="clearfix"></div>
+               <div class="bg-gray border-bottom innerAll" style="margin-top: 10px;">
+                                <div class="input-group input-group-sm">
+                                   <div class="input-group-btn">
+                                         <label class="control-label" >Evento :</label>
+
+                                    </div>
+                                        <div style="width: 600px; margin-left: 15px;">
+                                                   {{> selectEvento}}
+                                        </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-table-row">
+                    <div class="col-app col-unscrollable">
+                        <div class="col-app">
+
+                                <div class="col-separator-h box"></div>
+                            <div  class="border-bottom">
+
+     <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 100px;">Turno</th>
+            <th>Data</th>
+            <th style="width: 100px;">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+            {{#each produtividades}}
+              {{ > produtividadeItem}}
+            {{/each}}
+
+
+    </tbody>
+</table>
+</div>
+     </div>
+
+   </div>
+  </div>
+          </div>
+
+       </div>
+     </div>
+
+   </div>
+
+
+
+
+    <!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+{{/if}}
+</template>

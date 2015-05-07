@@ -46,6 +46,10 @@
 	<li class="list-group-item"><a href="{{pathFor 'solicitacao'}}"><i class="fa fa-envelope"></i>Solicitações</a>
  </li>
 {{/if}}
+
+ {{#if user.profile.produtividade}}
+    <li class="list-group-item"><a href="{{pathFor 'produtividade'}}"><i class="fa fa-list-ul"></i>Produtividade</a></li>
+{{/if}}
   {{#if isInRole 'Administrativo,Cadastro' }}
  <li class="list-group-item"><a href="{{pathFor 'consideracao'}}"><i class="fa fa-pencil"></i>Considerações</a>
  </li>
@@ -74,11 +78,14 @@
     {{#if isInRole 'Cadastro'}}
    <li class="list-group-item"><a id="relatorioOrgao" href="{{pathFor 'relatorio_orgao'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
     {{/if}}
+
+
  {{#if isInRole 'Administrativo'}}
   <li class="list-group-item"><a id="relatorio" href="{{pathFor 'relatorio'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
   <li class="list-group-item"><a href="{{pathFor 'mgr'}}"><i class="fa fa-cog"></i> Gerenciar</a></li>
 
   {{/if}}
+  <li class="list-group-item"><a id="mop"  target="_blank"  href="http://mop.ssp.ba.gov.br"><i class="fa fa-mobile"></i>MOP</a></li>
   <li class="list-group-item"><a href="{{pathFor 'trocarpw'}}"><i class="fa fa-user"></i> Trocar Senha</a></li>
   <li class="list-group-item"><a href="{{pathFor 'telefone'}}"><i class="fa fa-phone"></i> Telefones</a></li>
 	<li class="list-group-item border-bottom-none"><a id="logout" href="#"><i class="fa fa-lock"></i> Sair</a></li>

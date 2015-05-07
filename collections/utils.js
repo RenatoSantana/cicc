@@ -44,3 +44,42 @@ getServerTime = function(){
     }
     return serverTime;
 }
+
+
+//Diferença de anos
+ diferencaAnos = function(date1, date2) {
+  var dateParts1 = date1.split('-')
+    , dateParts2 = date2.split('-')
+    , d1 = new Date(dateParts1[0], dateParts1[1]-1, dateParts1[2])
+    , d2 = new Date(dateParts2[0], dateParts2[1]-1, dateParts2[2])
+
+  return new Date(d2 - d1).getYear() - new Date(0).getYear() + 1;
+}
+
+//Diferença de meses
+ diferencaMeses = function(d1, d2) {
+    var months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth() + 1;
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}
+
+//Diferença dias
+ diferencaDias = function(date1, date2) {
+
+    var ONE_DAY = 1000 * 60 * 60 * 24
+
+    var date1_ms = date1.getTime()
+    var date2_ms = date2.getTime()
+
+    var difference_ms = Math.abs(date1_ms - date2_ms)
+
+    return Math.round(difference_ms/ONE_DAY)
+
+}
+
+//Diferença anos, meses e dias
+ /*diferencaAnoMesDia = function(date1, date2) {
+    return "Anos: " + diferencaAnos(date1,date2)+" Meses: " + diferencaMeses(date1,date2)" + Dias: " + diferencaDias(date1,date2);
+}*/

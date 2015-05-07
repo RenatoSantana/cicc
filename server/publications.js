@@ -17,6 +17,12 @@ Meteor.publish("users", function () {
 });
 
 
+
+Meteor.publish('produtividades', function () {
+     return Produtividades.find();
+
+});
+
 Meteor.publish('incidentesOrgaos', function () {
      return IncidentesOrgaos.find();
 

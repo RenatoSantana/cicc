@@ -102,11 +102,49 @@ Template.user_ed.helpers({
       else
           return '';
 
-   }
+   },
+
+   statusProdutividade:function(){
+
+    if(typeof this.profile.produtividade === 'undefined'){
+      return false;
+    }else{
+      return this.profile.produtividade;
+    }
+  }
+
 }),
 
 Template.user_ed.events({
 
+
+ "click #produtividade" : function(e){
+                 e.preventDefault();
+                var currentUser = this._id;
+         if($('#produtividade').is(':checked')){
+
+            Meteor.call('ativar_produtividade', currentUser, function(error) {
+                        if (error) {
+                                // display the error to the user
+                                toastr.error("Erro", "Ops");
+                              } else {
+                                toastr.success("", "Formulário  de produtividade habilitado");
+                              }
+             });
+
+         }else{
+            Meteor.call('desativar_produtividade', currentUser, function(error) {
+                        if (error) {
+                                // display the error to the user
+                                toastr.error("Erro", "Ops");
+                              } else {
+                                toastr.success("", "Formulário  de produtividade desabilitado");
+                              }
+
+          });
+         }
+
+  },
      // event signup
 		  "click  #btnReset": function (e){
               e.preventDefault();
@@ -207,7 +245,7 @@ Template.usuarioItem.events({
 
 "click  #btnAtivar": function (e){
               e.preventDefault();
-       var currentUser = this._id;
+              var currentUser = this._id;
 
   Meteor.call('ativar_usuario', currentUser ,function(error) {
                         if (error) {
@@ -217,6 +255,9 @@ Template.usuarioItem.events({
                                 toastr.success("", "Ativado");
                               }
    });
-  },
+  }
+
+
+
 
 });

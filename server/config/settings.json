@@ -4,7 +4,7 @@
              "perIp": 10000
          },
             "times": {
-             "blockIpFor": 12000
+             "blockIpFor": 120000
          }
     }
 }

@@ -1,3 +1,15 @@
+
+Produtividades.allow({
+  insert: function () {
+    return true;
+  },
+  update: function () {
+      return true;
+    },
+  remove: function () {
+    return false;
+  }
+});
 Files.allow({
   download: function () {
     return true;

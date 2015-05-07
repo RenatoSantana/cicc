@@ -1,0 +1,120 @@
+<template name="produtividade_cr">
+  {{#if currentUser}}
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+                        <!-- Widget -->
+                                        <div class="widget widget-inverse" >
+
+                                            <!-- Widget heading -->
+                                            <div class="widget-head">
+                                                <h4 class="heading">Produtividade</h4>
+                                            </div>
+                                            <!-- // Widget heading END -->
+
+                                            <div class="widget-body">
+
+
+
+
+                                                <div class="innerLR">
+
+
+                                                    {{#autoForm   collection="Produtividades" id="produtividade_cr" schema=produtividadeSchema type="method" meteormethod="saveProdutividade"}}
+
+
+
+                                                      {{> afQuickField id="plantaoDt"  name='plantaoDt' data-date-format="DD/MM/YYYY"   }}
+
+                                                      {{> afQuickField id="cbEvento" name='eventoId' style="width:300px"}}
+
+                                                      {{> afQuickField id="cbTurno" name='turno' style="width:300px"}}
+
+                                                      {{> afQuickField name='efetivo' style="width:100px"}}
+
+                                                      {{> afQuickField name='local' style="width:100px" }}
+
+                                                      {{> afQuickField name='veiculoFurtadoRoubado' style="width:100px"}}
+
+                                                      {{> afQuickField name='abordagemPessoa' style="width:100px"}}
+
+                                                      {{> afQuickField name='abordagemEmbarcacao' style="width:100px"}}
+
+                                                      {{> afQuickField name='abordagemCarro' style="width:100px" }}
+
+                                                      {{> afQuickField name='abordagemMoto' style="width:100px"}}
+
+                                                      {{> afQuickField name='abordagemOnibus' style="width:100px" }}
+
+                                                      {{> afQuickField name='abordagemCaminhao' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoMaconha' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoCrack' style="width:100px"}}
+
+                                                      {{> afQuickField name='apreensaoDrogaSintetica' style="width:100px" }}
+
+                                                      {{> afQuickField name='pessoasPresasEmFlagrantes' style="width:100px" }}
+
+                                                      {{> afQuickField name='pessoasApreendidasEmFlagrantes' style="width:100px" }}
+
+                                                      {{> afQuickField name='pessoasPresasPorMandado' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoArmaDeFogo' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoMunicao' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoExplosivo' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoVeiculo' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoVeiculo' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoMedicamento' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoEletronico' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoAgrotoxico' style="width:100px" }}
+
+                                                      {{> afQuickField name='apreensaoCigarro' style="width:100px" }}
+
+                                                      {{> afQuickField name='autoPrisaoFlagrante' style="width:100px" }}
+
+                                                      {{> afQuickField name='mandadoBuscaEApreensao' style="width:100px" }}
+
+                                                      {{> afQuickField name='mandadoDePrisao' style="width:100px" }}
+
+
+                                                     <button type="submit" class="btn btn-primary">Salvar</button>
+                                                     <button type="reset" class="btn btn-default">Limpar</button>
+                                                  {{/autoForm}}
+                                             </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+    </div>
+
+
+
+
+
+    <!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+{{/if}}
+</template>

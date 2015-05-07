@@ -1,9 +1,10 @@
 
 
+
 Meteor.methods({
   saveOrgao: function(orgaoAttributes) {
     var user = Meteor.user()
- 
+
     if (!user)
       throw new Meteor.Error(401, "Você precisa está logado");
 
@@ -16,7 +17,7 @@ Meteor.methods({
 
     return orgaoObject;
   },
-  
+
  updateOrgao:function (properties){
      var  currentId = properties._id
      delete properties._id;
@@ -24,6 +25,6 @@ Meteor.methods({
      return;
  }
 
-   
-   
+
+
 });

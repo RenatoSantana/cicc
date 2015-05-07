@@ -1,7 +1,7 @@
 <template name="usuarioItem">
 
   	<div class="media contact">
-							  	<a class="pull-left" href="#"><img class="thumb" src="{{profile.image}}" width="50" alt="people"></a>
+							  	<a class="pull-left" href="#"><img class="thumb" src="{{profile.image}}" width="50" ></a>
 							  	<div class="media-body">
 							   		<ul class="list-unstyled">
 							   	 	    <li><a href="{{pathFor 'edit_user' _idUser=_id}}" class="strong"> <h4 class="media-heading text-info">{{profile.nome}} </h4></a></li>
@@ -11,6 +11,8 @@
                     </ul>
 
 							  	</div>
+
+
                         {{#if status}}
 
                            <button id="btnAtivar" class="btn btn-danger btn-xs pull-right">Ativar</button>
@@ -18,5 +20,6 @@
                           <button  id="btnDesativar" class="btn btn-success btn-xs  pull-right">Desativar</button>
 
                          {{/if}}
+
 							</div>
 </template>
