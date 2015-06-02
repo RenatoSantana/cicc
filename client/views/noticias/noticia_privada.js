@@ -46,8 +46,8 @@ Template.noticia_vt.helpers({
    optionsHelper: function () {
     return [
 
-      {label: "Pública", value: 'publica' },
-      {label: "Privada", value: 'privada'}
+      {label: "Pública na Internet", value: 'publica' },
+      {label: "Privada no Evento", value: 'privada'}
 
     ];
   },

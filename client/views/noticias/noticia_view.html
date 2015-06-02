@@ -25,7 +25,9 @@
                    	<div class="col-md-12">
                       	  	<h4>{{titulo}}</h4>
                     </div>
-                       <span class="text-italic text-primary-light pull-right" id="data-noticia-view" ><i></i>{{data}}</span>
+                       <span class="text-italic text-primary-light pull-right" id="data-noticia-view" ><i></i>{{data}}  {{#if isInRole 'Administrativo' }}
+                                                                                                                                por {{autor.profile.nome}}
+                                                                                                                                {{/if}}</span>
 
                  {{#if imagem}}
 										<div class="col-md-12" style="margin-left: 65px; margin-right: auto;

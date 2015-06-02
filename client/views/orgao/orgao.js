@@ -62,7 +62,7 @@ Template.orgao_ed.helpers({
 
 Template.orgao_ls.helpers({
     orgaos: function() {
-        return Orgaos.find();
+        return Orgaos.find({},{sort:{descricao: 1}});
     }
 
 
@@ -80,7 +80,7 @@ Template.orgaoItem.helpers({
 
 Template.selectOrgao.helpers({
   orgaos: function() {
-    return Orgaos.find();
+    return Orgaos.find({},{sort:{descricao: 1}});
   },
   isSelected: function(parentPost){
     return parentPost && this._id == parentPost.profile.orgaoId ? 'selected' : '';

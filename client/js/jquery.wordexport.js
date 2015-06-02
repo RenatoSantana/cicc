@@ -295,7 +295,7 @@ if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
                 context.drawImage(img[i], 0, 0, w, h);
                 // Get data URL encoding of image
                 var uri = canvas.toDataURL();
-                img[i].src = img[i].src.replace("http://cicc.ba.gov.br", "http://cicc.ba.gov.br");
+                img[i].src = img[i].src.replace("https://cicc.ba.gov.br", "http://cicc.ba.gov.br");
                 $(img[i]).attr("src", img[i].src);
                 img[i].width = w;
                 img[i].height = h;
@@ -324,9 +324,9 @@ if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
             //TODO: load css from included stylesheet
             var styles = "";
 
-            // Aggregate parts of the file together 
+            // Aggregate parts of the file together
             var fileContent = static.mhtml.top.replace("_html_", static.mhtml.head.replace("_styles_", styles) + static.mhtml.body.replace("_body_", markup.html())) + mhtmlBottom;
-             
+
             // Create a Blob with the file contents
             var blob = new Blob([fileContent], {
                 type: "application/msword;charset=utf-8"

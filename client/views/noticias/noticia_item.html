@@ -2,29 +2,39 @@
 
 <li class="active">
   <form>
+
   <a href="{{pathFor 'view_n_pv' _idNoticia =this._id}}"  class="thumbnail" style="height: 210px;">
     <div class="caption">
-					<span class="type glyphicons globe">{{orgao.sigla}} <i></i></span>
+
+					<span  alt="dasda" class="type glyphicons globe">{{orgao.sigla}} <i></i></span>
 					<div class="widget widget-heading-simple widget-body-white margin-none">
-						<div class="widget-body">
-							<p><span class="pull-left"><img src="{{orgao.imagem}}"  class="img-circle"></span><i></i> <strong><a href="{{pathFor 'view_n_pv' _idNoticia =this._id}}">{{tituloResumido}} </a> </strong><br/>{{textoResumido}}</p>
+            {{#if ispublica}}
+                <span class="label label-warning label-stroke">Públicada na Internet</span>
+            {{else}}
+                <span class="label label-primary label-stroke">Privado no Evento</span>
+            {{/if}}
+						<div class="widget-body" >
+
+							<p><strong><a href="{{pathFor 'view_n_pv' _idNoticia =this._id}}">{{tituloResumido}} </a> </strong><br/>{{textoResumido}}</p>
 						</div>
 					</div>
-    
+
     </div>
+
   </a>
+
     <div class="timeline-bottom innerT half">
-      	 {{#if isInRole 'Administrativo' }}	
-          
+      	 {{#if isInRole 'Administrativo' }}
+
              {{#if bloqueada}}
       	     <a href="{{pathFor 'noticia_vt' _idNoticia= this._id}}" class="btn btn-xs pull-left btn-success"> Validar</a>{{else}}
                 <button id="btnBloqueio" class="btn btn-xs pull-left btn-danger"> Bloqueio</button>
              {{/if}}
-     
+
          {{/if}}
                      <span class="text-italic text-primary-light pull-right"><i class="fa fa-fw fa-calendar"></i>{{data}}</span>
       </div>
   </form>
 </li>
-  
+
 </template>

@@ -158,7 +158,7 @@ Template.news.helpers({
   noticiasPublicas:function(){
 
     // Meteor.subscribe("noticias")
-    return  Noticias.find({bloqueio:false,status:"publica"});
+    return  Noticias.find({bloqueio:false,status:"publica"},{sort:{criacaoDt: -1}});
   },
   mostrarLoading:function(){
        if(Noticias.find({bloqueio:false,status:"publica"}).count >16){
@@ -185,8 +185,8 @@ Template.noticia_ex.helpers({
    optionsHelper: function () {
     return [
 
-      {label: "Pública", value: 'publica' },
-      {label: "Privada", value: 'privada'}
+      {label: "Pública na internet", value: 'publica' },
+      {label: "Privada no Evento", value: 'privada'}
 
     ];
   }
@@ -223,6 +223,13 @@ Template.noticiaItem.helpers({
 
       bloqueada:function(){
         return this.bloqueio;
+      }
+
+      ,ispublica:function(){
+        if(this.status ==='publica')
+          return true;
+        else
+          return false;
       }
 
 })
@@ -342,6 +349,10 @@ Template.noticia_view.helpers({
 
         return this.bloqueio;
 
+  },
+  autor:function(){
+
+     return Meteor.users.findOne(this.userId)
   }
 
 
@@ -363,8 +374,8 @@ Template.noticia_cr.helpers({
    optionsHelper: function () {
     return [
 
-      {label: "Pública", value: 'publica' },
-      {label: "Privada", value: 'privada'}
+      {label: "Pública na Internet", value: 'publica' },
+      {label: "Privada no Evento", value: 'privada'}
 
     ];
   },
