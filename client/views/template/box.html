@@ -76,12 +76,12 @@
      <li class="list-group-item"><a id="incidentes2" href="{{pathFor 'incidentes'}}"><i class="fa fa-flash"></i> Incidentes</a></li>
    {{/if}}
     {{#if isInRole 'Cadastro'}}
-   <li class="list-group-item"><a id="relatorioOrgao" href="{{pathFor 'relatorio_orgao'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
+   <li class="list-group-item"><a id="relatorioOrgao" href="{{pathFor 'relatorio_mg'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
     {{/if}}
 
 
  {{#if isInRole 'Administrativo'}}
-  <li class="list-group-item"><a id="relatorio" href="{{pathFor 'relatorio'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
+  <li class="list-group-item"><a id="relatorio" href="{{pathFor 'relatorio_mg'}}"><i class="fa  fa-bar-chart-o"></i> Relatório</a></li>
   <li class="list-group-item"><a href="{{pathFor 'mgr'}}"><i class="fa fa-cog"></i> Gerenciar</a></li>
 
   {{/if}}

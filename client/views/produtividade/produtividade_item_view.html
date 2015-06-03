@@ -1,37 +1,26 @@
-<template name="produtividade_view">
-  {{#if currentUser}}
-    <div class="col-sm-2">
+<template name="produtividadeGeralItem">
+                                        <div   class="widget widget-inverse" >
 
 
 
-    </div>
-    <!-- // END col -->
-
-    <!-- col -->
-    <div class="col-sm-8">
-
-                        <!-- Widget -->
-                                        <div  id="cdata" class="widget widget-inverse" >
-
-                                            <!-- Widget heading -->
-                                            <div class="widget-head">
-                                                <h4 class="heading">Produtividade do orgão - {{orgao.descricao}}</h4>
-
-                                                <button id="btnExport" class="btn btn-xs pull-right btn-success"  style="margin-top:5px"> Exportação</button>
-                                            </div>
-                                            <!-- // Widget heading END -->
-
-                                            <div class="widget-body">
-
-
-
-                                                <div  class="innerLR">
+                                                <div  class="innerLR" style="
+    background: lavender;">
                                                                                                  <table class="table table-bordered">
   <thead>
    <tr>
        </tr>
   </thead>
   <tbody>
+
+   <tr>
+      <td><b>Orgão</b></td>
+      <td>
+
+        <span class="badge badge-primary badge-stroke">{{orgao.descricao}}</span>
+      </td>
+
+    </tr>
+
 
    <tr>
       <td><b>Evento do Plantão</b></td>
@@ -333,20 +322,5 @@
 
 
                                             </div>
-                                        </div>
 
-    </div>
-
-
-
-
-
-    <!-- // END col -->
-
-    <div class="col-sm-2">
-
-
-
-    </div>
-{{/if}}
 </template>

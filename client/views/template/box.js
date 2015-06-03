@@ -72,7 +72,7 @@ Template.box.events({
            Router.go("incidentes");
     },
 
-      "click #relatorio":function (e){
+      "click #relatoriob":function (e){
           e.preventDefault();
 
           Session.set("noticias", Noticias.find({},{sort: {criacaoDt: -1}}).fetch());
@@ -82,7 +82,7 @@ Template.box.events({
           Router.go("relatorio");
     },
 
-      "click #relatorioOrgao":function (e){
+      "click #relatorioOrgaob":function (e){
           e.preventDefault();
           var user = Meteor.userId();
           Session.set("associaProtocolo",false);

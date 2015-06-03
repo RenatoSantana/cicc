@@ -1,0 +1,75 @@
+<template name="relatorio_mg">
+  {{#if currentUser}}
+
+  <!-- col -->
+    <div class="col-sm-2">
+
+    </div>
+    <!-- // END col -->
+<div class="col-sm-8">
+
+
+
+                                   <div class="col-separator col-separator-last">
+
+                                        <div class="row">
+ {{#if isInRole 'Administrativo'}}
+<div class="col-md-12">
+
+                                        <a href="{{pathFor 'relatorio'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+    <i class="display-block icon-user-1 text-xlarge"></i>
+    <span class="lead">Relatório Geral</span>
+</a>
+</div>
+
+
+                                        <!--div class="col-separator-h"></div-->
+<div class="col-md-12">
+                                        <a href="{{pathFor 'produtividade_mg'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+    <i class="display-block icon-bank text-xlarge"></i>
+    <span class="lead">Produtividade por seleção de orgão</span>
+</a>
+</div>
+
+<div class="col-md-12">
+                                        <a href="{{pathFor 'produtividade_geral'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+    <i class="display-block icon-bank text-xlarge"></i>
+    <span class="lead">Produtividade Geral</span>
+</a>
+</div>
+
+{{/if}}
+ {{#if isInRole 'Cadastro'}}
+<div class="col-md-12">
+
+                                        <a href="{{pathFor 'relatorio_orgao'}}" class="widget widget-icon innerAll inner-2x text-center text-regular" style="
+    background: cornflowerblue;
+">
+    <i class="display-block icon-user-1 text-xlarge"></i>
+    <span class="lead">Relatório do Orgão</span>
+</a>
+</div>
+{{/if}}
+
+</div>
+
+</div>
+
+
+</div>
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+
+  {{/if}}
+
+</template>

@@ -1,5 +1,5 @@
-<template name="produtividade_mg">
-  {{#if currentUser}}
+<template name="produtividade_geral">
+{{#if currentUser}}
     <div class="col-sm-2">
 
 
@@ -21,25 +21,19 @@
 
 
                                 <div class="input-group input-group-sm">
-                                   <div class="input-group-btn">
-                                         <label class="control-label" >Orgão :</label>
-
-                                    </div>
-                                        <div style="width: 250px;  margin-left: 10px">
-                                                   {{> selectOrgao}}
-                                        </div>
-
 
                                         <div class="input-group-btn">
                                          <label class="control-label" >Evento :</label>
 
                                     </div>
-                                        <div style="width: 250px;  margin-left: 10px">
+                                        <div style="width: 350px;  margin-left: 10px">
                                                    {{> selectEvento}}
                                         </div>
 
 
-                                          <button id="btnpesquisar" class="btn btn-primary  fa fa-search pull-right"></button>
+                                        <button id="btnpesquisar" class="btn btn-primary  pull-left" style="margin-left: 50px;" >Pesquisar</button>
+                                        <button id="btnexport" class="btn btn-success pull-right" >Exportar</button>
+
 
                                 </div>
 
@@ -55,25 +49,15 @@
                                 <div class="col-separator-h box"></div>
                             <div  id="cdata" class="border-bottom">
 
-     <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th style="width: 100px;">Turno</th>
-            <th>Data</th>
-            <th style="width: 100px;">Ver</th>
-        </tr>
-    </thead>
-    <tbody>
 
 
             {{#each produtividades}}
-              {{ > produtividadeItemView}}
+              {{ > produtividadeGeralItem}}
             {{/each}}
 
 
-    </tbody>
-</table>
-</div>
+
+                    </div>
      </div>
 
    </div>
