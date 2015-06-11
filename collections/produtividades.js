@@ -79,6 +79,45 @@ objectSchema = {
       label: "Apreensão de Maconha (Kg)"
    },
 
+  apreensaoPeMaconha: {
+      type: Number,
+      optional: false,
+      decimal: true,
+      min:0,
+      label: "Apreensão Pé de Maconha (Kg)"
+   },
+
+  cocaina: {
+      type: Number,
+      optional: false,
+      decimal: true,
+      min:0,
+      label: "Apreensão de Cocaína (Kg)"
+   },
+
+   pastabase: {
+      type: Number,
+      optional: false,
+      decimal: true,
+      min:0,
+      label: "Apreensão de Pasta Base (Kg)"
+   },
+
+  heroina: {
+      type: Number,
+      optional: false,
+      decimal: true,
+      min:0,
+      label: "Apreensão de Heroína (Kg)"
+   },
+
+  haxixe: {
+      type: Number,
+      optional: false,
+      decimal: true,
+      min:0,
+      label: "Apreensão de Haxixe (Kg)"
+   },
 
    apreensaoCrack: {
       type: Number,
@@ -87,6 +126,8 @@ objectSchema = {
       min:0,
       label: "Apreensão de Crack (Kg)"
    },
+
+
 
    apreensaoDrogaSintetica: {
       type: Number,
@@ -199,7 +240,7 @@ objectSchema = {
 
   plantaoDt: {
     type: Date,
-    optional: true,
+    optional: false,
      label: "Data do Plantão  "
 
   },

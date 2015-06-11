@@ -11,6 +11,8 @@ $('input[name="telefone"]').mask("(00) 0000-00009");
 $( "#cbOrgao" ).select2();
 }
 
+
+
 Template.trocar_senha.events({
       // event signup
 		  "submit  #usuario-form": function (e){
@@ -166,13 +168,6 @@ Template.user_ed.events({
   },
 
 
-
-
-
-
-
-
-   // event signup
 		  "submit  #usuario-form": function (e){
               e.preventDefault();
       var currentUser = this._id;
@@ -187,6 +182,11 @@ Template.user_ed.events({
 
                     }
     }
+
+
+          if($('#produtividade').is(':checked')){
+              properties.profile.produtividade =true;
+          }
 
   Meteor.call('update_user', currentUser,properties, function(error) {
                         if (error) {
@@ -224,7 +224,7 @@ Template.user_ls.helpers({
 
 Template.selectUsuario.helpers({
  users: function() {
-        return Meteor.users.find();
+        return Meteor.users.find({ $or: [{'profile.status':{ $exists: false }},{'profile.status':true}]});
     }
 });
 

@@ -1,0 +1,93 @@
+<template name="relatorio_produtividade_consolidado">
+{{#if currentUser}}
+    <div class="col-sm-2">
+
+
+
+    </div>
+    <!-- // END col -->
+
+    <!-- col -->
+    <div class="col-sm-8">
+
+
+    <div class="col-separator box col-separator-first col-unscrollable">
+            <div class="col-table">
+        <div class="innerAll">
+
+                    <h4 class="margin-none">Produtividades  </h4>
+                    <div class="clearfix"></div>
+               <div class="bg-gray border-bottom innerAll" style="margin-top: 10px;">
+
+
+                                <div class="input-group input-group-sm">
+
+                                        <div class="input-group-btn">
+                                         <label class="control-label" >Evento :</label>
+
+                                    </div>
+                                        <div style="width: 350px;  margin-left: 10px">
+                                                   {{> selectEvento}}
+                                        </div>
+
+
+                                        <button id="btnpesquisar" class="btn btn-primary  pull-left" style="margin-left: 50px;" >Pesquisar</button>
+                                        <button id="btnexport" class="btn btn-success pull-right" >Exportar</button>
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="col-table-row">
+                    <div class="col-app col-unscrollable">
+                        <div class="col-app">
+
+                                <div class="col-separator-h box"></div>
+                            <div  id="cdata" class="border-bottom">
+
+
+                                                                                                 <table class="table table-bordered">
+  <thead>
+   <tr>
+       </tr>
+  </thead>
+  <tbody>
+
+ <tr>
+            {{#each produtividades}}
+              {{ > produtividadeConsolidadoItem}}
+            {{/each}}
+            </tr>
+          </tbody>
+            </table>
+
+
+
+                    </div>
+     </div>
+
+   </div>
+  </div>
+          </div>
+
+       </div>
+     </div>
+
+   </div>
+
+
+
+
+    <!-- // END col -->
+
+    <div class="col-sm-2">
+
+
+
+    </div>
+{{/if}}
+</template>

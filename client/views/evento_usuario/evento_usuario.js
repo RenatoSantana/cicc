@@ -1,4 +1,6 @@
-
+Template.eventoUsuario.rendered = function() {
+$( "#cbUsuario" ).select2();
+}
 
 Template.eventoUsuario.events({
   'submit form': function(e) {
@@ -8,6 +10,14 @@ Template.eventoUsuario.events({
       eventoId: this._id,
       userId: $(e.target).find('#cbUsuario').val()
     }
+
+    var flag =UsuarioEventos.find({eventoId:properties.eventoId,userId:properties.userId}).count()
+
+     if(flag>0){
+
+       alert('Usuario já está no evento');
+       return;
+     }
 
       if(properties!==null&& properties != 'undefined' && properties.circuitoId!=="" &&  properties.eventoId!==""){
     Meteor.call('saveEventoUsuario', properties, function(error, usuario) {

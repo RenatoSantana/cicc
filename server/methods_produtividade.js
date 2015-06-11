@@ -7,8 +7,8 @@ Meteor.methods({
     if (!user)
       throw new Meteor.Error(401, "Você precisa está logado");
 
-    var prodObject = _.extend(_.pick(prodAttributes, 'turno','eventoId','efetivo', 'local','veiculoFurtadoRoubado','abordagemPessoa','abordagemEmbarcacao','abordagemCarro','abordagemMoto'
-      ,'abordagemOnibus','abordagemCaminhao','apreensaoMaconha','apreensaoCrack','apreensaoDrogaSintetica','pessoasPresasEmFlagrantes'
+    var prodObject = _.extend(_.pick(prodAttributes, 'turno','plantaoDt',  'eventoId','efetivo', 'local','veiculoFurtadoRoubado','abordagemPessoa','abordagemEmbarcacao','abordagemCarro','abordagemMoto'
+      ,'abordagemOnibus','abordagemCaminhao','apreensaoMaconha', 'apreensaoPeMaconha','cocaina', 'pastabase' ,'heroina', 'haxixe','apreensaoCrack','apreensaoDrogaSintetica','pessoasPresasEmFlagrantes'
        ,'pessoasApreendidasEmFlagrantes','pessoasPresasPorMandado','apreensaoArmaDeFogo','apreensaoMunicao','apreensaoExplosivo',
        'apreensaoVeiculo','apreensaoMedicamento','apreensaoEletronico','apreensaoAgrotoxico','apreensaoCigarro','autoPrisaoFlagrante'
         ,'mandadoBuscaEApreensao','mandadoDePrisao'), {
