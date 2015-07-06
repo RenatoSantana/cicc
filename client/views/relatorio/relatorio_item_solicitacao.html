@@ -1,0 +1,42 @@
+<template name="relatorio_item_solicitacao">
+
+
+<div id="conteudo" class="col-md-8">
+<form>
+    <div class="col-separator hasNiceScroll" tabindex="5001" style="overflow-y: hidden; outline: none;">
+
+
+            <div class="innerAll border-bottom media">
+                <a class="pull-left" href="#"><img id="foto2"  width="50" height="50" src="{{logo.url}}" alt="..."></a>
+                <div class="media-body">
+                    <h3 class="margin-bottom-none padding-none">{{assunto}}
+                    </h3>
+                    <span class="text-muted-dark">Enviado por <a href="">{{user.profile.nome}}</a> <i class="icon-time-clock fa fa-fw"></i> {{data}}</span>
+                </div>
+            </div>
+
+            <div class="innerAll inner-2x">
+                <p style="word-wrap: break-word;" >{{mensagem}}</p>
+
+
+            </div>
+
+
+
+
+
+
+            <div class="innerAll border-bottom tickets">
+
+
+            </div>
+
+             {{#each respostas}}
+                      {{>respostaItem}}
+       {{/each}}
+        </div>
+  </form>
+    </div>
+    <!-- col -->
+
+</template>

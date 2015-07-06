@@ -72,7 +72,7 @@ Template.produtividade_ls.helpers({
 
 Template.produtividade_ls.events({
 
-  'change #cbEvento': function(e,t){
+  'click #btnpesquisar': function(e,t){
 
    var evento  = t.find('#cbEvento').value;
 

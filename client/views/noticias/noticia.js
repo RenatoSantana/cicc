@@ -322,7 +322,13 @@ Template.noticia_public_view.helpers({
     },
   imagem:function(){
     return Files.findOne({_id:this.fileId})
-  }
+  },
+    urlResumida: function() {
+       if(this.fonte!=null && this.fonte.length>55)
+          return this.fonte.substr(0,55)+ ' ...';
+      else
+          return this.fonte;
+    }
 })
 
 Template.noticia_view.helpers({

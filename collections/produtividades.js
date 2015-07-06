@@ -148,7 +148,7 @@ objectSchema = {
       type: Number,
       optional: false,
       min:0,
-      label: "Pessoas Aprenedidas em Flagrantes (Menores)"
+      label: "Pessoas Apreendidas em Flagrantes (Menores)"
    },
 
    pessoasPresasPorMandado: {
@@ -236,6 +236,73 @@ objectSchema = {
         min:0,
       label: "Mandados de Prisão (Unidade) "
    },
+
+
+
+documentosRecolhidos: {
+      type: Number,
+      optional: false,
+        min:0,
+      label: "Documentos recolhidos"
+   },
+
+
+
+animaisRecolhidos: {
+      type: Number,
+      optional: false,
+        min:0,
+      label: "Meio Ambiente: Animais recolhidos"
+   },
+
+
+madeiraApreendidas: {
+      type: Number,
+      optional: false,
+      min:0,
+      label: "Meio Ambiente: Madeira apreendida"
+
+   },
+
+
+
+numeroAutuacoes: {
+      type: Number,
+      optional: false,
+      min:0,
+      label: "Número de autuações"
+
+   },
+
+
+  totalDeAcidentes: {
+      type: Number,
+      optional: false,
+      min:0,
+      label: "Total de Acidentes"
+
+   },
+
+
+
+
+ totalDeFeridos: {
+      type: Number,
+      optional: false,
+      min:0,
+      label: "Total de vítimas: Feridos"
+
+   },
+
+totalDeMortos: {
+      type: Number,
+      optional: false,
+      min:0,
+      label: "Total de vítimas: Mortos"
+
+   },
+
+
 
 
   plantaoDt: {

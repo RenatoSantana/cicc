@@ -70,9 +70,12 @@ Meteor.publish('solicitacoes', function() {
 
 
 
-     if (Roles.userIsInRole(user, ["Administrativo", "Cadastro","Videomonitoramento"])) {
+     if (Roles.userIsInRole(user, ["Cadastro","Videomonitoramento"])) {
 
-          return Solicitacoes.find({eventoId: {$in: eventoIds}})
+          return Solicitacoes.find({eventoId: {$in: eventoIds}});
+
+     }else  if (Roles.userIsInRole(user, ["Administrativo"])) {
+         return Solicitacoes.find();
      }
      this.stop();
    return;
@@ -84,7 +87,7 @@ Meteor.publish('consideracoes', function() {
     var eventoIds = usuarioEventos.map(function(p) { return p.eventoId });
      if (Roles.userIsInRole(user, ["Administrativo"])) {
      //   console.log(Consideracoes.find({eventoId: {$in: eventoIds}}).fetch())
-        return Consideracoes.find({eventoId: {$in: eventoIds}});
+        return Consideracoes.find();
      }else if(Roles.userIsInRole(user, ["Cadastro","Videomonitoramento"])){
         return Consideracoes.find({userId:this.userId,eventoId: {$in: eventoIds}});
      }

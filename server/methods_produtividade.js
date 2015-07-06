@@ -11,7 +11,7 @@ Meteor.methods({
       ,'abordagemOnibus','abordagemCaminhao','apreensaoMaconha', 'apreensaoPeMaconha','cocaina', 'pastabase' ,'heroina', 'haxixe','apreensaoCrack','apreensaoDrogaSintetica','pessoasPresasEmFlagrantes'
        ,'pessoasApreendidasEmFlagrantes','pessoasPresasPorMandado','apreensaoArmaDeFogo','apreensaoMunicao','apreensaoExplosivo',
        'apreensaoVeiculo','apreensaoMedicamento','apreensaoEletronico','apreensaoAgrotoxico','apreensaoCigarro','autoPrisaoFlagrante'
-        ,'mandadoBuscaEApreensao','mandadoDePrisao'), {
+        ,'mandadoBuscaEApreensao','mandadoDePrisao','documentosRecolhidos','animaisRecolhidos','madeiraApreendidas','numeroAutuacoes', 'totalDeAcidentes','totalDeFeridos','totalDeMortos'), {
       userId: user._id,
       orgaoId: user.profile.orgaoId,
       criacaoDt: new Date()
