@@ -18,7 +18,7 @@ Meteor.methods({
     });
 
     prodObject._id = Produtividades.insert(prodObject);
-
+    console.log(prodObject.plantaoDt)
     return prodObject;
   },
 

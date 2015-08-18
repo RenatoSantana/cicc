@@ -303,14 +303,18 @@ totalDeMortos: {
    },
 
 
-
-
-  plantaoDt: {
+ plantaoDt: {
+    label:"Data do Plantão",
     type: Date,
     optional: false,
-     label: "Data do Plantão  "
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
+    }
 
   },
+
 
 
    criacaoDt: {
