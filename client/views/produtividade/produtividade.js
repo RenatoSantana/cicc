@@ -1,4 +1,4 @@
-AutoForm.addHooks(
+/*AutoForm.addHooks(
   ["produtividade_cr"],
   {
     before   : {
@@ -512,3 +512,4 @@ Template.produtividadeConsolidadoItem.helpers({
 
 });
 
+*/

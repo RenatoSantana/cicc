@@ -8,7 +8,7 @@ Template.selectProtocolo.helpers({
 
 
 });
-
+/*
 
 AutoForm.addHooks(
   ["protocolo_cr"],
@@ -38,7 +38,7 @@ AutoForm.addHooks(
   }
 );
 
-
+*/
 Template.protocolo_edit.helpers({
   protocoloDoc: function() {
     return Protocolos.findOne(this._id)

@@ -26,7 +26,7 @@ objectSchema = {
     type: Date,
     optional: true
   },
-
+/*
    fileId: {
     type: String,
     label: "Foto",
@@ -37,7 +37,7 @@ objectSchema = {
         collection: "files"
       }
     }
-  },
+  },*/
 
    userId: {
     type: String,
@@ -55,11 +55,11 @@ Schema.orgao= new SimpleSchema(objectSchema);
 Orgaos.attachSchema(Schema.orgao);
 
 
-EasySearch.createSearchIndex('orgaos', {
-    'field' : ['descricao'],  // required, searchable field(s)
-    'collection' : Orgaos,          // required, Mongo Collection
-    'limit' : 500                  // not required, default is 10
-});
+// EasySearch.createSearchIndex('orgaos', {
+//     'field' : ['descricao'],  // required, searchable field(s)
+//     'collection' : Orgaos,          // required, Mongo Collection
+//     'limit' : 500                  // not required, default is 10
+// });
 
 
 

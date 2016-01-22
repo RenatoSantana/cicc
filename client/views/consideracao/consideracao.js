@@ -13,7 +13,7 @@ Template.consideracao_cr.helpers({
 
 });
 
-
+/*
 AutoForm.addHooks(
   ["consideracao_cr"],
   {
@@ -35,7 +35,7 @@ AutoForm.addHooks(
     }
 
   }
-);
+);*/
 
 Template.consideracaoItem.helpers({
     user: function() {

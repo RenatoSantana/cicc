@@ -5,7 +5,7 @@ Deps.autorun(function(){
         Session.set("resultNoticiaOk", false)
     });
 
-AutoForm.addHooks(
+/*AutoForm.addHooks(
   ["noticia_cr"],
   {
     before   : {
@@ -57,7 +57,7 @@ AutoForm.addHooks(
   }
 );
 
-
+*/
 
 
 Template.noticia_ls.events({

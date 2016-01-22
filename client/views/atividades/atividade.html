@@ -1,0 +1,331 @@
+<template name="atividade">
+ <section id="content">
+          <section class="vbox">
+            <section class="scrollable padder">
+             <div class="wrapper-lg">
+                <h3 class="m-b-xs font-bold m-t-none">Bem-vindo de volta, John</h3>
+                <div class="text-muted text-sm">Atualmente você está fazendo parte dos eventos, Operação X, Operação Y</div>
+              </div>
+              <section class="panel panel-default">
+                <div class="row m-l-none m-r-none bg-light lter">
+                  <div class="col-sm-6 col-md-3 padder-v b-r b-light">
+                    <span class="fa-stack fa-2x pull-left m-r-sm">
+                      <i class="fa fa-circle fa-stack-2x text-info"></i>
+                      <i class="fa fa-male fa-stack-1x text-white"></i>
+                    </span>
+                    <a class="clear" href="{{pathFor 'list_ocorrencia'}}" >
+                      <span class="h3 block m-t-xs"><strong>52</strong></span>
+                      <small class="text-muted text-uc">Ocorrências</small>
+                    </a>
+                  </div>
+                  <div class="col-sm-6 col-md-3 padder-v b-r b-light lt">
+                    <span class="fa-stack fa-2x pull-left m-r-sm">
+                      <i class="fa fa-circle fa-stack-2x text-warning"></i>
+                      <i class="fa fa-bug fa-stack-1x text-white"></i>
+                      <span class="easypiechart pos-abt" data-percent="100" data-line-width="4" data-track-Color="#fff" data-scale-Color="false" data-size="50" data-line-cap='butt' data-animate="2000" data-target="#bugs" data-update="3000"></span>
+                    </span>
+                    <a class="clear" href="{{pathFor 'list_ocorrencia'}}">
+                      <span class="h3 block m-t-xs"><strong id="bugs">468</strong></span>
+                      <small class="text-muted text-uc">Incidentes</small>
+                    </a>
+                  </div>
+                  <div class="col-sm-6 col-md-3 padder-v b-r b-light">
+                    <span class="fa-stack fa-2x pull-left m-r-sm">
+                      <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                      <i class="fa fa-fire-extinguisher fa-stack-1x text-white"></i>
+                      <span class="easypiechart pos-abt" data-percent="100" data-line-width="4" data-track-Color="#f5f5f5" data-scale-Color="false" data-size="50" data-line-cap='butt' data-animate="3000" data-target="#firers" data-update="5000"></span>
+                    </span>
+                    <a class="clear" href="{{pathFor 'solicitacao_box'}}">
+                      <span class="h3 block m-t-xs"><strong id="firers">359</strong></span>
+                      <small class="text-muted text-uc">Solicitações Recebidas</small>
+                    </a>
+                  </div>
+                  <div class="col-sm-6 col-md-3 padder-v b-r b-light lt">
+                    <span class="fa-stack fa-2x pull-left m-r-sm">
+                      <i class="fa fa-circle fa-stack-2x icon-muted"></i>
+                      <i class="fa fa-clock-o fa-stack-1x text-white"></i>
+                    </span>
+                    <a class="clear" href="{{pathFor 'solicitacao_box'}}">
+                      <span class="h3 block m-t-xs"><strong>31:50</strong></span>
+                      <small class="text-muted text-uc">Solicitações Enviadas</small>
+                    </a>
+                  </div>
+                </div>
+              </section>
+              <div class="row">
+                <div class="col-md-4">
+                 <h4 class="m-t-none">Ocorrências rencentes</h4>
+
+                  <section class="panel panel-info">
+
+
+                    <section class="panel-body slim-scroll" data-height="230px">
+                      <article class="media">
+                        <span class="pull-left thumb-sm"><img src="images/avatar_default.jpg" class="img-circle"></span>
+                        <div class="media-body">
+                          <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">12:18</strong><br>
+                            <small class="label bg-light">pm</small>
+                          </div>
+                          <a href="#" class="h4">Bootstrap 3 released</a>
+                          <small class="block"><a href="#" class="">John Smith</a> <span class="label label-success">Circle</span></small>
+                          <small class="block m-t-sm">Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</small>
+                        </div>
+                      </article>
+                      <div class="line pull-in"></div>
+                      <article class="media">
+                        <span class="pull-left thumb-sm"><i class="fa fa-file-o fa-3x icon-muted"></i></span>
+                        <div class="media-body">
+                          <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">17</strong><br>
+                            <small class="label bg-light">feb</small>
+                          </div>
+                          <a href="#" class="h4">Bootstrap documents</a>
+                          <small class="block"><a href="#" class="">John Smith</a> <span class="label label-info">Friends</span></small>
+                          <small class="block m-t-sm">There are a few easy ways to quickly get started with Bootstrap, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</small>
+                        </div>
+                      </article>
+                      <div class="line pull-in"></div>
+                      <article class="media">
+                        <div class="media-body">
+                          <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">09</strong><br>
+                            <small class="label bg-light">jan</small>
+                          </div>
+                          <a href="#" class="h4 text-success">Mobile first html/css framework</a>
+                          <small class="block m-t-sm">Bootstrap, Ratchet</small>
+                        </div>
+                      </article>
+
+
+                    </section>
+                  </section>
+                </div>
+
+                <div class="col-md-4">
+                   <h4 class="m-t-none">Incidentes mais rencentes</h4>
+                     <section class="panel panel-warning">
+
+
+                    <section class="panel-body slim-scroll" data-height="230px">
+                      <article class="media">
+                        <span class="pull-left thumb-sm"><img src="images/avatar_default.jpg" class="img-circle"></span>
+                        <div class="media-body">
+                          <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">12:18</strong><br>
+                            <small class="label bg-light">pm</small>
+                          </div>
+                          <a href="#" class="h4">Bootstrap 3 released</a>
+                          <small class="block"><a href="#" class="">John Smith</a> <span class="label label-success">Circle</span></small>
+                          <small class="block m-t-sm">Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</small>
+                        </div>
+                      </article>
+                      <div class="line pull-in"></div>
+                      <article class="media">
+                        <span class="pull-left thumb-sm"><i class="fa fa-file-o fa-3x icon-muted"></i></span>
+                        <div class="media-body">
+                          <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">17</strong><br>
+                            <small class="label bg-light">feb</small>
+                          </div>
+                          <a href="#" class="h4">Bootstrap documents</a>
+                          <small class="block"><a href="#" class="">John Smith</a> <span class="label label-info">Friends</span></small>
+                          <small class="block m-t-sm">There are a few easy ways to quickly get started with Bootstrap, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</small>
+                        </div>
+                      </article>
+                      <div class="line pull-in"></div>
+                      <article class="media">
+                        <div class="media-body">
+                          <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">09</strong><br>
+                            <small class="label bg-light">jan</small>
+                          </div>
+                          <a href="#" class="h4 text-success">Mobile first html/css framework</a>
+                          <small class="block m-t-sm">Bootstrap, Ratchet</small>
+                        </div>
+                      </article>
+
+                    </section>
+                  </section>
+                </div>
+
+
+                <div class="col-md-4">
+
+                 <section class="panel panel-info" style="margin-top:30px">
+
+
+
+                    <header class="panel-heading bg-light">
+                      <ul class="nav nav-tabs nav-justified">
+                        <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Solicitações Enviadas</a></li>
+                        <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Solicitações Recebidas</a></li>
+
+                      </ul>
+                    </header>
+                    <div class="panel-body">
+                      <div class="tab-content">
+                        <div class="tab-pane" id="home"><ul class="list-group alt">
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-success m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Chris Fox</a></div>
+                            <small class="text-muted">about 2 minutes ago</small>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-muted m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Amanda Conlan</a></div>
+                            <small class="text-muted">about 2 hours ago</small>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-warning m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Dan Doorack</a></div>
+                            <small class="text-muted">3 days ago</small>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-danger m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Lauren Taylor</a></div>
+                            <small class="text-muted">about 2 minutes ago</small>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+
+                    </div>
+                        <div class="tab-pane active" id="profile"><ul class="list-group alt">
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-success m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Chris Fox</a></div>
+                            <small class="text-muted">about 2 minutes ago</small>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-muted m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Amanda Conlan</a></div>
+                            <small class="text-muted">about 2 hours ago</small>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-warning m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Dan Doorack</a></div>
+                            <small class="text-muted">3 days ago</small>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="media">
+                          <span class="pull-left thumb-sm"><img src="images/avatar.jpg" alt="John said" class="img-circle"></span>
+                          <div class="pull-right text-danger m-t-sm">
+                            <i class="fa fa-circle"></i>
+                          </div>
+                          <div class="media-body">
+                            <div><a href="#">Lauren Taylor</a></div>
+                            <small class="text-muted">about 2 minutes ago</small>
+                          </div>
+                        </div>
+                      </li>
+
+                    </ul>
+
+
+                    </div>
+
+                      </div>
+                    </div>
+
+                  </section>
+                </div>
+              </div>
+              <div class="row">
+                 <div class="col-lg-12">
+                  <!-- .crousel slide -->
+                  <section class="panel panel-default">
+                    <div class="carousel slide auto panel-body" id="c-slide">
+                        <ol class="carousel-indicators out">
+                          <li data-target="#c-slide" data-slide-to="0" class="active"></li>
+                          <li data-target="#c-slide" data-slide-to="1" class=""></li>
+                          <li data-target="#c-slide" data-slide-to="2" class=""></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="item next left">
+                            <p class="text-center">
+                              <em class="h4 text-mute">Save your time</em><br>
+                              <small class="text-muted">Many components</small>
+                            </p>
+                          </div>
+                          <div class="item">
+                            <p class="text-center">
+                              <em class="h4 text-mute">Nice and easy to use</em><br>
+                              <small class="text-muted">Full documents</small>
+                            </p>
+                          </div>
+                          <div class="item active left">
+                            <p class="text-center">
+                              <em class="h4 text-mute">Mobile header first</em><br>
+                              <small class="text-muted">Mobile/Tablet/Desktop</small>
+                            </p>
+                          </div>
+                        </div>
+                        <a class="left carousel-control" href="#c-slide" data-slide="prev">
+                          <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right carousel-control" href="#c-slide" data-slide="next">
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                  </section>
+                  <!-- / .carousel slide -->
+                </div>
+              </div>
+
+
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen, open" data-target="#nav,html"></a>
+        </section>
+        <aside class="bg-light lter b-l aside-md hide" id="notes">
+          <div class="wrapper">Notification</div>
+        </aside>
+</template>

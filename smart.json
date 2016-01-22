@@ -1,9 +1,9 @@
 {
   "packages": {
     "paginated-subscription": {}
-  },
-  
-  "Jquery-Word-Export": {
-      "path": "/home/action/workspace/jQuery-Word-Export"
-    }
+
+    "notebook-theme": {}
+  }
+
+
 }

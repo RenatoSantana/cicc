@@ -1,4 +1,4 @@
-AutoForm.addHooks(
+/*AutoForm.addHooks(
   ["acao_cr"],
   {
    before: {
@@ -33,7 +33,7 @@ AutoForm.addHooks(
 
   }
 );
-
+*/
 
 Template.acao_edit.helpers({
   acaoDoc: function() {

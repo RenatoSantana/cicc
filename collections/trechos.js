@@ -38,8 +38,8 @@ objectSchema = {
 Schema.trecho= new SimpleSchema(objectSchema);
 Trechos.attachSchema(Schema.trecho);
 
-EasySearch.createSearchIndex('trechos', {
-    'field' : ['descricao'],
-    'collection' : Trechos,
-    'limit' : 50
-});
+// EasySearch.createSearchIndex('trechos', {
+//     'field' : ['descricao'],
+//     'collection' : Trechos,
+//     'limit' : 50
+// });

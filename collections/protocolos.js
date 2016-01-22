@@ -8,7 +8,7 @@ objectSchema = {
     type: String,
     optional: true,
    },
-     
+
   codigo: {
     type: String,
     optional: false,
@@ -22,19 +22,19 @@ objectSchema = {
   //  max: 250
    },
 
-  
+
    userId: {
     type: String,
     optional: true
-    
-     
+
+
   },
-  
+/*
    localId: {
     label: "Tipo de Local",
     type: String,
     optional: false,
-     
+
      autoform: {
       type: "select",
             options: function () {
@@ -48,18 +48,18 @@ objectSchema = {
             }
         }
   },
-  
-  
-  
-  
+*/
+
+
+
 }
 
 Schema.protocolo= new SimpleSchema(objectSchema);
 Protocolos.attachSchema(Schema.protocolo);
 
-EasySearch.createSearchIndex('protocolos', {
-    'field' : ['descricao'],  // required, searchable field(s)
-    'collection' : Protocolos,          // required, Mongo Collection
-    'limit' : 20 ,  
-        'use' : 'minimongo' // not required, default is 10
-});
+// EasySearch.createSearchIndex('protocolos', {
+//     'field' : ['descricao'],  // required, searchable field(s)
+//     'collection' : Protocolos,          // required, Mongo Collection
+//     'limit' : 20 ,
+//         'use' : 'minimongo' // not required, default is 10
+// });

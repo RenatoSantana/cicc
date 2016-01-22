@@ -302,7 +302,7 @@ totalDeMortos: {
 
    },
 
-
+/*
  plantaoDt: {
     label:"Data do Plantão",
     type: Date,
@@ -316,7 +316,7 @@ totalDeMortos: {
   },
 
 
-
+*/
    criacaoDt: {
     type: Date,
     optional: true
@@ -335,41 +335,41 @@ totalDeMortos: {
 
   },
 
-  eventoId: {
-    label: "Evento",
-    type: String,
-    optional: false,
+  // eventoId: {
+  //   label: "Evento",
+  //   type: String,
+  //   optional: false,
 
-     autoform: {
-      type: "select",
-            options: function () {
+  //    autoform: {
+  //     type: "select",
+  //           options: function () {
 
-                 var dataAtual = new Date(getServerTime());
-                 var user = Meteor.user();
-                 var options = [];
+  //                var dataAtual = new Date(getServerTime());
+  //                var user = Meteor.user();
+  //                var options = [];
 
-                 if (Roles.userIsInRole(user, ["Administrativo"])) {
-                         Eventos.find().forEach(function (element) {
-                    options.push({
-                        label: element.descricao, value: element._id
-                    })
-                });
-                 }else{
-                   if(typeof dataAtual!=='undefined'){
+  //                if (Roles.userIsInRole(user, ["Administrativo"])) {
+  //                        Eventos.find().forEach(function (element) {
+  //                   options.push({
+  //                       label: element.descricao, value: element._id
+  //                   })
+  //               });
+  //                }else{
+  //                  if(typeof dataAtual!=='undefined'){
 
-                          Eventos.find({$or:[{dtFim: { $gte:dataAtual}},{_id:"ct4Pe4SNEbDPHqxyZ"}]}).forEach(function (element) {
-                              options.push({
-                                  label: element.descricao, value: element._id
-                              })
-                          });
-                       }
-                 }
-                return options;
-            }
-        }
-  },
+  //                         Eventos.find({$or:[{dtFim: { $gte:dataAtual}},{_id:"ct4Pe4SNEbDPHqxyZ"}]}).forEach(function (element) {
+  //                             options.push({
+  //                                 label: element.descricao, value: element._id
+  //                             })
+  //                         });
+  //                      }
+  //                }
+  //               return options;
+  //           }
+  //       }
+  // },
 
-   turno: {
+/*   turno: {
       type: Number,
       allowedValues: [
          1,
@@ -391,7 +391,7 @@ totalDeMortos: {
          ]
       }
    }
-
+*/
 
 }
 

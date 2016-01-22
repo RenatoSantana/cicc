@@ -5,7 +5,7 @@ Deps.autorun(function(){
   Meteor.startup(function () {
         Session.set("resultImageOk", false)
     });
-AutoForm.addHooks(
+/*AutoForm.addHooks(
   ["imagem_cr"],
   {
     before   : {
@@ -19,7 +19,7 @@ AutoForm.addHooks(
          Router.go("imagem");
      }
   }
-);
+);*/
 Template.imagem_ls.helpers({
     imagens: function() {
       if (Session.get("resultImageOk")) {

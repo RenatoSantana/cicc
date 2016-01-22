@@ -4,7 +4,7 @@ Template.telefone_ls.helpers({
   },
 
 });
-
+/*
 AutoForm.addHooks(
   ["telefone_cr"],
   {
@@ -35,7 +35,7 @@ AutoForm.addHooks(
      }
 });
 
-
+*/
 
 Template.telefone_cr.helpers({
  telefoneSchema: function() {

@@ -1,0 +1,390 @@
+<template name="register_ocorrencia">
+<section id="content">
+          <section class="vbox">
+   <header class="header bg-white b-b b-light"> <p> <b>Dica</b>: Para criar uma ocorrência você pode associar um incidente. Selecione o evento e escolha no incidente desejado.</p></header>
+            <section class="scrollable">
+              <section class="hbox stretch">
+
+                <aside class="col-lg-6 b-l">
+
+
+
+
+                        <section class="panel panel-default">
+
+            <div class="panel-body">
+          <form role="form">
+                <div class="form-group">
+
+                        <div class="col-sm-12">
+                        <label>Evento:</label>
+                          <div class="m-b">
+                            <select id="select2-option-evento" style="width:260px">
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </optgroup>
+
+                            </select>
+                          </div>
+
+                        </div>
+                 </div>
+            <div class="form-group">
+
+                                    <div class="col-sm-12">
+                                    <label>Classificação:</label>
+                                      <div class="m-b">
+                                        <select id="select2-option-classificacao" style="width:260px">
+                                            <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                <option value="AK">Alaska</option>
+                                                <option value="HI">Hawaii</option>
+                                            </optgroup>
+                                            <optgroup label="Pacific Time Zone">
+                                                <option value="CA">California</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="WA">Washington</option>
+                                            </optgroup>
+                                            <optgroup label="Mountain Time Zone">
+                                                <option value="AZ">Arizona</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="MT">Montana</option><option value="NE">Nebraska</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="WY">Wyoming</option>
+                                            </optgroup>
+
+                                        </select>
+                                      </div>
+
+                                    </div>
+                </div>
+
+        <div class="form-group">
+
+                      <div class="col-sm-12">
+                        <label>Data/Hora do Fato:</label>
+                       <div class="m-b">
+                        <input type="text" class="combodate form-control " data-format="DD-MM-YYYY HH:mm" data-template="D  MMM  YYYY  -  HH : mm" name="datetime" value="21-12-2012 20:30">
+                       </div>
+                      </div>
+                </div>
+
+     <div class="form-group">
+
+                      <div class="col-sm-12">
+                           <label >Título:</label>
+                       <div class="m-b">
+                        <input type="text" class="form-control ">
+                        </div>
+                      </div>
+
+                 </div>
+
+     <div class="form-group">
+
+                      <div class="col-sm-12">
+                      <label >Histórico:</label>
+                       <div class="m-b">
+                        <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
+
+
+                          <div class="btn-group">
+                            <a class="btn btn-default btn-sm" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                          </div>
+                          <div class="btn-group">
+                            <a class="btn btn-default btn-sm" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
+                          </div>
+                          <div class="btn-group">
+                            <a class="btn btn-default btn-sm" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                          </div>
+
+
+
+                          <div class="btn-group">
+                            <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                            <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                          </div>
+                        </div>
+                        <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px">
+
+                        </div>
+                        </div>
+                      </div>
+         </div>
+
+                <div class="form-group">
+
+                      <div class="col-sm-12">
+                    <button type="submit" class="btn btn-s-md btn-primary pull-right">Salvar</button>
+
+                    </div>
+              </div>
+
+         </form>
+
+         </div>
+
+                  </section>
+
+                </aside>
+                <aside class="col-lg-6 b-l">
+                  <section class="vbox">
+                    <header class="header bg-light bg-gradient">
+                      <ul class="nav nav-tabs nav-white">
+                        <li class="active"><a href="#activity" data-toggle="tab">Indicidentes</a></li>
+                        <li class=""><a href="#events" data-toggle="tab">Indicidentes Selecionados</a></li>
+
+                      </ul>
+                    </header>
+                    <section class="scrollable">
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="activity">
+                          <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">3 minuts ago</small>
+                                <strong class="block">Drew Wllon</strong>
+                                <small>Wellcome and play this web application template ... </small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">1 hour ago</small>
+                                <strong class="block">Jonathan George</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">2 hours ago</small>
+                                <strong class="block">Josh Long</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">1 day ago</small>
+                                <strong class="block">Jack Dorsty</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">3 days ago</small>
+                                <strong class="block">Morgen Kntooh</strong>
+                                <small>Mobile first web app for startup...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">Jun 21</small>
+                                <strong class="block">Yoha Omish</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">May 10</small>
+                                <strong class="block">Gole Lido</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">Jan 2</small>
+                                <strong class="block">Jonthan Snow</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item" href="#email-content" data-toggle="class:show">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">3 minuts ago</small>
+                                <strong class="block">Drew Wllon</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">1 hour ago</small>
+                                <strong class="block">Jonathan George</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">2 hours ago</small>
+                                <strong class="block">Josh Long</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">1 day ago</small>
+                                <strong class="block">Jack Dorsty</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">3 days ago</small>
+                                <strong class="block">Morgen Kntooh</strong>
+                                <small>Mobile first web app for startup...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">Jun 21</small>
+                                <strong class="block">Yoha Omish</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">May 10</small>
+                                <strong class="block">Gole Lido</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">Jan 2</small>
+                                <strong class="block">Jonthan Snow</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item" href="#email-content" data-toggle="class:show">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">3 minuts ago</small>
+                                <strong class="block">Drew Wllon</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">1 hour ago</small>
+                                <strong class="block">Jonathan George</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">2 hours ago</small>
+                                <strong class="block">Josh Long</strong>
+                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar_default.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">1 day ago</small>
+                                <strong class="block">Jack Dorsty</strong>
+                                <small>Morbi nec nunc condimentum...</small>
+                              </a>
+                            </li>
+                            <li class="list-group-item">
+                              <a href="#" class="thumb-sm pull-left m-r-sm">
+                                <img src="images/avatar.jpg" class="img-circle">
+                              </a>
+                              <a href="#" class="clear">
+                                <small class="pull-right">3 days ago</small>
+                                <strong class="block">Morgen Kntooh</strong>
+                                <small>Mobile first web app for startup...</small>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="tab-pane" id="events">
+                          <div class="text-center wrapper">
+                            <i class="fa fa-spinner fa fa-spin fa fa-large"></i>
+                          </div>
+                        </div>
+
+                      </div>
+                    </section>
+                  </section>
+                </aside>
+
+              </section>
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen, open" data-target="#nav,html"></a>
+        </section>
+</template>

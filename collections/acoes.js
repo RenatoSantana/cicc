@@ -23,7 +23,7 @@ objectSchema = {
   },
 
 
-   orgaoId: {
+ /*  orgaoId: {
     label: "Orgão Responsável",
     type: String,
     optional: false,
@@ -46,7 +46,7 @@ objectSchema = {
     type: Date,
     optional: true
   }
-
+*/
 
 
 }
@@ -54,10 +54,10 @@ objectSchema = {
 Schema.acao= new SimpleSchema(objectSchema);
 Acoes.attachSchema(Schema.acao);
 
-EasySearch.createSearchIndex('acoes', {
-    'field' : ['descricao'],  // required, searchable field(s)
-    'collection' : Acoes,          // required, Mongo Collection
-    'limit' : 20 ,
-        'use' : 'minimongo'
-   // not required, default is 10
-});
+// EasySearch.createSearchIndex('acoes', {
+//     'field' : ['descricao'],  // required, searchable field(s)
+//     'collection' : Acoes,          // required, Mongo Collection
+//     'limit' : 20 ,
+//         'use' : 'minimongo'
+//    // not required, default is 10
+// });

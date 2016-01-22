@@ -59,10 +59,10 @@ SolicitacaoSchema= new SimpleSchema(objectSchema);
 Solicitacoes.attachSchema(SolicitacaoSchema);
 
 
-EasySearch.createSearchIndex('solicitacoes', {
-    'field' : ['assunto', 'mensagem'],  // required, searchable field(s)
-    'collection' : Solicitacoes,          // required, Mongo Collection
-    'limit' : 50                  // not required, default is 10
-});
+// EasySearch.createSearchIndex('solicitacoes', {
+//     'field' : ['assunto', 'mensagem'],  // required, searchable field(s)
+//     'collection' : Solicitacoes,          // required, Mongo Collection
+//     'limit' : 50                  // not required, default is 10
+// });
 
 

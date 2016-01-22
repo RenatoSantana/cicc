@@ -1,4 +1,4 @@
-AutoForm.addHooks(
+/*AutoForm.addHooks(
   ["orgao_cr"],
   {
     before   : {
@@ -28,7 +28,7 @@ AutoForm.addHooks(
      }
 });
 
-
+*/
 
 Template.orgao_cr.helpers({
  orgaoSchema: function() {

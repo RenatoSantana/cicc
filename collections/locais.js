@@ -33,11 +33,11 @@ objectSchema = {
 Schema.local= new SimpleSchema(objectSchema);
 Locais.attachSchema(Schema.local);
 
-EasySearch.createSearchIndex('locais', {
-    'field' : ['descricao'],  // required, searchable field(s)
-    'collection' : Locais,          // required, Mongo Collection
-    'limit' : 50                  // not required, default is 10
-});
+// EasySearch.createSearchIndex('locais', {
+//     'field' : ['descricao'],  // required, searchable field(s)
+//     'collection' : Locais,          // required, Mongo Collection
+//     'limit' : 50                  // not required, default is 10
+// });
 
 
 

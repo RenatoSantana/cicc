@@ -1,4 +1,4 @@
-AutoForm.addHooks(
+/*AutoForm.addHooks(
   ["evento_cr"],
   {
 
@@ -28,7 +28,7 @@ AutoForm.addHooks(
 });
 
 
-
+*/
 Template.evento_cr.helpers({
    eventoSchema: function() {
     return Schema.evento;

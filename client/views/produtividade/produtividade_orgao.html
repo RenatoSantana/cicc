@@ -1,0 +1,91 @@
+<template name="produtividade_orgao">
+<section id="content">
+          <section class="vbox">
+            <header class="header bg-white b-b b-light">
+              <p> <b>Dica:</b> A coluna verde significa que é possivel atualizar os dados da produtividade,se  a coluna estiver vermelha você não poderá efetuar alterações. </p>
+            </header>
+            <section class="scrollable">
+              <section class="hbox stretch">
+                <aside class="col-lg-3 b-l">
+                  <section class="vbox">
+                    <section class="scrollable">
+                      <div class="wrapper">
+                 <form role="form">
+                     <div class="form-group">
+
+                        <div class="col-sm-10">
+                        <label>Evento:</label>
+                          <div class="m-b">
+                            <select id="select2-option-evento" style="width:260px">
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </optgroup>
+
+                            </select>
+                          </div>
+
+                        </div>
+
+
+
+                   </div>
+                   <div class="form-group">
+
+                    <div class="col-sm-10">
+                        <label>Orgão:</label>
+                          <div class="m-b">
+                            <select id="select2-option-orgao" style="width:260px">
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </optgroup>
+
+                            </select>
+                          </div>
+
+                        </div>
+                        </div>
+
+
+                  <div class="form-group">
+
+                      <div class="col-sm-12">
+                    <button type="submit" class="btn btn-s-md btn-primary">Pesquisar</button>
+                    </div>
+                    </div>
+                   </form>
+                      </div>
+                    </section>
+                  </section>
+                </aside>
+                <aside class="col-lg-9 b-l">
+                  <section class="vbox">
+                     <section class="scrollable">
+                   <section class="hbox stretch">
+                     <div id="tabelaProdutivade" class="bg-white">
+
+                     </div>
+                     </section>
+                     </section>
+                  </section>
+                </aside>
+
+              </section>
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen, open" data-target="#nav,html"></a>
+        </section>
+</template>

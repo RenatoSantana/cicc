@@ -26,42 +26,42 @@ objectSchema = {
   //  max: 10000
    },
 
- eventoId: {
-    label: "Evento",
-    type: String,
-    optional: false,
+ // eventoId: {
+ //    label: "Evento",
+ //    type: String,
+ //    optional: false,
 
-     autoform: {
-      type: "select",
-            options: function () {
+ //     autoform: {
+ //      type: "select",
+ //            options: function () {
 
-                 var dataAtual = new Date(getServerTime());
-                 var user = Meteor.user();
-                 var options = [];
+ //                 var dataAtual = new Date(getServerTime());
+ //                 var user = Meteor.user();
+ //                 var options = [];
 
-                 if (Roles.userIsInRole(user, ["Administrativo"])) {
-                         Eventos.find().forEach(function (element) {
-                    options.push({
-                        label: element.descricao, value: element._id
-                    })
-                });
-                 }else{
-                   if(typeof dataAtual!=='undefined'){
+ //                 if (Roles.userIsInRole(user, ["Administrativo"])) {
+ //                         Eventos.find().forEach(function (element) {
+ //                    options.push({
+ //                        label: element.descricao, value: element._id
+ //                    })
+ //                });
+ //                 }else{
+ //                   if(typeof dataAtual!=='undefined'){
 
-                            Eventos.find({dtFim: { $gte:dataAtual}}).forEach(function (element) {
-                              options.push({
-                                  label: element.descricao, value: element._id
-                              })
-                          });
-                       }
-                 }
-                return options;
-            }
-        }
-  },
+ //                            Eventos.find({dtFim: { $gte:dataAtual}}).forEach(function (element) {
+ //                              options.push({
+ //                                  label: element.descricao, value: element._id
+ //                              })
+ //                          });
+ //                       }
+ //                 }
+ //                return options;
+ //            }
+ //        }
+ //  },
 
 
-  fileId: {
+ /* fileId: {
     type: String,
     label: "Foto",
     optional: true,
@@ -88,8 +88,8 @@ objectSchema = {
                 return options;
             }
         }
-  },
-  dataHora: {
+  },*/
+/*  dataHora: {
     label:"Data/Horário",
     type: Date,
     optional: false,
@@ -99,7 +99,7 @@ objectSchema = {
       }
     }
 
-  },
+  },*/
   criacaoDt: {
     type: Date,
     optional: true
@@ -127,10 +127,10 @@ Schema.imagem= new SimpleSchema(objectSchema);
 Imagens.attachSchema(Schema.imagem);
 
 
-EasySearch.createSearchIndex('imagens', {
-    'field' : ['assunto','texto'],  // required, searchable field(s)
-    'collection' : Imagens,          // required, Mongo Collection
-    'limit' : 10                  // not required, default is 10
-});
+// EasySearch.createSearchIndex('imagens', {
+//     'field' : ['assunto','texto'],  // required, searchable field(s)
+//     'collection' : Imagens,          // required, Mongo Collection
+//     'limit' : 10                  // not required, default is 10
+// });
 
 

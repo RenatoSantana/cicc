@@ -88,12 +88,12 @@ IncidenteSchema= new SimpleSchema(objectSchema);
 Incidentes.attachSchema(IncidenteSchema);
 
 
-EasySearch.createSearchIndex('incidentes', {
-    'field' : ['tituloIncidente','descricaoIncidente'],
-    'collection' : Incidentes,
-    'limit' : 50 ,
-    'use' : 'minimongo'
-});
+// EasySearch.createSearchIndex('incidentes', {
+//     'field' : ['tituloIncidente','descricaoIncidente'],
+//     'collection' : Incidentes,
+//     'limit' : 50 ,
+//     'use' : 'minimongo'
+// });
 
 
 

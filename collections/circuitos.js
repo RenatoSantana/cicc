@@ -39,8 +39,8 @@ objectSchema = {
 Schema.circuito= new SimpleSchema(objectSchema);
 Circuitos.attachSchema(Schema.circuito);
 
-EasySearch.createSearchIndex('circuitos', {
-    'field' : ['descricao'],
-    'collection' : Circuitos,
-    'limit' : 50
-});
+// EasySearch.createSearchIndex('circuitos', {
+//     'field' : ['descricao'],
+//     'collection' : Circuitos,
+//     'limit' : 50
+// });
